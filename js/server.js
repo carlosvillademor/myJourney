@@ -36,13 +36,13 @@ app.get('/api/images', function(req, res) {
     res.set("Content-Type", "application/json");
     FB.setAccessToken('CAACEdEose0cBAGUi5EYZCfom1FR1XJj1yv3cZAlpTj7xYp486LtmBVLzUJO08jEsZANSDJxHoHkB21CgLSc88BZAwKo4cHAV2yPbV2Hiy8sg5i74ZCMvCR5gJIzIMzhyClF2C6QFnaZAwnoQiFSbZBN4hOgixiyeNeyjjZC5F2bg4fBbHwDJLY2hvll71Ldg4VT3fOZAQ4u1XfwZDZD');
 
-    FB.api('100001237688606', { fields : ['id','name', 'photos']}, function (res) {
-        if(!res || res.error) {
-            console.log(!res ? 'error occurred' : res.error);
+    FB.api('100001237688606', { fields : ['id','name', 'photos']}, function (fbRes) {
+        if(!fbRes || fbRes.error) {
+            console.log(!fbRes ? 'error occurred' : fbRes.error);
             return;
         }
 
-        var photos = _.map(res.photos.data, function(photo) {
+        var photos = _.map(fbRes.photos.data, function(photo) {
             return {
                 id : photo.id,
                 place: photo.place,
