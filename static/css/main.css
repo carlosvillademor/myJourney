@@ -275,36 +275,6 @@ body #Footer.Home, body #Footer.Create {
   background: transparent;
 }
 
-/* line 9, ../../src/scss/main.scss */
-html, body {
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-/* line 17, ../../src/scss/main.scss */
-.login-fb {
-  border-radius: 5px;
-  background: #ccc;
-  color: #fff;
-  padding: 5px;
-  text-decoration: none;
-}
-/* line 23, ../../src/scss/main.scss */
-.login-fb:hover {
-  background: #666;
-}
-
-/* line 28, ../../src/scss/main.scss */
-a {
-  display: inline-block;
-}
-
-<<<<<<< HEAD
-/* line 2, ../../src/scss/_map.scss */
-=======
 /* line 1, ../../src/scss/_create.scss */
 .create-content {
   background: #000;
@@ -312,8 +282,7 @@ a {
   height: 400px;
 }
 
-/* line 1, ../../src/scss/_map.scss */
->>>>>>> Luis: add create page and jquery and plugin
+/* line 2, ../../src/scss/_map.scss */
 .map-page {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
