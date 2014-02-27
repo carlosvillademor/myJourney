@@ -274,7 +274,18 @@ a {
   display: inline-block;
 }
 
+<<<<<<< HEAD
 /* line 2, ../../src/scss/_map.scss */
+=======
+/* line 1, ../../src/scss/_create.scss */
+.create-content {
+  background: #000;
+  width: 400px;
+  height: 400px;
+}
+
+/* line 1, ../../src/scss/_map.scss */
+>>>>>>> Luis: add create page and jquery and plugin
 .map-page {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
