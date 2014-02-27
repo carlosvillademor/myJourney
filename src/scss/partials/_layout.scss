@@ -10,7 +10,7 @@ body {
 		@include clearfixed;
 		&.Home,
 		&.Create {
-			@include flex( 1 );
+			@include flex( 2 );
 			background: transparent;
 		}
 		h1 {
@@ -25,17 +25,17 @@ body {
 		}
 	}
 	#Wrapper {
-		@include flex( 2 );
 		@include flexbox;
 		@include flex-dir( column );
-		box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		overflow: hidden;
+			@include clearfixed;
 		&.Home,
 		&.Create {
-			min-height: 400px;
+			@include flex( 1 );
+			@include clearfixed;
+			overflow: hidden;
 			header {
 				padding-bottom: $gutter-v;
+				min-height: 120px;
 				h1 {
 					width: 210px;
 					height: 60px;
@@ -59,17 +59,30 @@ body {
 			.Content {
 				margin: 0 auto;
 				max-width: $break-mobile-portrait;
-
+				.login-fb {
+					display: block;
+					margin: 0 auto;
+					box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					width: w( 3 );
+					height: h( 2 );
+					color: #fff;
+					background: $Color-Pink;
+					font-family: $font-headers;
+					@include adjust-font-size-to(24px);
+					line-height: h( 2 );
+					text-align: center;
+				}
 			}
 		}
 	}
 	#Footer {
 		@include flexbox;
-		min-height: $slot-height;
+		height: $slot-height;
 		background: rgba( 0, 0, 0, .2 );
 		&.Home,
 		&.Create {
-			@include flex( 1 );
+			@include flex( 2 );
 			background: transparent;
 		}
 	}
