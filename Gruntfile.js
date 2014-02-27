@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         }
       },
       options: {
-        transform: []
+        transform: ['jadeify']
       }
     },
     jade: {
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['src/js/**/*.js'],
-        tasks: ['browserify:dev']
+        tasks: ['browserify:dev', 'src/templates/**/*.js']
       },
       jade: {
         files: ['src/jade/**/*.jade'],
