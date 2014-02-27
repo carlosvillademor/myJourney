@@ -2,9 +2,10 @@ var express = require('express'),
     app = express(),
     mu = require('mu2'),
     util = require('util'),
-    path = require( 'path' );
-
-var MongoClient = require('mongodb').MongoClient, format = util.format;
+    path = require( 'path'),
+    FB = require('fb'),
+    MongoClient = require('mongodb').MongoClient,
+    format = util.format;
 
 mu.root = __dirname;
 
@@ -42,6 +43,6 @@ MongoClient.connect(process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/test',
         db.close();
       });
     });
-  })
+});
 
 app.listen(process.env.PORT || 5000);

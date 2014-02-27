@@ -14,7 +14,8 @@
     "mu2": "",
     "util": "",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "fb": "~0.6.2"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
