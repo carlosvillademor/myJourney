@@ -38,17 +38,14 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
 });
 
 
-
-
-app.get('/api/images', function(req, res) {
-
+app.get('/storeAccessToken', function(req, res) {
     var code = req.query.code;
 
     if(code) {
         FB.api('oauth/access_token', {
             client_id: '648327631897525',
             client_secret: '72736a58eb7bdb18d44f6cd325f651d3',
-            redirect_uri: 'http://localhost:5000/api/images/',
+            redirect_uri: 'http://localhost:5000/storeAccessToken/',
             code: code
         }, function (fbRes) {
             if(!fbRes || fbRes.error) {
@@ -64,18 +61,17 @@ app.get('/api/images', function(req, res) {
 
             //var expires = fbRes.expires ? fbRes.expires : 0;
             console.log("Got access token");
-            fetchUid(accessToken, res);
+            res.redirect("/create.html");
         });
 
     }
 });
 
-function fetchUid(accessToken, res) {
+app.get('/api/images', function(req, res) {
 
-    //var accessToken = req.query.access_token;
-
+    var accessToken = req.session.fbAccessToken;
     if(!accessToken) {
-        return res.send(500, "No code/accessToken in request");
+        return res.send(500, "Access token not set in session, please login first");
     }
 
     res.set("Content-Type", "application/json");
@@ -93,7 +89,7 @@ function fetchUid(accessToken, res) {
         fetchUserPhotos(fbRes.data[0].uid, res);
 
     });
-};
+});
 
 function fetchUserPhotos(uid, res) {
 
