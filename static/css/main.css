@@ -75,3 +75,42 @@ html body {
   background: white url(../img/bg.jpg) no-repeat 50% 50%;
   background-size: cover;
 }
+
+/* line 12, ../../src/scss/partials/_base.scss */
+.login-fb {
+  border-radius: 5px;
+  background: #ccc;
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+}
+/* line 18, ../../src/scss/partials/_base.scss */
+.login-fb:hover {
+  background: #666;
+}
+
+/* line 23, ../../src/scss/partials/_base.scss */
+a {
+  display: inline-block;
+}
+
+/* line 2, ../../src/scss/partials/_layout.scss */
+#Header h1 {
+  width: 350px;
+  height: 100px;
+  margin: 0 auto;
+}
+/* line 6, ../../src/scss/partials/_layout.scss */
+#Header h1 span {
+  display: none;
+}
+/* line 10, ../../src/scss/partials/_layout.scss */
+#Header h2 {
+  width: 170px;
+  height: 50px;
+  margin: 0 auto;
+}
+/* line 14, ../../src/scss/partials/_layout.scss */
+#Header h2 span {
+  display: none;
+}
