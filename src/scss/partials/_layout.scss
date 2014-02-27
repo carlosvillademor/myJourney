@@ -2,24 +2,22 @@ body {
 	@include flexbox;
 	@include flex-dir( column );
 	#Header {
-		@include flex( 1 );
-		&.Home{
-			min-height: 150px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		height: $slot-height;
+		padding: $gutter-v $gutter-h;
+		background: $Color-Orange none;
+		@include clearfixed;
+		&.Home,
+		&.Create {
+			@include flex( 2 );
+			background: transparent;
 		}
 		h1 {
+			display: inline-block;
 			width: 210px;
-			height: 60px;
-			margin: 0 auto;
-			background: transparent url(../img/logo.png) no-repeat 50% 50%;
-			span {
-				display: none;			
-			}
-		}
-		h2 {
-			width: 120px;
-			height: 50px;
-			margin: 0 auto;
-			background: transparent url(../img/signs.png) no-repeat 50% 50%;
+			height: $slot-height;
+			background: transparent url(../img/logo.png) no-repeat 0 0;
 			background-size: contain;
 			span {
 				display: none;			
@@ -30,12 +28,15 @@ body {
 		@include flex( 1 );
 		@include flexbox;
 		@include flex-dir( column );
-		box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		&.Home {
-			min-height: 300px;
+			@include clearfixed;
+		&.Home,
+		&.Create {
+			@include flex( 1 );
+			@include clearfixed;
+			overflow: hidden;
 			header {
 				padding-bottom: $gutter-v;
+				min-height: 120px;
 				h1 {
 					width: 210px;
 					height: 60px;
@@ -59,13 +60,35 @@ body {
 			.Content {
 				margin: 0 auto;
 				max-width: $break-mobile-portrait;
+				.login-fb {
+					display: block;
+					margin: 0 auto;
+					box-sizing: border-box;
+					-moz-box-sizing: border-box;
+					width: w( 3 );
+					height: h( 2 );
+					color: #fff;
+					font-weight: normal;
+					text-decoration: none;
+					background: $Color-Pink;
+					font-family: $font-headers;
+					@include adjust-font-size-to(24px);
+					@include border-radius(10px);
+					line-height: h( 2 );
+					text-align: center;
+				}
 			}
 		}
 	}
 	#Footer {
 		@include flex( 1 );
 		@include flexbox;
-		&.Home{
+		height: $slot-height;
+		background: rgba( 0, 0, 0, .2 );
+		&.Home,
+		&.Create {
+			@include flex( 2 );
+			background: transparent;
 		}
 	}
 }

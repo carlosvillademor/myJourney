@@ -1,43 +1,57 @@
+
 .map-page {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    > * {
-        width: 50%;
-        height: 100%;
-        float: left;
-    }
-}
-
-.map-content {
-
-}
-
-.history-content {
-    text-align: center;
-    background-color: $bgHistoryColor;
-    color: #B5C5C8;
-    position: relative;
-    z-index: 2;
-    ul {
-        padding: 0 60px;
-    }
-    li {
-        list-style: none;
-        text-align: left;
-        padding: 5px 0;
-        cursor: pointer;
-        @include no-select;
-        &:hover {
-            background-color: #073646;
+    @include flex( 1 );
+    @include flexbox;
+    @media screen and (min-width: $break-tablet-landscape + 4 * $side-padding ) {
+        @include flex-dir( row );
+        #map {
+            @include flex( 3);
         }
-        span {
-            display: inline-block;
-            padding: 0 10px;
-            font-weight: bold;
-            width: 70px;
+        .history-content {
+            @include flex( 1 );
+            min-width: w(4);
+            overflow: scroll;
         }
     }
+    @media screen and (max-width: $break-tablet-landscape - 1 + 4 * $side-padding ) {
+        @include flex-dir( column );
+        #map {
+            @include flex( 3 );
+        }
+        .history-content {
+            @include flex( 2 );
+            min-width: w(4);
+            overflow: scroll;
+        }
+    }
+    #map {
+    }
+    .history-content {
+        padding: $gutter-v $gutter-h;
+        background-color: #fff;
+        color: $Color-BodyText;
+        position: relative;
+        z-index: 2;
+        ul {
+            margin: 0 ( -1 * $gutter-h );
+            padding: 0;
+            li {
+                padding: 0 $gutter-h;
+                list-style: none;
+                text-align: left;
+                cursor: pointer;
+                @include no-select;
+                &:hover {
+                    background-color: $Color-Sandy;
+                }
+                span {
+                    display: inline-block;
+                    padding: 0 10px;
+                    font-weight: bold;
+                    width: 70px;
+                }
+            }
+        }
+    }
 }
+

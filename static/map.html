@@ -16,10 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css">
+    <link rel="stylesheet" href="/vendor/default.css" id="theme_base">
+    <link rel="stylesheet" href="/vendor/default.date.css" id="theme_date">
     <script src="//localhost:35729/livereload.js"></script>
   </head>
   <body>
-    <header id="Header"></header>
+    <header id="Header">
+      <h1><span>myJourney</span></h1>
+    </header>
     <div id="Wrapper">
       <div class="page-content map-page">
         <div id="map">map</div>
@@ -45,7 +49,10 @@
         </div>
       </div>
     </div>
+    <script src="/vendor/jquery-1.11.0.min.js"></script>
     <script src="//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js"></script>
+    <script src="/vendor/picker.js"></script>
+    <script src="/vendor/picker.date.js"></script>
     <script src="/js/main.js"></script>
   </body>
 </html>

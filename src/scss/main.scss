@@ -1,3 +1,4 @@
+@import "compass/css3";
 @import "compass/reset";
 @import "mixins";
 @import "vars";
@@ -5,28 +6,5 @@
 @import "partials/_flexbox";
 @import "partials/_base";
 @import "partials/_layout";
-
-html, body {
-  background-color: $bgColor;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.login-fb {
-    border-radius: 5px;
-    background: #ccc;
-    color: #fff;
-    padding: 5px;
-    text-decoration: none;
-    &:hover {
-        background: #666;
-    }
-}
-
-a {
-    display: inline-block;
-}
-
+@import "create";
 @import "map";
