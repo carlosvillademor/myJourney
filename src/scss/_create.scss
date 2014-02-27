@@ -1,5 +1,38 @@
-.create-content {
-    background: #000;
-    width: 400px;
-    height: 400px;
+.Create {
+	.Content {
+		width: w(4);
+		form#PickDates {
+			input {
+				display: block;	
+				width: w(4);
+				padding: 0 $gutter-h;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				border: 1px solid darken($Color-Orange, 10% );
+				@include border-radius(10px);
+				@include adjust-font-size-to(18px);
+				line-height: h(2);
+				height: h(2);
+				margin-bottom: $gutter-h;
+			}
+			button[type="submit"] {
+				display: block;
+				margin: $slot-height auto;
+				box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				width: w( 4 );
+				height: h( 2 );
+				color: #fff;
+				font-weight: normal;
+				text-decoration: none;
+				background: $Color-Pink;
+				font-family: $font-headers;
+				border: 1px solid darken($Color-Pink, 10% );
+				@include adjust-font-size-to(24px);
+				@include border-radius(10px);
+				line-height: h( 2 );
+				text-align: center;
+			}
+		}
+	}
 }

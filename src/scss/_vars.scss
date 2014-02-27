@@ -9,7 +9,7 @@
 
 /* Typo settings */
 $font-body: 'Varela Round', Helvetica, Arial, sans-serif;
-$font-headers: 'Simonetta', Cambria, Georgia, serif;
+$font-headers: $font-body; //'Simonetta', Cambria, Georgia, serif;
 $base-font-size: 14px;
 $base-line-height: 24px;
 @include establish-baseline;
