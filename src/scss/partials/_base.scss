@@ -2,10 +2,12 @@ html {
     font-family: $font-body;
 	background-color: $Color-Orange;
 	height: 100%;
+
 	body {
 		background-color: $Color-Orange;
 		min-height: 100%;
 		background: #fff url(../img/bg.jpg) no-repeat 50% 50%;
 		background-size: cover;
+        text-rendering: optimizeLegibility;
 	}
 }
