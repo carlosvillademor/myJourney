@@ -56,4 +56,4 @@ FB.api('fql', { q: 'SELECT src FROM photo WHERE owner=100001237688606' }, functi
   console.log(res.data);
 });
 
-app.listen(conf.port);
+app.listen(config.port);
