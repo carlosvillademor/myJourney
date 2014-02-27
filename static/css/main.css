@@ -299,7 +299,7 @@ body #Footer.Home, body #Footer.Create {
   display: -ms-flexbox;
   display: flex;
 }
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 980px) and (min-device-width: 960px) {
   /* line 2, ../../src/scss/_map.scss */
   .map-page {
     -webkit-box-direction: normal;
@@ -309,7 +309,7 @@ body #Footer.Home, body #Footer.Create {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  /* line 7, ../../src/scss/_map.scss */
+  /* line 9, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -319,7 +319,7 @@ body #Footer.Home, body #Footer.Create {
     flex: 3;
     max-height: 100vh;
   }
-  /* line 11, ../../src/scss/_map.scss */
+  /* line 13, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -332,38 +332,7 @@ body #Footer.Home, body #Footer.Create {
     max-height: 100vh;
   }
 }
-@media screen and (min-width: 720px) and (max-width: 979px) {
-  /* line 2, ../../src/scss/_map.scss */
-  .map-page {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  /* line 22, ../../src/scss/_map.scss */
-  .map-page #map {
-    -webkit-box-flex: 3;
-    -webkit-flex: 3;
-    -moz-box-flex: 3;
-    -moz-flex: 3;
-    -ms-flex: 3;
-    flex: 3;
-  }
-  /* line 25, ../../src/scss/_map.scss */
-  .map-page .history-content {
-    -webkit-box-flex: 2;
-    -webkit-flex: 2;
-    -moz-box-flex: 2;
-    -moz-flex: 2;
-    -ms-flex: 2;
-    flex: 2;
-    min-width: 300px;
-    overflow: scroll;
-  }
-}
-@media screen and (min-width: 480px) and (max-width: 739px) {
+@media screen and (min-width: 740px) and (max-width: 979px) and (min-device-width: 960px) {
   /* line 2, ../../src/scss/_map.scss */
   .map-page {
     -webkit-box-direction: normal;
@@ -373,7 +342,7 @@ body #Footer.Home, body #Footer.Create {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  /* line 35, ../../src/scss/_map.scss */
+  /* line 25, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -383,20 +352,17 @@ body #Footer.Home, body #Footer.Create {
     flex: 3;
     max-height: 100vh;
   }
-  /* line 39, ../../src/scss/_map.scss */
+  /* line 29, ../../src/scss/_map.scss */
   .map-page .history-content {
-    -webkit-box-flex: 2;
-    -webkit-flex: 2;
-    -moz-box-flex: 2;
-    -moz-flex: 2;
-    -ms-flex: 2;
-    flex: 2;
-    min-width: 300px;
-    overflow: scroll;
-    max-height: 100vh;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
   }
 }
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 739px) and (min-device-width: 960px) {
   /* line 2, ../../src/scss/_map.scss */
   .map-page {
     -webkit-box-direction: normal;
@@ -406,7 +372,7 @@ body #Footer.Home, body #Footer.Create {
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  /* line 48, ../../src/scss/_map.scss */
+  /* line 37, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -415,7 +381,36 @@ body #Footer.Home, body #Footer.Create {
     -ms-flex: 3;
     flex: 3;
   }
-  /* line 51, ../../src/scss/_map.scss */
+  /* line 40, ../../src/scss/_map.scss */
+  .map-page .history-content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+@media screen and (min-device-width: 480px) and (max-device-width: 979px) and (orientation: landscape) {
+  /* line 2, ../../src/scss/_map.scss */
+  .map-page {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  /* line 49, ../../src/scss/_map.scss */
+  .map-page #map {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -moz-box-flex: 3;
+    -moz-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+  }
+  /* line 52, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -423,11 +418,105 @@ body #Footer.Home, body #Footer.Create {
     -moz-flex: 2;
     -ms-flex: 2;
     flex: 2;
-    min-width: 300px;
+    max-width: 300px;
+    overflow: scroll;
+    max-height: 100vh;
+  }
+}
+@media screen and (min-device-width: 480px) and (max-device-width: 979px) and (orientation: portrait) {
+  /* line 2, ../../src/scss/_map.scss */
+  .map-page {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  /* line 64, ../../src/scss/_map.scss */
+  .map-page #map {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -moz-box-flex: 3;
+    -moz-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+  }
+  /* line 67, ../../src/scss/_map.scss */
+  .map-page .history-content {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -moz-box-flex: 2;
+    -moz-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
     overflow: scroll;
   }
 }
-/* line 59, ../../src/scss/_map.scss */
+@media screen and (max-device-width: 739px) and (orientation: landscape) {
+  /* line 2, ../../src/scss/_map.scss */
+  .map-page {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  /* line 76, ../../src/scss/_map.scss */
+  .map-page #map {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -moz-box-flex: 3;
+    -moz-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    max-height: 100vh;
+  }
+  /* line 80, ../../src/scss/_map.scss */
+  .map-page .history-content {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -moz-box-flex: 2;
+    -moz-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    max-width: 140px;
+    overflow: scroll;
+    max-height: 100vh;
+  }
+}
+@media screen and (max-device-width: 739px) and (orientation: portrait) {
+  /* line 2, ../../src/scss/_map.scss */
+  .map-page {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  /* line 91, ../../src/scss/_map.scss */
+  .map-page #map {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    -moz-box-flex: 3;
+    -moz-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+  }
+  /* line 94, ../../src/scss/_map.scss */
+  .map-page .history-content {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -moz-box-flex: 2;
+    -moz-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    overflow: scroll;
+  }
+}
+/* line 101, ../../src/scss/_map.scss */
 .map-page .history-content {
   padding: 0px 20px;
   background-color: #fff;
@@ -435,12 +524,12 @@ body #Footer.Home, body #Footer.Create {
   position: relative;
   z-index: 2;
 }
-/* line 65, ../../src/scss/_map.scss */
+/* line 107, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 0;
 }
-/* line 68, ../../src/scss/_map.scss */
+/* line 110, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   padding: 0 20px;
   list-style: none;
@@ -453,11 +542,11 @@ body #Footer.Home, body #Footer.Create {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 74, ../../src/scss/_map.scss */
+/* line 116, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 77, ../../src/scss/_map.scss */
+/* line 119, ../../src/scss/_map.scss */
 .map-page .history-content ul li span {
   display: inline-block;
   padding: 0 10px;

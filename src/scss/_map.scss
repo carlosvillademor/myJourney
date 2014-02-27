@@ -2,7 +2,9 @@
 .map-page {
     @include flex( 1 );
     @include flexbox;
-    @media screen and (min-width: $break-tablet-landscape + 4 * $side-padding ) {
+    @media screen 
+    and (min-width: $break-tablet-landscape + 4 * $side-padding )
+    and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
         @include flex-dir( row );
         #map {
             @include flex( 3);
@@ -16,21 +18,60 @@
         }
     }
     @media screen 
-    and (min-width: $break-tablet-portrait + 2 * $side-padding )
-    and (max-width: $break-tablet-landscape - 1 + 4 * $side-padding ) {
+    and (min-width: $break-tablet-portrait + 4 * $side-padding ) 
+    and (max-width: $break-tablet-landscape - 1 + 4 * $side-padding )
+    and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
+        @include flex-dir( row );
+        #map {
+            @include flex( 3);
+            max-height: 100vh;
+        }
+        .history-content {
+            @include flex( 1 );
+        }
+    }
+    @media screen 
+    and (max-width: $break-tablet-portrait - 1+ 4 * $side-padding )
+    and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
+        @include flex-dir( column );
+        #map {
+            @include flex( 3);
+        }
+        .history-content {
+            @include flex( 1 );
+        }
+    }
+    @media screen 
+    and (min-device-width: $break-mobile-landscape + 2 * $side-padding )
+    and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
+    and (orientation:landscape) {
+        @include flex-dir( row );
+        #map {
+            @include flex( 3 );
+        }
+        .history-content {
+            @include flex( 2 );
+            max-width: w(4);
+            overflow: scroll;
+            max-height: 100vh;
+        }
+    }
+    @media screen 
+    and (min-device-width: $break-mobile-landscape + 2 * $side-padding )
+    and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
+    and (orientation:portrait) {
         @include flex-dir( column );
         #map {
             @include flex( 3 );
         }
         .history-content {
             @include flex( 2 );
-            min-width: w(4);
             overflow: scroll;
         }
     }
     @media screen 
-    and (min-width: $break-mobile-landscape + 2 * $side-padding )
-    and (max-width: $break-tablet-portrait - 1 + 4 * $side-padding ) {
+    and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
+    and (orientation:landscape) {
         @include flex-dir( row );
         #map {
             @include flex( 3 );
@@ -38,19 +79,20 @@
         }
         .history-content {
             @include flex( 2 );
-            min-width: w(4);
+            max-width: w(2);
             overflow: scroll;
             max-height: 100vh;
         }
     }
-    @media screen and (max-width: $break-mobile-landscape - 1 + 2 * $side-padding ) {
-        @include flex-dir( column );
+    @media screen 
+    and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
+    and (orientation:portrait) {
+       @include flex-dir( column );
         #map {
             @include flex( 3 );
         }
         .history-content {
             @include flex( 2 );
-            min-width: w(4);
             overflow: scroll;
         }
     }
