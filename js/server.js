@@ -5,7 +5,8 @@ var express = require('express'),
     path = require( 'path'),
     FB = require('fb'),
     MongoClient = require('mongodb').MongoClient,
-    format = util.format;
+    format = util.format,
+    _ = require('lodash');
 
 mu.root = __dirname;
 
@@ -46,15 +47,44 @@ MongoClient.connect(process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/test',
 });
 
 
-var FB = require('fb');
-FB.setAccessToken('CAACEdEose0cBAAzozsRWD94OmCU4fPOsZB0giNexYxuOe5WY082LAYoEZBDsedj8mmZBAdRV79BAjczrMKDO2T3j7vUvLX3mQE7dqxkC6CFY6LGxehuG3ETPc2IvxKt8ni1onwVcIs4gWAQgfkBovpBSz0hcSQKGmdaOK5MFOAr2qIIdjfGEqtyEZBrvZCM1DQJ5Rypsl7gZDZD');
 
-FB.api('fql', { q: 'SELECT src FROM photo WHERE owner=100001237688606' }, function (res) {
+app.get('/api/images', function(req, res) {
+    res.set("Content-Type", "application/json");
+    FB.setAccessToken('CAACEdEose0cBAGUi5EYZCfom1FR1XJj1yv3cZAlpTj7xYp486LtmBVLzUJO08jEsZANSDJxHoHkB21CgLSc88BZAwKo4cHAV2yPbV2Hiy8sg5i74ZCMvCR5gJIzIMzhyClF2C6QFnaZAwnoQiFSbZBN4hOgixiyeNeyjjZC5F2bg4fBbHwDJLY2hvll71Ldg4VT3fOZAQ4u1XfwZDZD');
+
+    FB.api('100001237688606', { fields : ['id','name', 'photos']}, function (res) {
+        if(!res || res.error) {
+            console.log(!res ? 'error occurred' : res.error);
+            return;
+        }
+
+        var photos = _.map(res.photos.data, function(photo) {
+            return {
+                id : photo.id,
+                place: photo.place,
+                image : _.first(photo.images)
+            };
+        });
+
+        res.send(photos);
+    });
+});
+
+
+
+
+
+/*var start = new Date(2000, 1,1);
+var end = new Date(2014,1,1);
+
+console.log(start);
+
+FB.api('fql', { q: 'SELECT place_id, caption, src, created FROM photo WHERE owner=100001237688606 AND created > ' + (start.getTime() / 1000)  }, function (res) {
   if(!res || res.error) {
     console.log(!res ? 'error occurred' : res.error);
     return;
   }
   console.log(res.data);
-});
+});*/
 
 app.listen(process.env.PORT || 5000);
