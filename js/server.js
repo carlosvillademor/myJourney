@@ -34,7 +34,33 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
 
 app.get('/api/images', function(req, res) {
 
-    var accessToken = req.query.code;
+    var code = req.query.code;
+
+    if(code) {
+        FB.api('oauth/access_token', {
+            client_id: '648327631897525',
+            client_secret: '72736a58eb7bdb18d44f6cd325f651d3',
+            redirect_uri: 'http://localhost:5000/api/images/',
+            code: code
+        }, function (fbRes) {
+            if(!fbRes || fbRes.error) {
+                console.log(!fbRes ? 'error occurred' : fbRes.error);
+
+                return res.send(500, "Failed to obtain access token: " + JSON.stringify(fbRes.error));
+            }
+
+            var accessToken = fbRes.access_token;
+            //var expires = fbRes.expires ? fbRes.expires : 0;
+            console.log("Got access token");
+            fetchUid(accessToken, res);
+        });
+
+    }
+});
+
+function fetchUid(accessToken, res) {
+
+    //var accessToken = req.query.access_token;
 
     if(!accessToken) {
         return res.send(500, "No code/accessToken in request");
@@ -55,7 +81,7 @@ app.get('/api/images', function(req, res) {
         fetchUserPhotos(fbRes.data[0].uid, res);
 
     });
-});
+};
 
 function fetchUserPhotos(uid, res) {
 
