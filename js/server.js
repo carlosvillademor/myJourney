@@ -34,23 +34,43 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
 
 app.get('/api/images', function(req, res) {
     res.set("Content-Type", "application/json");
-    FB.setAccessToken('CAACEdEose0cBAGUi5EYZCfom1FR1XJj1yv3cZAlpTj7xYp486LtmBVLzUJO08jEsZANSDJxHoHkB21CgLSc88BZAwKo4cHAV2yPbV2Hiy8sg5i74ZCMvCR5gJIzIMzhyClF2C6QFnaZAwnoQiFSbZBN4hOgixiyeNeyjjZC5F2bg4fBbHwDJLY2hvll71Ldg4VT3fOZAQ4u1XfwZDZD');
+    FB.setAccessToken('CAACEdEose0cBADs0iHmjWGVcNBsZCmG1EFhZBYQ3AZBYKm0pDKUhyzAbHjaUu3ug5vGlXmNaMc3WEyyAArZCfhTLR2RAiJZCUfS6FlIdKbZB6Ysen5EZBXHTVOdcnrEKDPMEDzoAhl2oruNzZAkxP2MubwAjnqJ7cMIx5pvrxfSs9jcNE4dAC6IKsigaYvd8NDQZD');
 
-    FB.api('100001237688606', { fields : ['id','name', 'photos']}, function (fbRes) {
+    FB.api('587145823', { fields : ['id','name', 'photos.limit(1000)']}, function (fbRes) {
         if(!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
             return;
         }
 
-        var photos = _.map(fbRes.photos.data, function(photo) {
-            return {
-                id : photo.id,
-                place: photo.place,
-                image : _.first(photo.images)
-            };
-        });
+        var mapData = {
+             type : "FeatureCollection"
+        };
 
-        res.send(photos);
+
+
+
+        mapData.features = _.filter(_.map(fbRes.photos.data, function(photo) {
+
+
+            if(photo.place && photo.place.location && photo.place.location.longitude) {
+                return  {
+                    type: "Feature",
+                    properties : {
+                        title : photo.name,
+                        image : _.first(photo.images)
+                    },
+                    geometry : {
+                        type : "Point",
+                        coordinates : [
+                            photo.place.location.longitude,
+                            photo.place.location.latitude
+                        ]
+                    }
+                };
+            }
+        }));
+
+        res.send(mapData);
     });
 });
 
