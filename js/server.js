@@ -33,10 +33,28 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
 });
 
 app.get('/api/images', function(req, res) {
-    res.set("Content-Type", "application/json");
-    FB.setAccessToken('CAACEdEose0cBADs0iHmjWGVcNBsZCmG1EFhZBYQ3AZBYKm0pDKUhyzAbHjaUu3ug5vGlXmNaMc3WEyyAArZCfhTLR2RAiJZCUfS6FlIdKbZB6Ysen5EZBXHTVOdcnrEKDPMEDzoAhl2oruNzZAkxP2MubwAjnqJ7cMIx5pvrxfSs9jcNE4dAC6IKsigaYvd8NDQZD');
 
-    FB.api('587145823', { fields : ['id','name', 'photos.limit(1000)']}, function (fbRes) {
+    var accessToken = req.query.code;
+
+    res.set("Content-Type", "application/json");
+    //FB.setAccessToken('CAACEdEose0cBADs0iHmjWGVcNBsZCmG1EFhZBYQ3AZBYKm0pDKUhyzAbHjaUu3ug5vGlXmNaMc3WEyyAArZCfhTLR2RAiJZCUfS6FlIdKbZB6Ysen5EZBXHTVOdcnrEKDPMEDzoAhl2oruNzZAkxP2MubwAjnqJ7cMIx5pvrxfSs9jcNE4dAC6IKsigaYvd8NDQZD');
+    FB.setAccessToken(accessToken);
+
+
+    FB.api('fql', { q: 'select uid from user where uid = me()' }, function (fbRes) {
+      if(!fbRes || fbRes.error) {
+        console.log(!fbRes ? 'error occurred' : res.error);
+        return;
+      }
+
+        fetchUserPhotos(fbRes.data[0].uid, res);
+
+    });
+});
+
+function fetchUserPhotos(uid, res) {
+
+    FB.api(uid +'', { fields : ['id','name', 'photos.limit(1000)']}, function (fbRes) {
         if(!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
             return;
@@ -45,9 +63,6 @@ app.get('/api/images', function(req, res) {
         var mapData = {
              type : "FeatureCollection"
         };
-
-
-
 
         mapData.features = _.filter(_.map(fbRes.photos.data, function(photo) {
 
@@ -72,7 +87,7 @@ app.get('/api/images', function(req, res) {
 
         res.send(mapData);
     });
-});
+};
 
 
 
