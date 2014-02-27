@@ -59,7 +59,7 @@ app.get('/api/images', function(req, res) {
 
 function fetchUserPhotos(uid, res) {
 
-    FB.api(uid +'', { fields : ['id','name', 'photos.since(1393534770).limit(1000)']}, function (fbRes) {
+    FB.api(uid +'', { fields : ['id','name', 'photos.since(139353477).limit(1000)']}, function (fbRes) {
         if(!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
             return res.send(500, "Failed to request photos");
