@@ -1,11 +1,21 @@
 var express = require('express'),
     app = express(),
     mu = require('mu2'),
-    util = require('util');
+    util = require('util'),
+    path = require( 'path' );
 
 var MongoClient = require('mongodb').MongoClient, format = util.format;
 
 mu.root = __dirname;
+
+app.configure(function () {
+    var staticPath = path.resolve ( __dirname + '/../static' );
+    app.use( express.static( staticPath ) );
+
+    app.use( express.logger() );
+});
+
+app.use(express.static(__dirname + '/static'));
 
 app.get('/', function(req, res) {
     console.log('get request to /');
@@ -34,7 +44,4 @@ MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
     });
   })
 
-
 app.listen(process.env.PORT || 5000);
-
-console.log('PORT', process.env.PORT || 5000);

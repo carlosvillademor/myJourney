@@ -1,0 +1,6 @@
+@import "vars";
+@import "mixins";
+
+html, body {
+  background-color: $bgColor;
+}
