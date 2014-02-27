@@ -7,8 +7,6 @@ var express = require('express'),
     format = util.format,
     conf = require('./config');
 
-mu.root = __dirname;
-
 var config = conf.load(app.settings.env || 'development');
 
 app.configure(function () {
