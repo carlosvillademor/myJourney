@@ -1,17 +1,16 @@
 (function () {
     'use strict';
 
-    var map, featureLayer, items, data, coords, markers;
+    var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
+    
 
     function createMap() {
-        items = [];
-        coords = [];
+        var items = [];
         markers = [];
         $.each(data.features, function (index, item) {
             items.push(itemMap({index: index, title: item.properties.title}));
-            coords.push([item.geometry.coordinates[1], item.geometry.coordinates[0]]);
         });
 
         featureLayer.setGeoJSON(data);
