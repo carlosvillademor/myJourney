@@ -3,6 +3,13 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    express: {
+      dev: {
+        options: {
+          script: 'js/server.js'
+        }
+      }
+    },
     compass: {
       dev: {
         options: {
@@ -55,6 +62,13 @@ module.exports = function(grunt) {
       jade: {
         files: ['src/jade/**/*.jade'],
         tasks: ['jade:dev']
+      },
+      express: {
+        files:  [ 'js/*.js' ],
+        tasks:  [ 'express:dev' ],
+        options: {
+          nospawn: true
+        }
       }
     }
   });
@@ -63,7 +77,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-express-server');
 
-  grunt.registerTask('default', ['jade', 'compass', 'browserify', 'watch']);
+  grunt.registerTask('default', ['jade', 'compass', 'browserify', 'express', 'watch']);
 
 };
