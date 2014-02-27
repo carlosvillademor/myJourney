@@ -1,14 +1,11 @@
 var express = require('express'),
     app = express(),
-    mu = require('mu2'),
     util = require('util'),
     path = require( 'path'),
     FB = require('fb'),
     MongoClient = require('mongodb').MongoClient,
     format = util.format,
     conf = require('./config');
-
-mu.root = __dirname;
 
 var config = conf.load(app.settings.env || development);
 
@@ -27,7 +24,6 @@ app.use(express.static(__dirname + '/static'));
 //     console.log('homePage is', homePage);
 //     util.pump(homePage, res);
 // });
-
 
 MongoClient.connect(config.mongoDBUrl, function(err, db) {
     if(err) throw err;
