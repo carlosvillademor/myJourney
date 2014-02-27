@@ -8,7 +8,6 @@ mu.root = __dirname;
 
 app.configure(function () {
     var staticPath = path.resolve ( __dirname + '/../static' );
-    console.log(staticPath);
     app.use( express.static( staticPath ) );
 
     app.use( express.logger() );
