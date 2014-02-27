@@ -4,8 +4,11 @@
 
     var temp = require('./temp');
     temp();
+
+    var map = require('./map');
+    map();
 })();
-},{"./temp":3}],2:[function(require,module,exports){
+},{"./map":2,"./temp":3}],2:[function(require,module,exports){
 (function () {
     'use strict';
 
