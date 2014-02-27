@@ -1,6 +1,7 @@
 body {
 	@include flexbox;
 	@include flex-dir( column );
+    max-height: 100vh;
 	#Header {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -10,7 +11,7 @@ body {
 		@include clearfixed;
 		&.Home,
 		&.Create {
-			@include flex( 2 );
+			@include flex( 1 );
 			background: transparent;
 		}
 		h1 {
@@ -28,12 +29,12 @@ body {
 		@include flex( 1 );
 		@include flexbox;
 		@include flex-dir( column );
-			@include clearfixed;
+		@include clearfixed;
 		&.Home,
 		&.Create {
 			@include flex( 1 );
 			@include clearfixed;
-			overflow: hidden;
+			min-height: 400px;
 			header {
 				padding-bottom: $gutter-v;
 				min-height: 120px;
@@ -62,7 +63,7 @@ body {
 				max-width: $break-mobile-portrait;
 				.login-fb {
 					display: block;
-					margin: 0 auto;
+					margin: $slot-height auto;
 					box-sizing: border-box;
 					-moz-box-sizing: border-box;
 					width: w( 3 );
@@ -87,7 +88,7 @@ body {
 		background: rgba( 0, 0, 0, .2 );
 		&.Home,
 		&.Create {
-			@include flex( 2 );
+			@include flex( 1 );
 			background: transparent;
 		}
 	}
