@@ -17,12 +17,12 @@ app.configure(function () {
 
 app.use(express.static(__dirname + '/static'));
 
-app.get('/', function(req, res) {
-    console.log('get request to /');
-    var homePage = mu.compileAndRender('../templates/home.html', {});
-    console.log('homePage is', homePage);
-    util.pump(homePage, res);
-});
+// app.get('/', function(req, res) {
+//     console.log('get request to /');
+//     var homePage = mu.compileAndRender('../templates/home.html', {});
+//     console.log('homePage is', homePage);
+//     util.pump(homePage, res);
+// });
 
 
 MongoClient.connect(process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/test', function(err, db) {
