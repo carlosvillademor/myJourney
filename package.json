@@ -15,7 +15,8 @@
     "util": "",
     "mongodb": "*",
     "mongoose": "*",
-    "fb": "~0.6.2"
+    "fb": "~0.6.2",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
