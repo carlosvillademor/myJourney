@@ -1,6 +1,5 @@
+@import "compass/reset";
 @import "vars";
 @import "mixins";
-
-html, body {
-  background-color: $bgColor;
-}
+@import "partials/_base";
+@import "partials/_layout";
