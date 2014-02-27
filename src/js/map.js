@@ -39,7 +39,7 @@
         if ($('#map').length > 0) {
             
 
-            $.get( 'temp/map.json', function(json) {
+            $.get( 'api/images', function(json) {
                 data = json;
                 createMap();
             });
