@@ -2,24 +2,22 @@ body {
 	@include flexbox;
 	@include flex-dir( column );
 	#Header {
-		@include flex( 1 );
-		&.Home{
-			min-height: 150px;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		min-height: $slot-height;
+		padding: $gutter-v $gutter-h;
+		background: $Color-Orange none;
+		@include clearfixed;
+		&.Home,
+		&.Create {
+			@include flex( 1 );
+			background: transparent;
 		}
 		h1 {
+			display: inline-block;
 			width: 210px;
-			height: 60px;
-			margin: 0 auto;
-			background: transparent url(../img/logo.png) no-repeat 50% 50%;
-			span {
-				display: none;			
-			}
-		}
-		h2 {
-			width: 120px;
-			height: 50px;
-			margin: 0 auto;
-			background: transparent url(../img/signs.png) no-repeat 50% 50%;
+			height: $slot-height;
+			background: transparent url(../img/logo.png) no-repeat 0 0;
 			background-size: contain;
 			span {
 				display: none;			
@@ -27,13 +25,15 @@ body {
 		}
 	}
 	#Wrapper {
-		@include flex( 1 );
+		@include flex( 2 );
 		@include flexbox;
 		@include flex-dir( column );
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
-		&.Home {
-			min-height: 300px;
+		overflow: hidden;
+		&.Home,
+		&.Create {
+			min-height: 400px;
 			header {
 				padding-bottom: $gutter-v;
 				h1 {
@@ -59,13 +59,18 @@ body {
 			.Content {
 				margin: 0 auto;
 				max-width: $break-mobile-portrait;
+
 			}
 		}
 	}
 	#Footer {
-		@include flex( 1 );
 		@include flexbox;
-		&.Home{
+		min-height: $slot-height;
+		background: rgba( 0, 0, 0, .2 );
+		&.Home,
+		&.Create {
+			@include flex( 1 );
+			background: transparent;
 		}
 	}
 }

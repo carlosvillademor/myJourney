@@ -10,10 +10,9 @@
 /* Typo settings */
 $font-body: 'Varela Round', Helvetica, Arial, sans-serif;
 $font-headers: 'Simonetta', Cambria, Georgia, serif;
-$base-font-size: 16px;
+$base-font-size: 14px;
 $base-line-height: 24px;
 @include establish-baseline;
-
 
 /* Colors */
 $bgColor: #fff;
@@ -23,6 +22,7 @@ $Color-Pink: #F03880;
 $Color-Sandy: #F2EDD0;
 $Color-GreenyBlue: #16CBB8;
 $Color-WaterBlue: #008E9A;
+$Color-BodyText: #333;
 
 /* Grid Sizes */
 $slot-width: 60px;
