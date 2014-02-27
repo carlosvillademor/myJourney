@@ -7,13 +7,9 @@ var express = require('express'),
     format = util.format,
     conf = require('./config');
 
-<<<<<<< HEAD
-var config = conf.load(app.settings.env || development);
-=======
 mu.root = __dirname;
 
 var config = conf.load(app.settings.env || 'development');
->>>>>>> Luis: add map
 
 app.configure(function () {
     var staticPath = path.resolve ( __dirname + '/../static' );
