@@ -363,7 +363,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -moz-flex: 3;
     -ms-flex: 3;
     flex: 3;
-    max-height: 100vh;
+    max-height: 100%;
   }
   /* line 13, ../../src/scss/_map.scss */
   .map-page .history-content {
@@ -375,7 +375,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex: 1;
     min-width: 300px;
     overflow: scroll;
-    max-height: 100vh;
+    max-height: 100%;
   }
 }
 @media screen and (min-width: 740px) and (max-width: 979px) and (min-device-width: 960px) {
@@ -396,7 +396,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -moz-flex: 3;
     -ms-flex: 3;
     flex: 3;
-    max-height: 100vh;
+    max-height: 100%;
   }
   /* line 29, ../../src/scss/_map.scss */
   .map-page .history-content {
@@ -406,6 +406,9 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    width: 300px;
+    max-height: 100%;
+    overflow: scroll;
   }
 }
 @media screen and (max-width: 739px) and (min-device-width: 960px) {
@@ -417,17 +420,18 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
+    max-height: 100%;
   }
-  /* line 37, ../../src/scss/_map.scss */
+  /* line 41, ../../src/scss/_map.scss */
   .map-page #map {
-    -webkit-box-flex: 3;
-    -webkit-flex: 3;
-    -moz-box-flex: 3;
-    -moz-flex: 3;
-    -ms-flex: 3;
-    flex: 3;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
   }
-  /* line 40, ../../src/scss/_map.scss */
+  /* line 44, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -435,6 +439,14 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    overflow: scroll;
+  }
+  /* line 10, ../../src/scss/_mixins.scss */
+  .map-page .history-content:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    clear: both;
   }
 }
 @media screen and (min-device-width: 480px) and (max-device-width: 979px) and (orientation: landscape) {
@@ -447,7 +459,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  /* line 49, ../../src/scss/_map.scss */
+  /* line 55, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -456,7 +468,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex: 3;
     flex: 3;
   }
-  /* line 52, ../../src/scss/_map.scss */
+  /* line 58, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -479,7 +491,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  /* line 64, ../../src/scss/_map.scss */
+  /* line 70, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -488,7 +500,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex: 3;
     flex: 3;
   }
-  /* line 67, ../../src/scss/_map.scss */
+  /* line 73, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -509,7 +521,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  /* line 76, ../../src/scss/_map.scss */
+  /* line 82, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -519,7 +531,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex: 3;
     max-height: 100vh;
   }
-  /* line 80, ../../src/scss/_map.scss */
+  /* line 86, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -542,7 +554,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  /* line 91, ../../src/scss/_map.scss */
+  /* line 97, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -551,7 +563,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex: 3;
     flex: 3;
   }
-  /* line 94, ../../src/scss/_map.scss */
+  /* line 100, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -562,7 +574,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     overflow: scroll;
   }
 }
-/* line 101, ../../src/scss/_map.scss */
+/* line 107, ../../src/scss/_map.scss */
 .map-page .history-content {
   padding: 0px 20px;
   background-color: #fff;
@@ -570,12 +582,12 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   position: relative;
   z-index: 2;
 }
-/* line 107, ../../src/scss/_map.scss */
+/* line 113, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 0;
 }
-/* line 110, ../../src/scss/_map.scss */
+/* line 116, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   padding: 0 20px;
   list-style: none;
@@ -588,11 +600,11 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 116, ../../src/scss/_map.scss */
+/* line 122, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 119, ../../src/scss/_map.scss */
+/* line 125, ../../src/scss/_map.scss */
 .map-page .history-content ul li span {
   display: inline-block;
   padding: 0 10px;
