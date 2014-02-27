@@ -112,8 +112,9 @@ body {
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  height: 100vh;
 }
-/* line 4, ../../src/scss/partials/_layout.scss */
+/* line 5, ../../src/scss/partials/_layout.scss */
 body #Header {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -128,7 +129,7 @@ body #Header:after {
   height: 0;
   clear: both;
 }
-/* line 12, ../../src/scss/partials/_layout.scss */
+/* line 13, ../../src/scss/partials/_layout.scss */
 body #Header.Home, body #Header.Create {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -138,7 +139,7 @@ body #Header.Home, body #Header.Create {
   flex: 1;
   background: transparent;
 }
-/* line 16, ../../src/scss/partials/_layout.scss */
+/* line 17, ../../src/scss/partials/_layout.scss */
 body #Header h1 {
   display: inline-block;
   width: 210px;
@@ -146,11 +147,11 @@ body #Header h1 {
   background: transparent url(../img/logo.png) no-repeat 0 0;
   background-size: contain;
 }
-/* line 22, ../../src/scss/partials/_layout.scss */
+/* line 23, ../../src/scss/partials/_layout.scss */
 body #Header h1 span {
   display: none;
 }
-/* line 27, ../../src/scss/partials/_layout.scss */
+/* line 28, ../../src/scss/partials/_layout.scss */
 body #Wrapper {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -184,23 +185,23 @@ body #Wrapper.Home:after, body #Wrapper.Create:after {
   height: 0;
   clear: both;
 }
-/* line 35, ../../src/scss/partials/_layout.scss */
+/* line 36, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header, body #Wrapper.Create header {
   padding-bottom: 0px;
   min-height: 160px;
 }
-/* line 38, ../../src/scss/partials/_layout.scss */
+/* line 39, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h1, body #Wrapper.Create header h1 {
   width: 210px;
   height: 60px;
   margin: 0 auto;
   background: transparent url(../img/logo.png) no-repeat 50% 50%;
 }
-/* line 43, ../../src/scss/partials/_layout.scss */
+/* line 44, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h1 span, body #Wrapper.Create header h1 span {
   display: none;
 }
-/* line 47, ../../src/scss/partials/_layout.scss */
+/* line 48, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h2, body #Wrapper.Create header h2 {
   width: 120px;
   height: 50px;
@@ -208,20 +209,20 @@ body #Wrapper.Home header h2, body #Wrapper.Create header h2 {
   background: transparent url(../img/signs.png) no-repeat 50% 50%;
   background-size: contain;
 }
-/* line 53, ../../src/scss/partials/_layout.scss */
+/* line 54, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h2 span, body #Wrapper.Create header h2 span {
   display: none;
 }
-/* line 58, ../../src/scss/partials/_layout.scss */
+/* line 59, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content, body #Wrapper.Create .Content {
   margin: 0 auto;
   max-width: 300px;
 }
-/* line 61, ../../src/scss/partials/_layout.scss */
+/* line 62, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content p, body #Wrapper.Create .Content p {
   text-align: center;
 }
-/* line 64, ../../src/scss/partials/_layout.scss */
+/* line 65, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content .login-fb, body #Wrapper.Create .Content .login-fb {
   display: block;
   margin: 24px auto;
@@ -245,7 +246,7 @@ body #Wrapper.Home .Content .login-fb, body #Wrapper.Create .Content .login-fb {
   border: 1px solid #e41164;
   text-align: center;
 }
-/* line 85, ../../src/scss/partials/_layout.scss */
+/* line 86, ../../src/scss/partials/_layout.scss */
 body #Footer {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -261,7 +262,7 @@ body #Footer {
   min-height: 24px;
   background: rgba(0, 0, 0, 0.2);
 }
-/* line 91, ../../src/scss/partials/_layout.scss */
+/* line 92, ../../src/scss/partials/_layout.scss */
 body #Footer.Home, body #Footer.Create {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -271,7 +272,7 @@ body #Footer.Home, body #Footer.Create {
   flex: 1;
   background: transparent;
 }
-/* line 94, ../../src/scss/partials/_layout.scss */
+/* line 95, ../../src/scss/partials/_layout.scss */
 body #Footer.Home .Content, body #Footer.Create .Content {
   width: 300px;
   border-top: 1px dotted #fff;
@@ -354,8 +355,9 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -moz-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
+    max-height: 100%;
   }
-  /* line 9, ../../src/scss/_map.scss */
+  /* line 10, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -365,7 +367,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex: 3;
     max-height: 100%;
   }
-  /* line 13, ../../src/scss/_map.scss */
+  /* line 14, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -388,7 +390,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  /* line 25, ../../src/scss/_map.scss */
+  /* line 26, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -398,7 +400,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex: 3;
     max-height: 100%;
   }
-  /* line 29, ../../src/scss/_map.scss */
+  /* line 30, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -422,7 +424,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: column;
     max-height: 100%;
   }
-  /* line 41, ../../src/scss/_map.scss */
+  /* line 42, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -431,7 +433,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex: 1;
     flex: 1;
   }
-  /* line 44, ../../src/scss/_map.scss */
+  /* line 45, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -459,7 +461,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  /* line 55, ../../src/scss/_map.scss */
+  /* line 56, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -468,7 +470,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex: 3;
     flex: 3;
   }
-  /* line 58, ../../src/scss/_map.scss */
+  /* line 59, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -491,7 +493,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  /* line 70, ../../src/scss/_map.scss */
+  /* line 71, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -500,7 +502,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex: 3;
     flex: 3;
   }
-  /* line 73, ../../src/scss/_map.scss */
+  /* line 74, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -521,7 +523,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  /* line 82, ../../src/scss/_map.scss */
+  /* line 83, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -531,7 +533,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex: 3;
     max-height: 100vh;
   }
-  /* line 86, ../../src/scss/_map.scss */
+  /* line 87, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -554,7 +556,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  /* line 97, ../../src/scss/_map.scss */
+  /* line 98, ../../src/scss/_map.scss */
   .map-page #map {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
@@ -563,7 +565,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     -ms-flex: 3;
     flex: 3;
   }
-  /* line 100, ../../src/scss/_map.scss */
+  /* line 101, ../../src/scss/_map.scss */
   .map-page .history-content {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -574,7 +576,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     overflow: scroll;
   }
 }
-/* line 107, ../../src/scss/_map.scss */
+/* line 108, ../../src/scss/_map.scss */
 .map-page .history-content {
   padding: 0px 20px;
   background-color: #fff;
@@ -582,12 +584,12 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   position: relative;
   z-index: 2;
 }
-/* line 113, ../../src/scss/_map.scss */
+/* line 114, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 0;
 }
-/* line 116, ../../src/scss/_map.scss */
+/* line 117, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   padding: 0 20px;
   list-style: none;
@@ -600,11 +602,11 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 122, ../../src/scss/_map.scss */
+/* line 123, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 125, ../../src/scss/_map.scss */
+/* line 126, ../../src/scss/_map.scss */
 .map-page .history-content ul li span {
   display: inline-block;
   padding: 0 10px;

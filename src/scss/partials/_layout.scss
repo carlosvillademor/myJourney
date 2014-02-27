@@ -1,6 +1,7 @@
 body {
 	@include flexbox;
 	@include flex-dir( column );
+	height: 100vh;
 	#Header {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
