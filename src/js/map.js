@@ -21,8 +21,11 @@
             .addTo(map)
             .setGeoJSON(data);
 
+        var polyline = L.polyline([]).addTo(map);
+
         featureLayer.eachLayer(function(marker) {
             markers.push(marker);
+            polyline.addLatLng(marker.getLatLng());
         });
 
         featureLayer.on('click', function(e) {

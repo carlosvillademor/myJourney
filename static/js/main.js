@@ -258,8 +258,11 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             .addTo(map)
             .setGeoJSON(data);
 
+        var polyline = L.polyline([]).addTo(map);
+
         featureLayer.eachLayer(function(marker) {
             markers.push(marker);
+            polyline.addLatLng(marker.getLatLng());
         });
 
         featureLayer.on('click', function(e) {
@@ -301,6 +304,6 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 var locals_ = (locals || {}),index = locals_.index,title = locals_.title;
-buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + ">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</li>");;return buf.join("");
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + "><span>" + (jade.escape((jade_interp = index) == null ? '' : jade_interp)) + "</span>" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</li>");;return buf.join("");
 };
 },{"jade/runtime":2}]},{},[3,4,5])
