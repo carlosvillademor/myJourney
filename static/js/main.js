@@ -276,7 +276,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         if ($('#map').length > 0) {
             
 
-            $.get( 'temp/map.json', function(json) {
+            $.get( 'api/images', function(json) {
                 data = json;
                 createMap();
             });
