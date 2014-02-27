@@ -6,3 +6,33 @@
     -ms-user-select: none;
     user-select: none;
 }
+@mixin clearfixed {
+	&:after{
+		content: ' ';
+		display: block;
+		height: 0;
+		clear: both;
+	}
+}
+
+@function w( $size ){
+    @return $size * $slot-width + ( $size - 1 ) * $gutter-h
+}
+@function h( $size ){
+    @return $size * $slot-height + ( $size - 1 ) * $gutter-v
+}
+ 
+@function black( $opacity ){
+    @return rgba( 0, 0, 0, $opacity )
+}
+@function white( $opacity ){
+    @return rgba( 255, 255, 255, $opacity )
+}
+ 
+@mixin lettershadow( $opacity ){
+	text-shadow: black( $opacity ) 0 1px 0;
+}
+
+@mixin letterpress( $opacity ){
+	text-shadow: white( $opacity ) 0 1px 0;
+}

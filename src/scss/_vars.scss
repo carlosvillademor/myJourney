@@ -1,46 +1,15 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald:700&subset=latin,latin-ext);
-@import url(http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Simonetta:900|Varela+Round);
 @import "compass/typography/vertical_rhythm";
 
 @function pem($pixels, $context: $browser-context) {
 	@return #{$pixels/$context}em
 }
 
-@mixin clearfixed {
-	&:after{
-		content: ' ';
-		display: block;
-		height: 0;
-		clear: both;
-	}
-}
-
-@function w( $size ){
-    @return $size * $slot-width + ( $size - 1 ) * $gutter-h
-}
-@function h( $size ){
-    @return $size * $slot-height + ( $size - 1 ) * $gutter-v
-}
- 
-@function black( $opacity ){
-    @return rgba( 0, 0, 0, $opacity )
-}
-@function white( $opacity ){
-    @return rgba( 255, 255, 255, $opacity )
-}
- 
-@mixin lettershadow( $opacity ){
-	text-shadow: black( $opacity ) 0 1px 0;
-}
-
-@mixin letterpress( $opacity ){
-	text-shadow: white( $opacity ) 0 1px 0;
-}
+@import "mixins";
 
 /* Typo settings */
-$font-appTitle: 'Gentium Book Basic', Cambria, Georgia, serif;
-$font-headers: 'Oswald', Cambria, Georgia, serif;
-$font-body: Cambria, Georgia, serif;
+$font-body: 'Varela Round', Helvetica, Arial, sans-serif;
+$font-headers: 'Simonetta', Cambria, Georgia, serif;
 $base-font-size: 16px;
 $base-line-height: 24px;
 @include establish-baseline;

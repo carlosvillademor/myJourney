@@ -34,23 +34,26 @@ body {
 		-moz-box-sizing: border-box;
 		&.Home {
 			min-height: 300px;
-			h1 {
-				width: 210px;
-				height: 60px;
-				margin: 0 auto;
-				background: transparent url(../img/logo.png) no-repeat 50% 50%;
-				span {
-					display: none;			
+			header {
+				padding-bottom: $gutter-v;
+				h1 {
+					width: 210px;
+					height: 60px;
+					margin: 0 auto;
+					background: transparent url(../img/logo.png) no-repeat 50% 50%;
+					span {
+						display: none;			
+					}
 				}
-			}
-			h2 {
-				width: 120px;
-				height: 50px;
-				margin: 0 auto;
-				background: transparent url(../img/signs.png) no-repeat 50% 50%;
-				background-size: contain;
-				span {
-					display: none;			
+				h2 {
+					width: 120px;
+					height: 50px;
+					margin: 0 auto;
+					background: transparent url(../img/signs.png) no-repeat 50% 50%;
+					background-size: contain;
+					span {
+						display: none;			
+					}
 				}
 			}
 			.Content {
