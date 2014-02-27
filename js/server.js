@@ -24,7 +24,7 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
     if (err) throw err;
 
     var collection = db.collection('test_insert');
-    collection.insert({a: 2}, function (err, docs) {
+//    collection.insert({a: 2}, function (err, docs) {
 
         collection.count(function (err, count) {
             console.log(format("count = %s", count));
@@ -34,7 +34,7 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
             console.dir(results);
             db.close();
         });
-    });
+//    });
 });
 
 
