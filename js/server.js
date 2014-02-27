@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
 });
 
 
-MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
+MongoClient.connect(process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/test', function(err, db) {
     if(err) throw err;
 
     var collection = db.collection('test_insert');
