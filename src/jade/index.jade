@@ -1,0 +1,53 @@
+doctype
+//if lt IE 7
+  <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+//if IE 7
+  <html class="no-js lt-ie9 lt-ie8">
+//if IE 8
+  <html class="no-js lt-ie9">
+//[if gt IE 8]><!
+html.no-js
+  //<![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Kitska
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(rel='stylesheet', href='/css/normalize.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/js/vendor/modernizr.min.js')
+    script(src='//localhost:35729/livereload.js')
+  body
+    header.main-header
+      .content
+        nav
+          ul
+            li
+              a(href='#')
+                | Link
+            li
+              a(href='#')
+                | Link
+    .page
+      include partials/_content
+    footer.main-footer
+      nav
+        ul
+          li
+            a(href='#')
+              | Random
+          li
+            a(href='#')
+              | Random
+          li
+            a(href='#')
+              | Random
+    footer.sticky-footer
+      nav
+        a.backtotop
+
+    .full-overlay
+      .logo-loading
+    
+    script(src='/js/main.js')
