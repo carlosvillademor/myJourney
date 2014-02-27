@@ -4,8 +4,36 @@
 
     var temp = require('./temp');
     temp();
+
+    var map = require('./map');
+    map();
 })();
-},{"./temp":2}],2:[function(require,module,exports){
+},{"./map":2,"./temp":3}],2:[function(require,module,exports){
+(function () {
+    'use strict';
+
+    module.exports = function () {
+        var map = L.mapbox.map('map', 'fetz.hcpe8ip9')
+            .setView([38, -102.0], 9);
+
+        var featureLayer = L.mapbox.featureLayer()
+            .loadURL('temp/map.json')
+            .addTo(map);
+
+        featureLayer.on('ready', function() {
+            map.fitBounds(featureLayer.getBounds());
+        });
+
+        featureLayer.on('click', function(e) {
+            map.panTo(e.layer.getLatLng());
+        });
+
+
+        return map;
+    };
+
+})();
+},{}],3:[function(require,module,exports){
 (function () {
     'use strict';
 
@@ -14,4 +42,4 @@
     };
 
 })();
-},{}]},{},[1,2])
+},{}]},{},[1,2,3])

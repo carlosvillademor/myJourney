@@ -1,52 +1,36 @@
 var express = require('express'),
     app = express(),
-    mu = require('mu2'),
     util = require('util'),
-    path = require( 'path'),
+    path = require('path'),
     FB = require('fb'),
     MongoClient = require('mongodb').MongoClient,
     format = util.format,
-    _ = require('lodash');
+    _ = require('lodash'),
+    conf = require('./config');
 
-mu.root = __dirname;
+var config = conf.load(app.settings.env || 'development');
 
 app.configure(function () {
-    var staticPath = path.resolve ( __dirname + '/../static' );
-    app.use( express.static( staticPath ) );
-
-    app.use( express.logger() );
+    app.use(express.static(path.resolve(config.staticPath)));
+    app.use(express.logger());
 });
 
-app.use(express.static(__dirname + '/static'));
-
-// app.get('/', function(req, res) {
-//     console.log('get request to /');
-//     var homePage = mu.compileAndRender('../templates/home.html', {});
-//     console.log('homePage is', homePage);
-//     util.pump(homePage, res);
-// });
-
-
-MongoClient.connect(process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/test', function(err, db) {
-    if(err) throw err;
+MongoClient.connect(config.mongoDBUrl, function (err, db) {
+    if (err) throw err;
 
     var collection = db.collection('test_insert');
-    collection.insert({a:2}, function(err, docs) {
+    collection.insert({a: 2}, function (err, docs) {
 
-      collection.count(function(err, count) {
-        console.log(format("count = %s", count));
-      });
+        collection.count(function (err, count) {
+            console.log(format("count = %s", count));
+        });
 
-      // Locate all the entries using find
-      collection.find().toArray(function(err, results) {
-        console.dir(results);
-        // Let's close the db
-        db.close();
-      });
+        collection.find().toArray(function (err, results) {
+            console.dir(results);
+            db.close();
+        });
     });
 });
-
-
 
 app.get('/api/images', function(req, res) {
     res.set("Content-Type", "application/json");
@@ -87,4 +71,4 @@ FB.api('fql', { q: 'SELECT place_id, caption, src, created FROM photo WHERE owne
   console.log(res.data);
 });*/
 
-app.listen(process.env.PORT || 5000);
+app.listen(config.port);

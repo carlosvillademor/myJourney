@@ -1,25 +1,71 @@
-#Header {
-	h1 {
-		width: 350px;
-		height: 100px;
-		margin: 0 auto;
-		span {
-			display: none;			
+body {
+	@include flexbox;
+	@include flex-dir( column );
+	#Header {
+		@include flex( 1 );
+		&.Home{
+			min-height: 150px;
+		}
+		h1 {
+			width: 210px;
+			height: 60px;
+			margin: 0 auto;
+			background: transparent url(../img/logo.png) no-repeat 50% 50%;
+			span {
+				display: none;			
+			}
+		}
+		h2 {
+			width: 120px;
+			height: 50px;
+			margin: 0 auto;
+			background: transparent url(../img/signs.png) no-repeat 50% 50%;
+			background-size: contain;
+			span {
+				display: none;			
+			}
 		}
 	}
-	h2 {
-		width: 170px;
-		height: 50px;
-		margin: 0 auto;
-		span {
-			display: none;			
+	#Wrapper {
+		@include flex( 1 );
+		@include flexbox;
+		@include flex-dir( column );
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		&.Home {
+			min-height: 300px;
+			header {
+				padding-bottom: $gutter-v;
+				h1 {
+					width: 210px;
+					height: 60px;
+					margin: 0 auto;
+					background: transparent url(../img/logo.png) no-repeat 50% 50%;
+					span {
+						display: none;			
+					}
+				}
+				h2 {
+					width: 120px;
+					height: 50px;
+					margin: 0 auto;
+					background: transparent url(../img/signs.png) no-repeat 50% 50%;
+					background-size: contain;
+					span {
+						display: none;			
+					}
+				}
+			}
+			.Content {
+				margin: 0 auto;
+				max-width: $break-mobile-portrait;
+			}
 		}
 	}
-}
-
-#Wrapper {
-
-}
-#Footer {
-
+	#Footer {
+		@include flex( 1 );
+		@include flexbox;
+		&.Home{
+		}
+	}
 }

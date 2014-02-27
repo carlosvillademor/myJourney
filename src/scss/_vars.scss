@@ -1,3 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Simonetta:900|Varela+Round);
+@import "compass/typography/vertical_rhythm";
+
+@function pem($pixels, $context: $browser-context) {
+	@return #{$pixels/$context}em
+}
+
+@import "mixins";
+
+/* Typo settings */
+$font-body: 'Varela Round', Helvetica, Arial, sans-serif;
+$font-headers: 'Simonetta', Cambria, Georgia, serif;
+$base-font-size: 16px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+
+/* Colors */
 $bgColor: #fff;
 
 $Color-Orange: #F4B244;
@@ -6,5 +24,20 @@ $Color-Sandy: #F2EDD0;
 $Color-GreenyBlue: #16CBB8;
 $Color-WaterBlue: #008E9A;
 
-$header-font: Arial, Verdana, sans-serif;
-$body-font: Arial, Verdana, sans-serif;
+/* Grid Sizes */
+$slot-width: 60px;
+$slot-height: 24px;
+$gutter-h: 20px;
+$gutter-v: 0px;
+
+/* Breakpoints */
+$break-tablet-landscape: w( 12 );
+$break-tablet-portrait: w( 9 );
+$break-mobile-landscape: w( 6 );
+$break-mobile-portrait: w( 4 );
+$side-padding: 10px;
+
+$browser-context: 16; // Default
+
+//Map
+$bgHistoryColor: #62848D;

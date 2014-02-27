@@ -1,0 +1,43 @@
+.map-page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    > * {
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+}
+
+.map-content {
+
+}
+
+.history-content {
+    text-align: center;
+    background-color: $bgHistoryColor;
+    color: #B5C5C8;
+    position: relative;
+    z-index: 2;
+    ul {
+        padding: 0 60px;
+    }
+    li {
+        list-style: none;
+        text-align: left;
+        padding: 5px 0;
+        cursor: pointer;
+        @include no-select;
+        &:hover {
+            background-color: #073646;
+        }
+        span {
+            display: inline-block;
+            padding: 0 10px;
+            font-weight: bold;
+            width: 70px;
+        }
+    }
+}

@@ -1,3 +1,6 @@
+var conf = require('./js/config');
+var config = conf.load('development');
+//config.port
 module.exports = function(grunt) {
   'use strict';
   // Project configuration.
@@ -6,7 +9,8 @@ module.exports = function(grunt) {
     express: {
       dev: {
         options: {
-          script: 'js/server.js'
+          script: 'js/server.js',
+          port: config.port
         }
       }
     },
@@ -52,11 +56,11 @@ module.exports = function(grunt) {
         livereload: true
       },
       scss: {
-        files: ['src/scss/*.scss'],
+        files: ['src/scss/**/*.scss'],
         tasks: ['compass:dev']
       },
       js: {
-        files: ['src/js/*.js'],
+        files: ['src/js/**/*.js'],
         tasks: ['browserify:dev']
       },
       jade: {
