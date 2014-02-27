@@ -52,11 +52,11 @@ module.exports = function(grunt) {
         livereload: true
       },
       scss: {
-        files: ['src/scss/*.scss'],
+        files: ['src/scss/**/*.scss'],
         tasks: ['compass:dev']
       },
       js: {
-        files: ['src/js/*.js'],
+        files: ['src/js/**/*.js'],
         tasks: ['browserify:dev']
       },
       jade: {
