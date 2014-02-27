@@ -60,8 +60,8 @@ module.exports = function(grunt) {
         tasks: ['compass:dev']
       },
       js: {
-        files: ['src/js/**/*.js'],
-        tasks: ['browserify:dev', 'src/templates/**/*.js']
+        files: ['src/js/**/*.js', 'src/templates/**/*.jade'],
+        tasks: ['browserify:dev']
       },
       jade: {
         files: ['src/jade/**/*.jade'],

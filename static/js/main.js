@@ -226,51 +226,55 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 (function () {
     'use strict';
     $(function() {
-        var map = require('./map');
-        map();
 
         var create = require('./create');
         create();
+
+        var map = require('./map');
+        map();
     });
 })();
 },{"./create":3,"./map":5}],5:[function(require,module,exports){
 (function () {
     'use strict';
 
-    var map, featureLayer, items, data, coords, markers;
+    var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
+    
 
     function createMap() {
-        items = [];
-        coords = [];
+        var items = [];
         markers = [];
+
+        map = L.mapbox.map('map', 'fetz.hcpe8ip9')
+                .setView([38, -102.0], 9);
+
         $.each(data.features, function (index, item) {
             items.push(itemMap({index: index, title: item.properties.title}));
-            coords.push([item.geometry.coordinates[1], item.geometry.coordinates[0]]);
         });
 
-        featureLayer.setGeoJSON(data);
+        featureLayer = L.mapbox.featureLayer()
+            .addTo(map)
+            .setGeoJSON(data);
 
         featureLayer.eachLayer(function(marker) {
             markers.push(marker);
         });
-        
+
+        featureLayer.on('click', function(e) {
+            map.panTo(e.layer.getLatLng());
+        });
+
         map.fitBounds(featureLayer.getBounds());
+        
         $('.history-content ul').html(items.join(''));
     }
 
     module.exports = function () {
 
         if ($('#map').length > 0) {
-            map = L.mapbox.map('map', 'fetz.hcpe8ip9')
-                .setView([38, -102.0], 9);
-
-            featureLayer = map.featureLayer;
-
-            featureLayer.on('click', function(e) {
-                map.panTo(e.layer.getLatLng());
-            });
+            
 
             $.get( 'temp/map.json', function(json) {
                 data = json;
