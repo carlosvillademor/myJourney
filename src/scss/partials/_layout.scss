@@ -4,7 +4,7 @@ body {
 	#Header {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
-		min-height: $slot-height;
+		height: $slot-height;
 		padding: $gutter-v $gutter-h;
 		background: $Color-Orange none;
 		@include clearfixed;
@@ -25,6 +25,7 @@ body {
 		}
 	}
 	#Wrapper {
+		@include flex( 1 );
 		@include flexbox;
 		@include flex-dir( column );
 			@include clearfixed;
@@ -67,9 +68,12 @@ body {
 					width: w( 3 );
 					height: h( 2 );
 					color: #fff;
+					font-weight: normal;
+					text-decoration: none;
 					background: $Color-Pink;
 					font-family: $font-headers;
 					@include adjust-font-size-to(24px);
+					@include border-radius(10px);
 					line-height: h( 2 );
 					text-align: center;
 				}
@@ -77,6 +81,7 @@ body {
 		}
 	}
 	#Footer {
+		@include flex( 1 );
 		@include flexbox;
 		height: $slot-height;
 		background: rgba( 0, 0, 0, .2 );

@@ -98,24 +98,6 @@ html body {
   background-size: cover;
 }
 
-/* line 13, ../../src/scss/partials/_base.scss */
-.login-fb {
-  border-radius: 5px;
-  background: #ccc;
-  color: #fff;
-  padding: 5px;
-  text-decoration: none;
-}
-/* line 19, ../../src/scss/partials/_base.scss */
-.login-fb:hover {
-  background: #666;
-}
-
-/* line 24, ../../src/scss/partials/_base.scss */
-a {
-  display: inline-block;
-}
-
 /* line 1, ../../src/scss/partials/_layout.scss */
 body {
   display: -webkit-box;
@@ -134,7 +116,7 @@ body {
 body #Header {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  min-height: 24px;
+  height: 24px;
   padding: 0px 20px;
   background: #f4b244 none;
 }
@@ -169,6 +151,12 @@ body #Header h1 span {
 }
 /* line 27, ../../src/scss/partials/_layout.scss */
 body #Wrapper {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -188,7 +176,7 @@ body #Wrapper:after {
   height: 0;
   clear: both;
 }
-/* line 32, ../../src/scss/partials/_layout.scss */
+/* line 33, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home, body #Wrapper.Create {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -205,23 +193,23 @@ body #Wrapper.Home:after, body #Wrapper.Create:after {
   height: 0;
   clear: both;
 }
-/* line 36, ../../src/scss/partials/_layout.scss */
+/* line 37, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header, body #Wrapper.Create header {
   padding-bottom: 0px;
   min-height: 120px;
 }
-/* line 39, ../../src/scss/partials/_layout.scss */
+/* line 40, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h1, body #Wrapper.Create header h1 {
   width: 210px;
   height: 60px;
   margin: 0 auto;
   background: transparent url(../img/logo.png) no-repeat 50% 50%;
 }
-/* line 44, ../../src/scss/partials/_layout.scss */
+/* line 45, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h1 span, body #Wrapper.Create header h1 span {
   display: none;
 }
-/* line 48, ../../src/scss/partials/_layout.scss */
+/* line 49, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h2, body #Wrapper.Create header h2 {
   width: 120px;
   height: 50px;
@@ -229,16 +217,16 @@ body #Wrapper.Home header h2, body #Wrapper.Create header h2 {
   background: transparent url(../img/signs.png) no-repeat 50% 50%;
   background-size: contain;
 }
-/* line 54, ../../src/scss/partials/_layout.scss */
+/* line 55, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h2 span, body #Wrapper.Create header h2 span {
   display: none;
 }
-/* line 59, ../../src/scss/partials/_layout.scss */
+/* line 60, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content, body #Wrapper.Create .Content {
   margin: 0 auto;
   max-width: 300px;
 }
-/* line 62, ../../src/scss/partials/_layout.scss */
+/* line 63, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content .login-fb, body #Wrapper.Create .Content .login-fb {
   display: block;
   margin: 0 auto;
@@ -247,15 +235,28 @@ body #Wrapper.Home .Content .login-fb, body #Wrapper.Create .Content .login-fb {
   width: 220px;
   height: 48px;
   color: #fff;
+  font-weight: normal;
+  text-decoration: none;
   background: #f03880;
   font-family: "Simonetta", Cambria, Georgia, serif;
   font-size: 1.71429em;
   line-height: 2em;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
   line-height: 48px;
   text-align: center;
 }
-/* line 79, ../../src/scss/partials/_layout.scss */
+/* line 83, ../../src/scss/partials/_layout.scss */
 body #Footer {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -264,7 +265,7 @@ body #Footer {
   height: 24px;
   background: rgba(0, 0, 0, 0.2);
 }
-/* line 84, ../../src/scss/partials/_layout.scss */
+/* line 89, ../../src/scss/partials/_layout.scss */
 body #Footer.Home, body #Footer.Create {
   -webkit-box-flex: 2;
   -webkit-flex: 2;
