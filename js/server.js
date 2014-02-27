@@ -15,6 +15,11 @@ app.configure(function () {
     app.use(express.logger());
 });
 
+app.use(express.cookieParser());
+app.use(express.cookieSession({
+    secret : 'i6JUAPaLsmFWCxjGgsQEDoAmHAPoVX'
+}));
+
 MongoClient.connect(config.mongoDBUrl, function (err, db) {
     if (err) throw err;
 
@@ -31,6 +36,9 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
         });
     });
 });
+
+
+
 
 app.get('/api/images', function(req, res) {
 
@@ -50,6 +58,10 @@ app.get('/api/images', function(req, res) {
             }
 
             var accessToken = fbRes.access_token;
+
+
+            req.session.fbAccessToken = accessToken;
+
             //var expires = fbRes.expires ? fbRes.expires : 0;
             console.log("Got access token");
             fetchUid(accessToken, res);
