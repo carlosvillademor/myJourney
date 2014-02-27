@@ -1,9 +1,19 @@
-#Wrapper.create
-    .create-content
-        form
-            input(type="time").starttime
-            input(type="time").endtime
-            input(type="submit", value="create")
+#Wrapper.Create
+	header
+		a(href="/")
+			h1
+				span myJourney
+		h2
+			span ...
+	.Content
+		form#PickDates(action="/map.html")
+			div
+				input(type="time", placeholder="start date")#starttime.starttime
+			div
+				input(type="time", placeholder="end date")#endtime.endtime
+			div
+				button(type="submit", value="create") 
+					| Go!
 
-
-   
+		p
+			| Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit.

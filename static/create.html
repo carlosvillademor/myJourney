@@ -21,24 +21,31 @@
     <script src="//localhost:35729/livereload.js"></script>
   </head>
   <body>
-    <header id="Header"></header>
-    <div id="Wrapper">
-      <div id="Wrapper" class="create">
-        <div class="create-content">
-          <form>
-            <input type="time" class="starttime">
-            <input type="time" class="endtime">
-            <input type="submit" value="create">
-          </form>
-        </div>
+    <header id="Header" class="Create"></header>
+    <div id="Wrapper" class="Create">
+      <header><a href="/">
+          <h1><span>myJourney</span></h1></a>
+        <h2><span>...</span></h2>
+      </header>
+      <div class="Content">
+        <form id="PickDates" action="/map.html">
+          <div>
+            <input type="time" placeholder="start date" id="starttime" class="starttime">
+          </div>
+          <div>
+            <input type="time" placeholder="end date" id="endtime" class="endtime">
+          </div>
+          <div>
+            <button type="submit" value="create">Go!</button>
+          </div>
+        </form>
+        <p>Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
       </div>
     </div>
-    <div id="Footer" class="Home">
-      <nav>
-        <ul>
-          <li> xxx</li>
-        </ul>
-      </nav>
+    <div id="Footer" class="Create">
+      <div class="Content">
+        <p>Carlos, Jamie, Janusz, Luis, Robert</p>
+      </div>
     </div>
     <script src="/vendor/jquery-1.11.0.min.js"></script>
     <script src="//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js"></script>
