@@ -5,9 +5,12 @@ var express = require('express'),
     path = require( 'path'),
     FB = require('fb'),
     MongoClient = require('mongodb').MongoClient,
-    format = util.format;
+    format = util.format,
+    conf = require('./config');
 
 mu.root = __dirname;
+
+var config = conf.load(app.settings.env || development);
 
 app.configure(function () {
     var staticPath = path.resolve ( __dirname + '/../static' );
@@ -26,7 +29,7 @@ app.use(express.static(__dirname + '/static'));
 // });
 
 
-MongoClient.connect(process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/test', function(err, db) {
+MongoClient.connect(config.mongoDBUrl, function(err, db) {
     if(err) throw err;
 
     var collection = db.collection('test_insert');
@@ -57,4 +60,4 @@ FB.api('fql', { q: 'SELECT src FROM photo WHERE owner=100001237688606' }, functi
   console.log(res.data);
 });
 
-app.listen(process.env.PORT || 5000);
+app.listen(conf.port);
