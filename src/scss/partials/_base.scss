@@ -1,0 +1,25 @@
+html {
+	background-color: $Color-Orange;
+	height: 100%;
+	body {
+		background-color: $Color-Orange;
+		min-height: 100%;
+		background: #fff url(../img/bg.jpg) no-repeat 50% 50%;
+		background-size: cover;
+	}
+}
+
+.login-fb {
+    border-radius: 5px;
+    background: #ccc;
+    color: #fff;
+    padding: 5px;
+    text-decoration: none;
+    &:hover {
+        background: #666;
+    }
+}
+
+a {
+    display: inline-block;
+}
