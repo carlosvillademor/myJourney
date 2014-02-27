@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         }
       },
       options: {
-        transform: []
+        transform: ['jadeify']
       }
     },
     jade: {
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         tasks: ['compass:dev']
       },
       js: {
-        files: ['src/js/**/*.js'],
+        files: ['src/js/**/*.js', 'src/templates/**/*.jade'],
         tasks: ['browserify:dev']
       },
       jade: {
