@@ -1,0 +1,23 @@
+{
+    "name": "myJourney",
+    "version": "0.1.0",
+    "description": "Sharing your journey",
+    "scripts": {
+        "start": "node js/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/carlosvillademor/myJourney"
+    },
+    "dependencies": {
+        "express": "",
+        "mu2": "",
+        "util": ""
+    },
+    "devDependencies": {
+    },
+    "license": "MIT",
+    "engines": {
+        "node": "0.10.16"
+    }
+}
