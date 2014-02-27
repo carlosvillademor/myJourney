@@ -10,8 +10,7 @@ var express = require('express'),
 var config = conf.load(app.settings.env || 'development');
 
 app.configure(function () {
-    var staticPath = path.resolve ( __dirname + '/../static' );
-    app.use( express.static( staticPath ) );
+    app.use( express.static( path.resolve ( config.staticPath ) ) );
 
     app.use( express.logger() );
 });
