@@ -3,6 +3,8 @@ var express = require('express'),
     mu = require('mu2'),
     util = require('util');
 
+var MongoClient = require('mongodb').MongoClient, format = util.format;
+
 mu.root = __dirname;
 
 app.get('/', function(req, res) {
@@ -11,6 +13,27 @@ app.get('/', function(req, res) {
     console.log('homePage is', homePage);
     util.pump(homePage, res);
 });
+
+
+MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
+    if(err) throw err;
+
+    var collection = db.collection('test_insert');
+    collection.insert({a:2}, function(err, docs) {
+
+      collection.count(function(err, count) {
+        console.log(format("count = %s", count));
+      });
+
+      // Locate all the entries using find
+      collection.find().toArray(function(err, results) {
+        console.dir(results);
+        // Let's close the db
+        db.close();
+      });
+    });
+  })
+
 
 app.listen(process.env.PORT || 5000);
 

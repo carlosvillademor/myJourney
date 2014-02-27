@@ -12,7 +12,9 @@
   "dependencies": {
     "express": "",
     "mu2": "",
-    "util": ""
+    "util": "",
+    "mongodb": "*",
+    "mongoose": "*"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
