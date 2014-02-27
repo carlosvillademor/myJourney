@@ -45,4 +45,15 @@ MongoClient.connect(process.env.MONGOHQ_URL || 'mongodb://127.0.0.1:27017/test',
     });
 });
 
+var FB = require('fb');
+
+FB.api('4', function (res) {
+  if(!res || res.error) {
+   console.log(!res ? 'error occurred' : res.error);
+   return;
+  }
+  console.log(res.id);
+  console.log(res.name);
+});
+
 app.listen(process.env.PORT || 5000);
