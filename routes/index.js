@@ -80,7 +80,6 @@ function fetchUserPhotos(uid, res) {
         if (fbRes.photos) {
             mapData.features = _.filter(_.map(fbRes.photos.data, function (photo) {
 
-                console.log(JSON.stringify(photo));
                 if (photo.place && photo.place.location && photo.place.location.longitude) {
                     return  {
                         type: "Feature",
@@ -104,8 +103,6 @@ function fetchUserPhotos(uid, res) {
         storeMapData(mapData, function() {
             res.send(mapData);
         });
-
-
     });
 }
 
@@ -115,11 +112,11 @@ function storeMapData(mapData, callback) {
     MongoClient.connect(config.mongoDBUrl, function (err, db) {
         if (err) throw err;
 
-        var collection = db.collection('map_data');
+        var collection = db.collection('journeys');
         collection.insert(mapData, function(err, docs) {
             if (err) throw err;
 
-            console.log(JSON.stringify(docs));
+            console.log(JSON.stringify(docs[0]._id));
         });
 
         callback();
@@ -128,6 +125,9 @@ function storeMapData(mapData, callback) {
 
 routes.images = function (req, res) {
     var accessToken = req.session.fbAccessToken;
+
+
+
     /*var fromTimestamp = req.query.fromTimestamp;
      var toTimestamp = req.query.toTimestamp;
 
