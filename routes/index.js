@@ -67,7 +67,6 @@ routes.storeAccessToken = function (req, res) {
 function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
     //until(' + toTimestamp + ').since(' + fromTimestamp + ')
-    console.log('photos.since(' + startTime + ').until(' + endTime + ').limit(1000)');
     FB.api(uid + '', { fields: ['id', 'name', 'photos.since(' + startTime + ').until(' + endTime + ').limit(1000)']}, function (fbRes) {
         if (!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
@@ -102,6 +101,11 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
                     };
                 }
             }));
+
+
+            mapData.features = _.sortBy(mapData.features, function(data) {
+                return data.properties.created_time;
+            });
         }
 
         storeMapData(mapData, function() {
@@ -172,7 +176,6 @@ routes.createJourney = function (req, res) {
     res.set("Content-Type", "application/json");
     //FB.setAccessToken('CAACEdEose0cBAA2g1RwGq004OFraoxZCXwy7XEskZAgKkQZBVmFkJml7R6hnZB0rKcutW6vplDfPbdRzM3fS8PZC4oEdujc8V6io6xYOECCZC1yLYWcdQd2OBXtgZBVVbJxkaZAhKZCGwD2GR5uPwxvZAlC7CnUmBctZAZBS46KSq6ewNKFpD6hj6fjmj07EkLjGAaL9uC7aQYPFdAZDZD');
     FB.setAccessToken(accessToken);
-
 
     FB.api('fql', { q: 'select uid from user where uid = me()' }, function (fbRes) {
         if (!fbRes || fbRes.error) {
