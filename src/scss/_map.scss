@@ -7,7 +7,7 @@
     and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
         @include flex-dir( row );
         max-height: 100%;
-        #map {
+        #display {
             @include flex( 3);
             max-height: 100%;
         }
@@ -23,7 +23,7 @@
     and (max-width: $break-tablet-landscape - 1 + 4 * $side-padding )
     and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
         @include flex-dir( row );
-        #map {
+        #display {
             @include flex( 3);
             max-height: 100%;
         }
@@ -39,7 +39,7 @@
     and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
         @include flex-dir( column );
         max-height: 100%;
-        #map {
+        #display {
             @include flex( 1 );
         }
         .history-content {
@@ -53,7 +53,7 @@
     and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
     and (orientation:landscape) {
         @include flex-dir( row );
-        #map {
+        #display {
             @include flex( 3 );
         }
         .history-content {
@@ -68,7 +68,7 @@
     and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
     and (orientation:portrait) {
         @include flex-dir( column );
-        #map {
+        #display {
             @include flex( 3 );
         }
         .history-content {
@@ -80,7 +80,7 @@
     and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
     and (orientation:landscape) {
         @include flex-dir( row );
-        #map {
+        #display {
             @include flex( 3 );
             max-height: 100vh;
         }
@@ -95,7 +95,7 @@
     and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
     and (orientation:portrait) {
        @include flex-dir( column );
-        #map {
+        #display {
             @include flex( 3 );
         }
         .history-content {
@@ -109,6 +109,12 @@
         color: $Color-BodyText;
         position: relative;
         z-index: 2;
+
+        a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 10px 10px 0px;
+        }
         ul {
             margin: 0 ( -1 * $gutter-h );
             padding: 0;
@@ -176,11 +182,29 @@
                 }
             }
         }
-
     }
 }
 
-#map {
+#display {
+    position: relative;
     background-color: #008E9A;
 }
 
+.map-mode {
+    #pictureViewer {
+        display: none;
+    }
+}
+.picture-mode {
+    #map {
+        display: none;
+    }
+}
+
+#map, #pictureViewer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

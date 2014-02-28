@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Simonetta:900|Varela+Round);
-/* line 17, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,56 +21,56 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
 /* Typo settings */
-/* line 61, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 87.5%;
 }
 
-/* line 64, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 14px;
   line-height: 1.71429em;
@@ -440,7 +440,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     max-height: 100%;
   }
   /* line 10, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -473,7 +473,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: row;
   }
   /* line 26, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -507,7 +507,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     max-height: 100%;
   }
   /* line 42, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -moz-box-flex: 1;
@@ -544,7 +544,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: row;
   }
   /* line 56, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -576,7 +576,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: column;
   }
   /* line 71, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -606,7 +606,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: row;
   }
   /* line 83, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -639,7 +639,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: column;
   }
   /* line 98, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -666,12 +666,18 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   position: relative;
   z-index: 2;
 }
-/* line 112, ../../src/scss/_map.scss */
+/* line 113, ../../src/scss/_map.scss */
+.map-page .history-content a {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px 10px 0px;
+}
+/* line 118, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 0;
 }
-/* line 115, ../../src/scss/_map.scss */
+/* line 121, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   display: block;
   padding: 5px 20px;
@@ -685,11 +691,11 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 122, ../../src/scss/_map.scss */
+/* line 128, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 125, ../../src/scss/_map.scss */
+/* line 131, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure {
   display: block;
   display: -webkit-box;
@@ -713,7 +719,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 132, ../../src/scss/_map.scss */
+/* line 138, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview {
   width: 40px;
   height: 40px;
@@ -743,7 +749,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 145, ../../src/scss/_map.scss */
+/* line 151, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview img {
   width: auto;
   height: auto;
@@ -751,7 +757,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   max-height: 50px;
   display: none;
 }
-/* line 153, ../../src/scss/_map.scss */
+/* line 159, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption {
   display: block;
   display: -webkit-box;
@@ -774,7 +780,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 159, ../../src/scss/_map.scss */
+/* line 165, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption h3 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -789,7 +795,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 167, ../../src/scss/_map.scss */
+/* line 173, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption .timestamp {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -805,7 +811,27 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin: 5px 0 0 0;
 }
 
-/* line 183, ../../src/scss/_map.scss */
-#map {
+/* line 188, ../../src/scss/_map.scss */
+#display {
+  position: relative;
   background-color: #008E9A;
+}
+
+/* line 194, ../../src/scss/_map.scss */
+.map-mode #pictureViewer {
+  display: none;
+}
+
+/* line 199, ../../src/scss/_map.scss */
+.picture-mode #map {
+  display: none;
+}
+
+/* line 204, ../../src/scss/_map.scss */
+#map, #pictureViewer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

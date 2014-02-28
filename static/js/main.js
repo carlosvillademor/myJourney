@@ -253,7 +253,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     function switchMode(newMode) {
         if (newMode != mode) {
             $('body').removeClass(mode);
-            newMode = mode;
+            mode = newMode;
             $('body').addClass(newMode);    
         }    
     }
