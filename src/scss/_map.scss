@@ -53,14 +53,16 @@
     and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
     and (orientation:landscape) {
         @include flex-dir( row );
+        overflow: hidden;
+        @include flex( 1 );
         #display {
-            @include flex( 3 );
+            @include flex( 1 );
         }
         .history-content {
-            @include flex( 2 );
+            @include flex( 1 );
             max-width: w(4);
             overflow: scroll;
-            max-height: 100vh;
+            max-height: 100%;
         }
     }
     @media screen 
@@ -68,11 +70,12 @@
     and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
     and (orientation:portrait) {
         @include flex-dir( column );
+        @include flex( 1 );
         #display {
-            @include flex( 3 );
+            @include flex( 1 );
         }
         .history-content {
-            @include flex( 2 );
+            @include flex( 1 );
             overflow: scroll;
         }
     }
@@ -80,6 +83,8 @@
     and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
     and (orientation:landscape) {
         @include flex-dir( row );
+        @include flex( 1 );
+        overflow: hidden;
         #display {
             @include flex( 3 );
             max-height: 100vh;
@@ -88,18 +93,20 @@
             @include flex( 2 );
             max-width: w(2);
             overflow: scroll;
-            max-height: 100vh;
+            max-height: 100%;
         }
     }
     @media screen 
     and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
     and (orientation:portrait) {
        @include flex-dir( column );
+        @include flex( 1 );
+        overflow: hidden;
         #display {
-            @include flex( 3 );
+            @include flex( 1 );
         }
         .history-content {
-            @include flex( 2 );
+            @include flex( 1 );
             overflow: scroll;
         }
     }
@@ -184,6 +191,7 @@
         ul {
             margin: 0 ( -1 * $gutter-h );
             padding: h(4) 0 0 0;
+
             li {
                 display: block;
                 padding: 5px $gutter-h;
@@ -341,14 +349,12 @@ body.picture-mode {
 }
 .map-mode {
     #pictureViewer {
-        top: 0; 
-        left: 100%;
+        display: none;
     }
 }
 .picture-mode {
     #map {
-        top: 0; 
-        left: -100%;
+        display: none;
     }
 }
 
@@ -395,9 +401,4 @@ body.picture-mode {
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transition: all 200ms ease-in-out;
-    -moz-transition: all 200ms ease-in-out;
-    -ms-transition: all 200ms ease-in-out;
-    -o-transition: all 200ms ease-in-out;
-    transition: all 200ms ease-in-out;
 }
