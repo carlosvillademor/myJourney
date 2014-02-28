@@ -259,8 +259,8 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         if (newMode != mode) {
             $body.removeClass(mode);
             mode = newMode;
-            $body.addClass(newMode);    
-        }    
+            $body.addClass(newMode);
+        }
     }
 
     function createMap() {
@@ -298,7 +298,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         });
 
         map.fitBounds(featureLayer.getBounds());
-        
+        window.document.title += (' : ' + data.tripname );
         $('.history-content h2').html(data.tripname);
         $('.history-content ul').html(items.join(''));
         $('#pictureViewer ul').html(images.join(''));
@@ -309,7 +309,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         if ($('#map').length > 0) {
 
             $.get( '/journey/' + id, function(json) {
-                data = json[0];
+                data = json;
                 createMap();
             });
 

@@ -699,6 +699,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
 /* line 123, ../../src/scss/_map.scss */
 .map-page .history-content > header h2 {
   width: 300px;
+  font-weight: bold;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   padding: 5px 20px;
@@ -707,7 +708,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   line-height: 24px;
   height: 24px;
 }
-/* line 133, ../../src/scss/_map.scss */
+/* line 134, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView {
   width: 300px;
   position: relative;
@@ -716,7 +717,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-/* line 140, ../../src/scss/_map.scss */
+/* line 141, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView a {
   font-size: 1em;
   line-height: 1.71429em;
@@ -729,7 +730,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   text-decoration: none;
   vertical-align: middle;
 }
-/* line 151, ../../src/scss/_map.scss */
+/* line 152, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView a.showpictures:before {
   content: "\e601";
   display: inline-block;
@@ -742,7 +743,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin-right: 5px;
   vertical-align: middle;
 }
-/* line 164, ../../src/scss/_map.scss */
+/* line 165, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView a.showmap:before {
   content: "\e603";
   display: inline-block;
@@ -755,12 +756,12 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin-right: 5px;
   vertical-align: middle;
 }
-/* line 179, ../../src/scss/_map.scss */
+/* line 180, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 96px 0 0 0;
 }
-/* line 182, ../../src/scss/_map.scss */
+/* line 183, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   display: block;
   padding: 5px 20px;
@@ -774,11 +775,11 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 189, ../../src/scss/_map.scss */
+/* line 190, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 192, ../../src/scss/_map.scss */
+/* line 193, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure {
   display: block;
   display: -webkit-box;
@@ -802,7 +803,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 199, ../../src/scss/_map.scss */
+/* line 200, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview {
   width: 40px;
   height: 40px;
@@ -832,7 +833,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 212, ../../src/scss/_map.scss */
+/* line 213, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview img {
   width: auto;
   height: auto;
@@ -840,7 +841,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   max-height: 50px;
   display: none;
 }
-/* line 220, ../../src/scss/_map.scss */
+/* line 221, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption {
   display: block;
   display: -webkit-box;
@@ -863,7 +864,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 226, ../../src/scss/_map.scss */
+/* line 227, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption h3 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -878,7 +879,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 234, ../../src/scss/_map.scss */
+/* line 235, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption .timestamp {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -894,51 +895,51 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin: 5px 0 0 0;
 }
 
-/* line 249, ../../src/scss/_map.scss */
+/* line 250, ../../src/scss/_map.scss */
 #display {
   position: relative;
   background-color: #008E9A;
 }
 
-/* line 257, ../../src/scss/_map.scss */
+/* line 258, ../../src/scss/_map.scss */
 body.map-mode #switchView a.showpictures {
   display: block;
 }
-/* line 260, ../../src/scss/_map.scss */
+/* line 261, ../../src/scss/_map.scss */
 body.map-mode #switchView a.showmap {
   display: none;
 }
 
-/* line 269, ../../src/scss/_map.scss */
+/* line 270, ../../src/scss/_map.scss */
 body.picture-mode #switchView a.showpictures {
   display: none;
 }
-/* line 272, ../../src/scss/_map.scss */
+/* line 273, ../../src/scss/_map.scss */
 body.picture-mode #switchView a.showmap {
   display: block;
 }
 
-/* line 279, ../../src/scss/_map.scss */
+/* line 280, ../../src/scss/_map.scss */
 .map-mode #pictureViewer {
   display: none;
 }
 
-/* line 284, ../../src/scss/_map.scss */
+/* line 285, ../../src/scss/_map.scss */
 .picture-mode #map {
   display: none;
 }
 
-/* line 289, ../../src/scss/_map.scss */
+/* line 290, ../../src/scss/_map.scss */
 #pictureViewer {
   overflow: hidden;
 }
-/* line 291, ../../src/scss/_map.scss */
+/* line 292, ../../src/scss/_map.scss */
 #pictureViewer ul {
   position: relative;
   width: 100%;
   height: 100%;
 }
-/* line 295, ../../src/scss/_map.scss */
+/* line 296, ../../src/scss/_map.scss */
 #pictureViewer ul li {
   width: 100%;
   height: 100%;
@@ -946,14 +947,14 @@ body.picture-mode #switchView a.showmap {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* line 301, ../../src/scss/_map.scss */
+/* line 302, ../../src/scss/_map.scss */
 #pictureViewer ul li img {
   display: none;
   width: 100%;
   height: 100%;
 }
 
-/* line 310, ../../src/scss/_map.scss */
+/* line 311, ../../src/scss/_map.scss */
 #map, #pictureViewer {
   position: absolute;
   top: 0;

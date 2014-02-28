@@ -19,7 +19,7 @@ routes.home = function (req, res) {
 routes.create = function (req, res) {
     res.render('create',
         {
-            title: 'myJourney',
+            title: 'Create myJourney',
             pageId: 'Create'
         }
     );
@@ -29,7 +29,7 @@ routes.map = function (req, res) {
     res.render('map',
         {
             journeyTitle: '',
-            title: 'myJourney : ',
+            title: 'myJourney',
             pageId: 'Map'
         }
     );
