@@ -14,15 +14,8 @@ var config = conf.load(app.settings.env || 'development');
 
 app.configure(function () {
     app.set('views', __dirname + '/../src/jade');
-    app.set('view engine', 'jade');
+    app.set('view engine', 'jade');    
 
-    app.get('/', routes.home);
-    app.get('/create', routes.create);
-    app.get('/map/:id', routes.map);
-    app.get('/map', routes.map);
-
-    app.get('/api/images', routes.images);
-    app.get('/api/storeAccessToken', routes.storeAccessToken);
     app.use(express.static(path.resolve(config.staticPath)));
     app.use(express.logger());
 });
@@ -40,7 +33,7 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
 //    collection.insert({a: 2}, function (err, docs) {
 
         collection.count(function (err, count) {
-            console.log(format("count = %s", count));
+            console.log(format('count = %s', count));
         });
 
         collection.find().toArray(function (err, results) {
@@ -51,6 +44,12 @@ MongoClient.connect(config.mongoDBUrl, function (err, db) {
 });
 
 
+app.get('/', routes.home);
+app.get('/create', routes.create);
+app.get('/map/:id', routes.map);
+app.get('/map', routes.map);
+app.get('/api/images', routes.images);
+app.get('/storeAccessToken', routes.storeAccessToken);
 
 
 
