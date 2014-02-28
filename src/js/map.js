@@ -101,6 +101,21 @@
                 createMap();
             });
 
+            $(document).keydown(function(e) {
+                e.preventDefault();
+                if ( e.keyCode == 37 || e.keyCode == 38 ) {
+                    var prev = $('.history-content ul .selected').prev();
+                    if ( prev ) {
+                        prev.trigger( 'click' );
+                    }
+                } else if ( e.keyCode == 39 || e.keyCode == 40 ) {
+                    var next = $('.history-content ul .selected').next();
+                    if ( next ) {
+                        next.trigger( 'click' );
+                    }
+                }
+            });
+
             $('.history-content ul').on('click', 'li', function (e) {
                 $(this).siblings().removeClass('selected');
                 var i = Number($(this).data('index'));
