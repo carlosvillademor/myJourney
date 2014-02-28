@@ -1,0 +1,67 @@
+#Spinner {
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size: 10px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.66);
+}
+
+#Spinner {
+  @include flexbox;
+  @include flex-dir( column );
+  @include align-content( center );
+  @include justify-content( center );
+  .Bars {
+    height: 100px;
+    max-height: 100px;
+    div {
+      background-color: #ffffff;
+      height: 100px;
+      width: 10px;
+      margin: 3px;
+      display: inline-block;
+      -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+      animation: stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+
+    .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+
+    .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+  }
+}
+
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  } 20% {
+      transform: scaleY(1.0);
+      -webkit-transform: scaleY(1.0);
+    }
+}
