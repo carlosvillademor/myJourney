@@ -131,15 +131,9 @@ body #Header:after {
 }
 /* line 13, ../../src/scss/partials/_layout.scss */
 body #Header.Home, body #Header.Create {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   background: transparent;
 }
-/* line 17, ../../src/scss/partials/_layout.scss */
+/* line 16, ../../src/scss/partials/_layout.scss */
 body #Header h1 {
   display: inline-block;
   width: 210px;
@@ -147,11 +141,11 @@ body #Header h1 {
   background: transparent url(../img/logo.png) no-repeat 0 0;
   background-size: contain;
 }
-/* line 23, ../../src/scss/partials/_layout.scss */
+/* line 22, ../../src/scss/partials/_layout.scss */
 body #Header h1 span {
   display: none;
 }
-/* line 28, ../../src/scss/partials/_layout.scss */
+/* line 27, ../../src/scss/partials/_layout.scss */
 body #Wrapper {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -170,6 +164,15 @@ body #Wrapper {
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
 }
 /* line 10, ../../src/scss/_mixins.scss */
 body #Wrapper:after {
@@ -185,23 +188,23 @@ body #Wrapper.Home:after, body #Wrapper.Create:after {
   height: 0;
   clear: both;
 }
-/* line 36, ../../src/scss/partials/_layout.scss */
+/* line 37, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header, body #Wrapper.Create header {
   padding-bottom: 0px;
   min-height: 160px;
 }
-/* line 39, ../../src/scss/partials/_layout.scss */
+/* line 40, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h1, body #Wrapper.Create header h1 {
   width: 210px;
   height: 60px;
   margin: 0 auto;
   background: transparent url(../img/logo.png) no-repeat 50% 50%;
 }
-/* line 44, ../../src/scss/partials/_layout.scss */
+/* line 45, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h1 span, body #Wrapper.Create header h1 span {
   display: none;
 }
-/* line 48, ../../src/scss/partials/_layout.scss */
+/* line 49, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h2, body #Wrapper.Create header h2 {
   width: 120px;
   height: 50px;
@@ -209,20 +212,20 @@ body #Wrapper.Home header h2, body #Wrapper.Create header h2 {
   background: transparent url(../img/signs.png) no-repeat 50% 50%;
   background-size: contain;
 }
-/* line 54, ../../src/scss/partials/_layout.scss */
+/* line 55, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home header h2 span, body #Wrapper.Create header h2 span {
   display: none;
 }
-/* line 59, ../../src/scss/partials/_layout.scss */
+/* line 60, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content, body #Wrapper.Create .Content {
   margin: 0 auto;
   max-width: 300px;
 }
-/* line 62, ../../src/scss/partials/_layout.scss */
+/* line 63, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content p, body #Wrapper.Create .Content p {
   text-align: center;
 }
-/* line 65, ../../src/scss/partials/_layout.scss */
+/* line 66, ../../src/scss/partials/_layout.scss */
 body #Wrapper.Home .Content .login-fb, body #Wrapper.Create .Content .login-fb {
   display: block;
   margin: 24px auto;
@@ -246,14 +249,8 @@ body #Wrapper.Home .Content .login-fb, body #Wrapper.Create .Content .login-fb {
   border: 1px solid #e41164;
   text-align: center;
 }
-/* line 86, ../../src/scss/partials/_layout.scss */
+/* line 87, ../../src/scss/partials/_layout.scss */
 body #Footer {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -264,15 +261,9 @@ body #Footer {
 }
 /* line 92, ../../src/scss/partials/_layout.scss */
 body #Footer.Home, body #Footer.Create {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -moz-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   background: transparent;
 }
-/* line 95, ../../src/scss/partials/_layout.scss */
+/* line 94, ../../src/scss/partials/_layout.scss */
 body #Footer.Home .Content, body #Footer.Create .Content {
   width: 300px;
   border-top: 1px dotted #fff;

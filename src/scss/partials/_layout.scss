@@ -11,7 +11,6 @@ body {
 		@include clearfixed;
 		&.Home,
 		&.Create {
-			@include flex( 1 );
 			background: transparent;
 		}
 		h1 {
@@ -29,6 +28,8 @@ body {
 		@include flex( 1 );
 		@include flexbox;
 		@include flex-dir( column );
+		@include align-content( center );
+		@include justify-content( center );
 		@include clearfixed;
 		&.Home,
 		&.Create {
@@ -84,13 +85,11 @@ body {
 		}
 	}
 	#Footer {
-		@include flex( 1 );
 		@include flexbox;
 		min-height: $slot-height;
 		background: rgba( 0, 0, 0, .2 );
 		&.Home,
 		&.Create {
-			@include flex( 1 );
 			background: transparent;
 			.Content {
 				width: w(4);
