@@ -87,8 +87,9 @@
             var elem = $('.history-content ul li').removeClass('selected').eq(i);
             elem.addClass('selected');
             $('.history-content').animate({
-                scrollTop: $('.history-content').scrollTop() + elem.position().top - 73
-            });
+                scrollTop: $('.history-content').scrollTop() + elem.position().top - 73,
+                queue: false
+            }, 400);
             map.panTo(e.layer.getLatLng());
         });
 
