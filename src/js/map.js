@@ -6,6 +6,7 @@
     var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
+    var itemPost = require('../templates/itemPost.jade');
     var itemImage = require('../templates/itemImage.jade');
 
     var MAP_MODE = 'map-mode';
@@ -35,15 +36,28 @@
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
+            console.log(item);
             item.properties.title = item.properties.title || '***';
-            items.push(itemMap({
-                index: index,
-                title: item.properties.title,
-                image: item.properties.image.source,
-                timestamp: item.properties.created_time
-            }));
-            images.push(itemImage({image: item.properties.image.source}));
+            if (item.properties.image) {
+                items.push(itemMap({
+                    index: images.length,
+                    title: item.properties.title,
+                    image: item.properties.image.source,
+                    timestamp: item.properties.created_time
+                }));
+                images.push(itemImage({image: item.properties.image.source}));
+            }else {
+                items.push(itemPost({
+                    index: index,
+                    title: item.properties.title,
+                    timestamp: item.properties.created_time
+                }));
+            }
         });
+
+        if (images.length == 0) {
+            $('.showpictures').hide();
+        }
 
         featureLayer = L.mapbox.featureLayer()
             .addTo(map)

@@ -243,6 +243,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
+    var itemPost = require('../templates/itemPost.jade');
     var itemImage = require('../templates/itemImage.jade');
 
     var MAP_MODE = 'map-mode';
@@ -272,15 +273,28 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
+            console.log(item);
             item.properties.title = item.properties.title || '***';
-            items.push(itemMap({
-                index: index,
-                title: item.properties.title,
-                image: item.properties.image.source,
-                timestamp: item.properties.created_time
-            }));
-            images.push(itemImage({image: item.properties.image.source}));
+            if (item.properties.image) {
+                items.push(itemMap({
+                    index: images.length,
+                    title: item.properties.title,
+                    image: item.properties.image.source,
+                    timestamp: item.properties.created_time
+                }));
+                images.push(itemImage({image: item.properties.image.source}));
+            }else {
+                items.push(itemPost({
+                    index: index,
+                    title: item.properties.title,
+                    timestamp: item.properties.created_time
+                }));
+            }
         });
+
+        if (images.length == 0) {
+            $('.showpictures').hide();
+        }
 
         featureLayer = L.mapbox.featureLayer()
             .addTo(map)
@@ -333,7 +347,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     };
 
 })();
-},{"../templates/itemImage.jade":6,"../templates/itemMap.jade":7}],6:[function(require,module,exports){
+},{"../templates/itemImage.jade":6,"../templates/itemMap.jade":7,"../templates/itemPost.jade":8}],6:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -351,6 +365,16 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 var locals_ = (locals || {}),index = locals_.index,image = locals_.image,title = locals_.title,timestamp = locals_.timestamp;
-buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + "><figure><div" + (jade.attr("style", "background-image: url(" + (image) + ")", true, false)) + " class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></div><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + " class=\"item-image\"><figure><div" + (jade.attr("style", "background-image: url(" + (image) + ")", true, false)) + " class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></div><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
+};
+},{"jade/runtime":2}],8:[function(require,module,exports){
+var jade = require("jade/runtime");
+
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+var locals_ = (locals || {}),index = locals_.index,title = locals_.title,timestamp = locals_.timestamp;
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + " class=\"item-post\"><figure><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
 };
 },{"jade/runtime":2}]},{},[3,4,5])
