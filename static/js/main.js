@@ -378,7 +378,9 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                 markers[i].openPopup();
                 $(this).addClass('selected');
                 if (iImg || iImg === 0) {
-                    $('#pictureViewer ul').animate({top: -100 * iImg + '%'});
+//                    $('#pictureViewer ul').animate({top: -100 * iImg + '%'});
+                    var displaySize = $('#display').height();
+                    $('#pictureViewer ul').animate({top: -1 * displaySize * iImg + 'px'});
                 }
             });
 
