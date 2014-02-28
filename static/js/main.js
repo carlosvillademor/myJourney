@@ -251,7 +251,11 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
-            items.push(itemMap({index: index, title: item.properties.title}));
+            items.push(itemMap({
+                index: index,
+                title: item.properties.title,
+                image: item.properties.image.source
+            }));
         });
 
         featureLayer = L.mapbox.featureLayer()
@@ -303,7 +307,7 @@ module.exports = function template(locals) {
 var buf = [];
 var jade_mixins = {};
 var jade_interp;
-var locals_ = (locals || {}),index = locals_.index,title = locals_.title;
-buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + "><span>" + (jade.escape((jade_interp = index) == null ? '' : jade_interp)) + "</span>" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</li>");;return buf.join("");
+var locals_ = (locals || {}),index = locals_.index,image = locals_.image,title = locals_.title;
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + "><span>" + (jade.escape((jade_interp = index) == null ? '' : jade_interp)) + "</span><span class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></span><span>" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</span></li>");;return buf.join("");
 };
 },{"jade/runtime":2}]},{},[3,4,5])
