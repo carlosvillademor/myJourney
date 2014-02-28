@@ -232,9 +232,13 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 
         var map = require('./map');
         map();
+
+        var spinner = require('./spinner');
+        spinner();
     });
+
 })();
-},{"./create":3,"./map":5}],5:[function(require,module,exports){
+},{"./create":3,"./map":5,"./spinner":6}],5:[function(require,module,exports){
 (function () {
     'use strict';
 
@@ -397,7 +401,15 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     };
 
 })();
-},{"../templates/itemImage.jade":6,"../templates/itemMap.jade":7,"../templates/itemPost.jade":8}],6:[function(require,module,exports){
+},{"../templates/itemImage.jade":7,"../templates/itemMap.jade":8,"../templates/itemPost.jade":9}],6:[function(require,module,exports){
+(function () {
+    'use strict';
+
+    $('.createMap').on('click', function () {
+        $('#SpinnerWrapper').show();
+    });
+})();
+},{}],7:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -407,7 +419,7 @@ var jade_interp;
 var locals_ = (locals || {}),index = locals_.index,image = locals_.image;
 buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + (jade.attr("style", "background-image: url(" + (image) + ");", true, false)) + "><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></li>");;return buf.join("");
 };
-},{"jade/runtime":2}],7:[function(require,module,exports){
+},{"jade/runtime":2}],8:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -417,7 +429,7 @@ var jade_interp;
 var locals_ = (locals || {}),index = locals_.index,imageIndex = locals_.imageIndex,image = locals_.image,title = locals_.title,timestamp = locals_.timestamp;
 buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("data-image-index", '' + (imageIndex) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + " class=\"item-image\"><figure><div" + (jade.attr("style", "background-image: url(" + (image) + ")", true, false)) + " class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></div><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
 };
-},{"jade/runtime":2}],8:[function(require,module,exports){
+},{"jade/runtime":2}],9:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -427,4 +439,4 @@ var jade_interp;
 var locals_ = (locals || {}),index = locals_.index,title = locals_.title,timestamp = locals_.timestamp;
 buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + " class=\"item-post\"><figure><div class=\"postPreview\"></div><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
 };
-},{"jade/runtime":2}]},{},[3,4,5])
+},{"jade/runtime":2}]},{},[3,4,5,6])

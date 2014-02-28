@@ -10,7 +10,8 @@ routes.home = function (req, res) {
     res.render('home',
         {
             title: 'myJourney',
-            pageId: 'Home'
+            pageId: 'Home',
+            facebookUrl: 'https://www.facebook.com/dialog/oauth?scope=user_photos,read_stream&client_id=648327631897525&redirect_uri=http://' + req.headers.host + '/storeAccessToken/'
         }
     );
 };
