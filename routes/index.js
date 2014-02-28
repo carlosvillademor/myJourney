@@ -198,9 +198,9 @@ routes.journey = function (req, res) {
         var journeys = db.collection('journeys');
         var journeyId = req.params.id;
         journeys.find({'_id': new ObjectID(journeyId)}).toArray(function (err, results) {
-            if (err) res.send(404, err);
+            if (err || results.length !== 1) res.send(404, 'Error while getting journey with id ' + journeyId + ' results size is ' + results.length +  (err || ''));
             db.close();
-            res.send(results);
+            res.send(results[0]);
         });
     });
 };
