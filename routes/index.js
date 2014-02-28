@@ -32,6 +32,7 @@ routes.map = function (req, res) {
     )
 };
 
+
 routes.storeAccessToken = function (req, res) {
     var code = req.query.code;
 
@@ -100,7 +101,28 @@ function fetchUserPhotos(uid, res) {
             }));
         }
 
-        res.send(mapData);
+        storeMapData(mapData, function() {
+            res.send(mapData);
+        });
+
+
+    });
+}
+
+
+function storeMapData(mapData, callback) {
+
+    MongoClient.connect(config.mongoDBUrl, function (err, db) {
+        if (err) throw err;
+
+        var collection = db.collection('map_data');
+        collection.insert(mapData, function(err, docs) {
+            if (err) throw err;
+
+            console.log(JSON.stringify(docs));
+        });
+
+        callback();
     });
 }
 
@@ -163,6 +185,6 @@ function connectToMongo () {
 })();
 
 exports.createRoutes = function (configuration) {
-    mongoDBUrl = configuration.mongoDBUrl;
-    return routes;
+    config = configuration;
+   return routes;
 };
