@@ -33,6 +33,29 @@
 	text-shadow: black( $opacity ) 0 1px 0;
 }
 
+@mixin buttonize() {
+    display: inline-block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: w( 4 );
+    height: h( 2 );
+    color: #fff;
+    font-weight: normal;
+    text-decoration: none;
+    font-family: $font-headers;
+    @include adjust-font-size-to(24px);
+    @include border-radius(10px);
+    line-height: h( 2 );
+    border: 1px solid darken($Color-Pink, 10% );
+    text-align: center;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,.5);
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.5);    
+    background-color: $Color-Pink;
+    @include filter-gradient(lighten($Color-Pink, 10%), darken($Color-Pink, 10%), vertical);
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(top,  lighten($Color-Pink, 10%) 0%,darken($Color-Pink, 10%) 100%));
+}
+
 @mixin letterpress( $opacity ){
 	text-shadow: white( $opacity ) 0 1px 0;
 }

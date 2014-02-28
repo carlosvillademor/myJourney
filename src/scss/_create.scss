@@ -16,22 +16,8 @@
 				margin-bottom: $gutter-h / 2;
 			}
 			button[type="submit"] {
-				display: block;
-				margin: $slot-height auto;
-				box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				width: w( 4 );
-				height: h( 2 );
-				color: #fff;
-				font-weight: normal;
-				text-decoration: none;
-				background: $Color-Pink;
-				font-family: $font-headers;
-				border: 1px solid darken($Color-Pink, 10% );
-				@include adjust-font-size-to(24px);
-				@include border-radius(10px);
-				line-height: h( 2 );
-				text-align: center;
+				@include buttonize;		
+				width: w(4);			
 			}
 		}
 	}
