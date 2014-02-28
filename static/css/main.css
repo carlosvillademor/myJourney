@@ -770,6 +770,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
 .map-page .history-content ul li {
   display: block;
   padding: 5px 20px;
+  border-bottom: 1px solid #f2edd0;
   list-style: none;
   text-align: left;
   cursor: pointer;
@@ -779,12 +780,22 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -ms-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
-/* line 194, ../../src/scss/_map.scss */
+/* line 201, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 197, ../../src/scss/_map.scss */
+/* line 204, ../../src/scss/_map.scss */
+.map-page .history-content ul li.selected {
+  background-color: #f2edd0;
+}
+/* line 207, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure {
   display: block;
   display: -webkit-box;
@@ -808,7 +819,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 204, ../../src/scss/_map.scss */
+/* line 214, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview {
   width: 40px;
   min-width: 40px;
@@ -839,7 +850,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 218, ../../src/scss/_map.scss */
+/* line 228, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview img {
   width: auto;
   height: auto;
@@ -847,7 +858,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   max-height: 50px;
   display: none;
 }
-/* line 226, ../../src/scss/_map.scss */
+/* line 236, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .postPreview {
   width: 40px;
   min-width: 40px;
@@ -872,13 +883,12 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   border-radius: 10px;
-  background: #fff;
 }
-/* line 236, ../../src/scss/_map.scss */
+/* line 245, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .postPreview:before {
   text-align: center;
   color: #f03880;
-  content: "\e603";
+  content: "\e602";
   display: inline-block;
   font-family: "icons";
   font-size: 2.14286em;
@@ -888,7 +898,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin-right: 5px;
   vertical-align: middle;
 }
-/* line 249, ../../src/scss/_map.scss */
+/* line 258, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption {
   display: block;
   display: -webkit-box;
@@ -911,7 +921,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 255, ../../src/scss/_map.scss */
+/* line 264, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption h3 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -926,7 +936,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 263, ../../src/scss/_map.scss */
+/* line 272, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption .timestamp {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -942,13 +952,13 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin: 5px 0 0 0;
 }
 
-/* line 278, ../../src/scss/_map.scss */
+/* line 287, ../../src/scss/_map.scss */
 #display {
   position: relative;
   background-color: #008E9A;
 }
 
-/* line 283, ../../src/scss/_map.scss */
+/* line 292, ../../src/scss/_map.scss */
 .map-page .history-content ul .item-post {
   overflow: hidden;
   -webkit-transition: all 500ms ease-in-out;
@@ -958,59 +968,60 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   transition: all 500ms ease-in-out;
 }
 
-/* line 295, ../../src/scss/_map.scss */
+/* line 304, ../../src/scss/_map.scss */
 body.map-mode #switchView a.showpictures {
   display: block;
 }
-/* line 298, ../../src/scss/_map.scss */
+/* line 307, ../../src/scss/_map.scss */
 body.map-mode #switchView a.showmap {
   display: none;
 }
-/* line 303, ../../src/scss/_map.scss */
+/* line 312, ../../src/scss/_map.scss */
 body.map-mode .map-page .history-content ul .item-post {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   height: 40px;
 }
 
-/* line 311, ../../src/scss/_map.scss */
+/* line 320, ../../src/scss/_map.scss */
 body.picture-mode #switchView a.showpictures {
   display: none;
 }
-/* line 314, ../../src/scss/_map.scss */
+/* line 323, ../../src/scss/_map.scss */
 body.picture-mode #switchView a.showmap {
   display: block;
 }
-/* line 319, ../../src/scss/_map.scss */
+/* line 328, ../../src/scss/_map.scss */
 body.picture-mode .map-page .history-content ul .item-post {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   height: 0;
+  padding: 0 20px;
 }
 
-/* line 325, ../../src/scss/_map.scss */
+/* line 335, ../../src/scss/_map.scss */
 .map-mode #pictureViewer {
   top: 0;
   left: 100%;
 }
 
-/* line 331, ../../src/scss/_map.scss */
+/* line 341, ../../src/scss/_map.scss */
 .picture-mode #map {
   top: 0;
   left: -100%;
 }
 
-/* line 337, ../../src/scss/_map.scss */
+/* line 347, ../../src/scss/_map.scss */
 #pictureViewer {
   overflow: hidden;
 }
-/* line 339, ../../src/scss/_map.scss */
+/* line 349, ../../src/scss/_map.scss */
 #pictureViewer ul {
   position: relative;
   width: 100%;
   height: 100%;
 }
-/* line 343, ../../src/scss/_map.scss */
+/* line 353, ../../src/scss/_map.scss */
 #pictureViewer ul li {
   width: 100%;
   height: 100%;
@@ -1018,14 +1029,14 @@ body.picture-mode .map-page .history-content ul .item-post {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* line 349, ../../src/scss/_map.scss */
+/* line 359, ../../src/scss/_map.scss */
 #pictureViewer ul li img {
   display: none;
   width: 100%;
   height: 100%;
 }
 
-/* line 359, ../../src/scss/_map.scss */
+/* line 369, ../../src/scss/_map.scss */
 #map,
 #pictureViewer {
   position: absolute;
@@ -1033,9 +1044,9 @@ body.picture-mode .map-page .history-content ul .item-post {
   left: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: all 300ms ease-in-out;
-  -moz-transition: all 300ms ease-in-out;
-  -ms-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -ms-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }

@@ -280,14 +280,14 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                     index: images.length,
                     title: item.properties.title,
                     image: item.properties.image.source,
-                    timestamp: item.properties.created_time
+                    timestamp: item.properties.created_time.substring(0,10)
                 }));
                 images.push(itemImage({image: item.properties.image.source}));
             }else {
                 items.push(itemPost({
                     index: index,
                     title: item.properties.title,
-                    timestamp: item.properties.created_time
+                    timestamp: item.properties.created_time.substring(0,10)
                 }));
             }
         });
@@ -328,10 +328,12 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             });
 
             $('.history-content ul').on('click', 'li', function (e) {
+                $(this).siblings().removeClass('selected');
                 var i = Number($(this).data('index'));
                 map.panTo(markers[i].getLatLng());
                 markers[i].openPopup();
                 $('#pictureViewer ul').animate({top: -100 * i + '%'});
+                $(this).addClass('selected');
             });
 
             $('.showpictures').on('click', function () {

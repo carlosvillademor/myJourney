@@ -187,11 +187,21 @@
             li {
                 display: block;
                 padding: 5px $gutter-h;
+                border-bottom: 1px solid $Color-Sandy;
                 list-style: none;
                 text-align: left;
                 cursor: pointer;
                 @include no-select;
+                cursor: pointer;
+                -webkit-transition: all 200ms ease-in-out;
+                -moz-transition: all 200ms ease-in-out;
+                -ms-transition: all 200ms ease-in-out;
+                -o-transition: all 200ms ease-in-out;
+                transition: all 200ms ease-in-out;
                 &:hover {
+                    background-color: $Color-Sandy;
+                }
+                &.selected {
                     background-color: $Color-Sandy;
                 }
                 figure {
@@ -232,11 +242,10 @@
                         @include align-content( center );
                         @include justify-content( center );
                         @include border-radius( 10px );
-                        background: #fff;
                         &:before {
                             text-align: center;
                             color: $Color-Pink;
-                            content: "\e603";
+                            content: "\e602";
                             display: inline-block;                            
                             font-family: $font-icons;
                             @include adjust-font-size-to(30px);
@@ -319,6 +328,7 @@ body.picture-mode {
     .map-page .history-content ul .item-post {
         @include opacity( 0 );
         height: 0;        
+        padding: 0 $gutter-h;
     }
 }
 .map-mode {
@@ -362,9 +372,9 @@ body.picture-mode {
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transition: all 300ms ease-in-out;
-    -moz-transition: all 300ms ease-in-out;
-    -ms-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
