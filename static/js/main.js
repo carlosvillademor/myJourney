@@ -341,7 +341,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             $('.history-content ul').on('click', 'li', function (e) {
                 var i = Number($(this).data('index'));
                 map.panTo(markers[i].getLatLng());
-                miniMap.setView(markersMini[i].getLatLng(), 16);
+                miniMap.setView(markersMini[i].getLatLng(), 12);
                 markers[i].openPopup();
                 $('#pictureViewer ul').animate({top: -100 * i + '%'});
             });
