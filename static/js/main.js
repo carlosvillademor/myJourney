@@ -241,25 +241,29 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
+    var itemImage = require('../templates/itemImage.jade');
 
     var MAP_MODE = 'map-mode';
     var PICTURE_MODE = 'picture-mode';
 
     var mode = MAP_MODE;
 
-    $('body').addClass(mode);
+    var $body = $('body');
+
+    $body.addClass(mode);
 
 
     function switchMode(newMode) {
         if (newMode != mode) {
-            $('body').removeClass(mode);
+            $body.removeClass(mode);
             mode = newMode;
-            $('body').addClass(newMode);    
+            $body.addClass(newMode);    
         }    
     }
 
     function createMap() {
         var items = [];
+        var images = [];
         markers = [];
 
         map = L.mapbox.map('map', 'fetz.hcpe8ip9')
@@ -273,6 +277,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                 image: item.properties.image.source,
                 timestamp: item.properties.created_time
             }));
+            images.push(itemImage({image: item.properties.image.source}));
         });
 
         featureLayer = L.mapbox.featureLayer()
@@ -293,6 +298,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         map.fitBounds(featureLayer.getBounds());
         
         $('.history-content ul').html(items.join(''));
+        $('#pictureViewer ul').html(images.join(''));
     }
 
     module.exports = function () {
@@ -324,7 +330,17 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     };
 
 })();
-},{"../templates/itemMap.jade":6}],6:[function(require,module,exports){
+},{"../templates/itemImage.jade":6,"../templates/itemMap.jade":7}],6:[function(require,module,exports){
+var jade = require("jade/runtime");
+
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+var locals_ = (locals || {}),index = locals_.index,image = locals_.image;
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + "><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></li>");;return buf.join("");
+};
+},{"jade/runtime":2}],7:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
