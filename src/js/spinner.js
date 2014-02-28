@@ -1,7 +1,9 @@
 (function () {
     'use strict';
 
-    $('.createMap').on('click', function () {
-        $('#SpinnerWrapper').show();
-    });
+    module.exports = function () {
+        $('.createMap').on('click', function () {
+            $('#SpinnerWrapper').show();
+        });
+    };
 })();
