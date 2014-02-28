@@ -1,3 +1,7 @@
+#SpinnerWrapper {
+  display: none;
+}
+
 #Spinner {
   margin: auto;
   width: 100vw;
@@ -8,9 +12,6 @@
   left: 0;
   position: fixed;
   background: rgba(0, 0, 0, 0.66);
-}
-
-#Spinner {
   @include flexbox;
   @include flex-dir( column );
   @include align-content( center );

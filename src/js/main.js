@@ -7,5 +7,9 @@
 
         var map = require('./map');
         map();
+
+        var spinner = require('./spinner');
+        spinner();
     });
+
 })();
