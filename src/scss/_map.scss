@@ -202,7 +202,10 @@
                     background-color: $Color-Sandy;
                 }
                 &.selected {
-                    background-color: $Color-Sandy;
+                    background-color: $Color-Orange;
+                    h3 {
+                        color: #fff;
+                    }
                 }
                 figure {
                     display: block;
@@ -268,7 +271,12 @@
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
-                          }
+                            -webkit-transition: all 200ms ease-in-out;
+                            -moz-transition: all 200ms ease-in-out;
+                            -ms-transition: all 200ms ease-in-out;
+                            -o-transition: all 200ms ease-in-out;
+                            transition: all 200ms ease-in-out;
+                         }
                         .timestamp {
                             @include flex( 1 );
                             @include adjust-font-size-to(10px);
