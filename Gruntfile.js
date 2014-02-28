@@ -36,22 +36,6 @@ module.exports = function(grunt) {
         transform: ['jadeify']
       }
     },
-    jade: {
-      dev: {
-        options: {
-          pretty: true
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'src/jade/',
-            src: ['*.jade'],
-            dest: 'static',
-            ext: '.html'
-          }
-        ]
-      }
-    },
     watch: {
       options: {
         livereload: true
@@ -80,10 +64,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-express-server');
 
-  grunt.registerTask('default', ['jade', 'compass', 'browserify', 'express', 'watch']);
+  grunt.registerTask('default', ['compass', 'browserify', 'express', 'watch']);
 
 };

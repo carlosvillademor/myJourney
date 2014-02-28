@@ -6,11 +6,12 @@ var _ = require('lodash'),
     config;
 
 routes.home = function (req, res) {
+    console.log('home baby');
     res.render('home',
         {
             title: 'myJourney',
             pageId: 'Home',
-            facebookUrl: 'https://www.facebook.com/dialog/oauth?scope=user_photos&client_id=648327631897525&redirect_uri=http://' + req.headers.host + '/storeAccessToken/'
+            facebookUrl: 'https://www.facebook.com/dialog/oauth?scope=user_photos,user_status&client_id=648327631897525&redirect_uri=http://' + req.headers.host + '/storeAccessToken/'
         }
     );
 };
@@ -67,7 +68,7 @@ routes.storeAccessToken = function (req, res) {
 function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
     //until(' + toTimestamp + ').since(' + fromTimestamp + ')
-    FB.api(uid + '', { fields: ['id', 'name', 'photos.since(' + startTime + ').until(' + endTime + ').limit(1000)']}, function (fbRes) {
+    FB.api(uid + '', { fields: ['id', 'name', 'photos.since(' + startTime + ').until(' + endTime + ').limit(1000)', 'statuses.since(' + startTime + ').until(' + endTime + ').limit(1000)']}, function (fbRes) {
         if (!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
             return res.send(500, "Failed to request photos");
@@ -87,10 +88,11 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
                     return  {
                         type: "Feature",
                         properties: {
-                            title: photo.name,
+                            title: photo.name || photo.message,
                             image: _.first(photo.images),
-                            created_time: photo.created_time
+                            created_time: photo.created_time || photo.updated_time
                         },
+
                         geometry: {
                             type: "Point",
                             coordinates: [
