@@ -63,10 +63,11 @@ routes.storeAccessToken = function (req, res) {
     }
 };
 
-function fetchUserPhotos(uid, res) {
+function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
     //until(' + toTimestamp + ').since(' + fromTimestamp + ')
-    FB.api(uid + '', { fields: ['id', 'name', 'photos.limit(1000)']}, function (fbRes) {
+    console.log('photos.since(' + startTime + ').until(' + endTime + ').limit(1000)');
+    FB.api(uid + '', { fields: ['id', 'name', 'photos.since(' + startTime + ').until(' + endTime + ').limit(1000)']}, function (fbRes) {
         if (!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
             return res.send(500, "Failed to request photos");
@@ -74,6 +75,7 @@ function fetchUserPhotos(uid, res) {
 
         var mapData = {
             type: "FeatureCollection",
+            tripname: tripname,
             features: []
         };
 
@@ -127,14 +129,30 @@ function storeMapData(mapData, callback) {
 routes.images = function (req, res) {
     var accessToken = req.session.fbAccessToken;
 
+    var startTimeStr = req.query.starttime;
+    var endTimeStr = req.query.endtime;
+    var tripname = req.query.tripname;
+
+    // Remove once urls updated
+    if(!startTimeStr) startTimeStr = "1 Jan 1970";
+    if(!endTimeStr) endTimeStr = "1 Jan 2020";
+    if(!tripname) tripname = "My journey";
 
 
-    /*var fromTimestamp = req.query.fromTimestamp;
-     var toTimestamp = req.query.toTimestamp;
+    if(!startTimeStr || !endTimeStr || !tripname) {
+        return res.send(500, "No starttime, endtime or tripname defined");
+    }
 
-     if(!fromTimetamp || !toTimestamp) {
-     return res.send(500, "Please specify fromTimestamp and toTimestamp")
-     }*/
+    var startTime = new Date(startTimeStr).getTime();
+    var endTime = new Date(endTimeStr).getTime();
+
+    if(startTime == NaN || endTime == NaN) {
+        return res.send(500, "starttime or endtime is not valid");
+    }
+
+    // Convert to unix TS
+    startTime /= 1000;
+    endTime /= 1000;
 
 
     if (!accessToken) {
@@ -153,7 +171,7 @@ routes.images = function (req, res) {
         }
 
         console.log(JSON.stringify(fbRes.data[0].uid));
-        fetchUserPhotos(fbRes.data[0].uid, res);
+        fetchUserPhotos(fbRes.data[0].uid, res, startTime, endTime, tripname);
 
     });
 };
