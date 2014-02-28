@@ -1,9 +1,9 @@
 var _ = require('lodash'),
     FB = require('fb'),
     MongoClient = require('mongodb').MongoClient,
+    ObjectID = require('mongodb').ObjectID,
     routes = {},
-    config,
-    mongoDBUrl;
+    config;
 
 routes.home = function (req, res) {
     res.render('home',
@@ -186,34 +186,21 @@ routes.createJourney = function (req, res) {
     });
 };
 
-function connectToMongo () {
-    MongoClient.connect(mongoDBUrl, function (err, db) {
-        if (err) throw err;
-
-        var collection = db.collection('test_insert');
-//    collection.insert({a: 2}, function (err, docs) {
-
-        collection.count(function (err, count) {
-            console.log(format('count = %s', count));
-        });
-
-        collection.find().toArray(function (err, results) {
-            console.dir(results);
+routes.journey = function (req, res) {
+    res.set("Content-Type", "application/json");
+    MongoClient.connect(config.mongoDBUrl, function (err, db) {
+        if (err) return res.send(500, err.toString());
+        var journeys = db.collection('journeys');
+        var journeyId = req.query.id || "53106083c448590000e32cf3";
+        journeys.find({'_id': new ObjectID(journeyId)}).toArray(function (err, results) {
+            if (err) res.send(404, err);
             db.close();
+            res.send(results);
         });
-//    });
     });
-}
-
-(function () {
-    function getJourney(id) {
-    }
-
-    routes.journey = function (req, res) {
-    };
-})();
+};
 
 exports.createRoutes = function (configuration) {
     config = configuration;
-   return routes;
+    return routes;
 };
