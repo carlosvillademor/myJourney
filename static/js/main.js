@@ -341,7 +341,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 var locals_ = (locals || {}),index = locals_.index,image = locals_.image;
-buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + "><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></li>");;return buf.join("");
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + (jade.attr("style", "background-image: url(" + (image) + ");", true, false)) + "><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></li>");;return buf.join("");
 };
 },{"jade/runtime":2}],7:[function(require,module,exports){
 var jade = require("jade/runtime");
