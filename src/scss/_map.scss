@@ -383,6 +383,10 @@ body.picture-mode {
     .leaflet-control-container {
         display: none;
     }
+    @media screen 
+        and (max-device-width: $break-mobile-landscape + 4 * $side-padding ) {
+            display: none;
+        }
 }
 
 #map, #pictureViewer {
