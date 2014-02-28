@@ -105,7 +105,16 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
         }
 
         storeMapData(mapData, function() {
-            res.send(mapData);
+            // TODO Remove this is just during migration from api/images -> api/createJourney once migrated we only require the redirect route
+            if(startTime) {
+
+                res.redirect("map?id=" + mapData._id);
+            }
+            else {
+                res.send(mapData);
+            }
+
+
         });
     });
 }
@@ -127,7 +136,7 @@ function storeMapData(mapData, callback) {
     });
 }
 
-routes.images = function (req, res) {
+routes.createJourney = function (req, res) {
     var accessToken = req.session.fbAccessToken;
 
     var startTimeStr = req.query.starttime;
