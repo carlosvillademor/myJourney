@@ -82,20 +82,24 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
         };
 
 
+        // Photos
         if (fbRes.photos) {
-
             mapData.features = extractResources(fbRes.photos.data);
-
-            mapData.features = _.sortBy(mapData.features, function(data) {
-                return data.properties.created_time;
-            });
         }
+
+        if(fbRes.posts) {
+            mapData.features = mapData.features.concat(extractResources(fbRes.posts.data));
+        }
+
+        // Posts
+        mapData.features = _.sortBy(mapData.features, function(data) {
+            return data.properties.created_time;
+        });
 
 
         storeMapData(mapData, function() {
             // TODO Remove this is just during migration from api/images -> api/createJourney once migrated we only require the redirect route
             if(startTime) {
-
                 res.redirect("map/" + mapData._id);
             }
             else {
@@ -109,13 +113,12 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
 function extractResources(resources) {
 
-    console.log(JSON.stringify(resources));
     return _.filter(_.map(resources, function (resource) {
         if (resource.place && resource.place.location && resource.place.location.longitude) {
             return  {
                 type: "Feature",
                 properties: {
-                    title: resource.name,
+                    title: resource.message || resource.story || resource.name,
                     image: _.first(resource.images),
                     created_time: resource.created_time
                 },
@@ -158,8 +161,8 @@ routes.createJourney = function (req, res) {
     var tripname = req.query.tripname;
 
     // Remove once urls updated
-    if(!startTimeStr) startTimeStr = "1 Jan 1970";
-    if(!endTimeStr) endTimeStr = "1 Jan 2020";
+    if(!startTimeStr) startTimeStr = "1 Jan 2014";
+    if(!endTimeStr) endTimeStr = "1 Jan 2015";
     if(!tripname) tripname = "My journey";
 
 
