@@ -340,21 +340,36 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             });
 
             $(document).keydown(function(e) {
-                e.preventDefault();
+                if ( e.keyCode >= 37 && e.keyCode <= 40 ) {
+                    e.preventDefault();
+                }
+                var prev, next, elIndex;
+                var selected = $('.history-content ul .selected' );
+                if ( mode == MAP_MODE ) {
+                    elIndex = parseInt(selected.attr('data-index') );
+                    prev = $( '[data-index="'+ ( elIndex - 1 ) +'"]' ) || null;
+                    next = $( '[data-index="'+ ( elIndex + 1 ) +'"]' ) || null;
+                } else {
+                    elIndex = parseInt(selected.attr('data-image-index') );
+                    prev = $( '[data-image-index="'+ ( elIndex - 1 ) +'"]' ) || null;
+                    next = $( '[data-image-index="'+ ( elIndex + 1 ) +'"]' ) || null;
+                }
                 if ( e.keyCode == 37 || e.keyCode == 38 ) {
-                    var prev = $('.history-content ul .selected').prev();
                     if ( prev ) {
                         prev.trigger( 'click' );
                     }
                 } else if ( e.keyCode == 39 || e.keyCode == 40 ) {
-                    var next = $('.history-content ul .selected').next();
                     if ( next ) {
                         next.trigger( 'click' );
                     }
                 }
+                $('.history-content').animate({
+                        scrollTop: selected.offset().top
+                }, 2000);
             });
 
             $('.history-content ul').on('click', 'li', function (e) {
+                e.preventDefault();
                 $(this).siblings().removeClass('selected');
                 var i = Number($(this).data('index'));
                 var iImg = Number($(this).data('image-index'));
