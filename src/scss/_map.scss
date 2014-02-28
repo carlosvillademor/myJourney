@@ -7,7 +7,7 @@
     and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
         @include flex-dir( row );
         max-height: 100%;
-        #map {
+        #display {
             @include flex( 3);
             max-height: 100%;
         }
@@ -23,7 +23,7 @@
     and (max-width: $break-tablet-landscape - 1 + 4 * $side-padding )
     and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
         @include flex-dir( row );
-        #map {
+        #display {
             @include flex( 3);
             max-height: 100%;
         }
@@ -39,7 +39,7 @@
     and (min-device-width: $break-tablet-landscape + 2 * $side-padding ) {
         @include flex-dir( column );
         max-height: 100%;
-        #map {
+        #display {
             @include flex( 1 );
         }
         .history-content {
@@ -53,7 +53,7 @@
     and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
     and (orientation:landscape) {
         @include flex-dir( row );
-        #map {
+        #display {
             @include flex( 3 );
         }
         .history-content {
@@ -68,7 +68,7 @@
     and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
     and (orientation:portrait) {
         @include flex-dir( column );
-        #map {
+        #display {
             @include flex( 3 );
         }
         .history-content {
@@ -80,7 +80,7 @@
     and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
     and (orientation:landscape) {
         @include flex-dir( row );
-        #map {
+        #display {
             @include flex( 3 );
             max-height: 100vh;
         }
@@ -95,7 +95,7 @@
     and (max-device-width: $break-tablet-portrait - 1 + 4 * $side-padding )
     and (orientation:portrait) {
        @include flex-dir( column );
-        #map {
+        #display {
             @include flex( 3 );
         }
         .history-content {
@@ -109,12 +109,18 @@
         color: $Color-BodyText;
         position: relative;
         z-index: 2;
+
+        a {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 10px 10px 0px;
+        }
         ul {
             margin: 0 ( -1 * $gutter-h );
             padding: 0;
             li {
                 display: block;
-                padding: 10px $gutter-h;
+                padding: 5px $gutter-h;
                 list-style: none;
                 text-align: left;
                 cursor: pointer;
@@ -122,30 +128,83 @@
                 &:hover {
                     background-color: $Color-Sandy;
                 }
-                span {
-                    padding: 0 10px;
-                    font-weight: bold;
+                figure {
+                    display: block;
+                    @include clearfixed;
+                    @include flexbox;
+                    @include flex-dir( row );
+                    min-height: 40px;
+                    margin: 0;
+                    .preview {
+                        width: 40px;
+                        height: 40px;
+                        margin: 0 10px 0 0;
+                        @include flexbox;
+                        @include align-content( center );
+                        @include justify-content( center );
+                        @include border-radius( 10px );
+                        background-position: 50% 50%;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        -webkit-box-shadow: 0 1px 5px 0 rgba(0,0,0,.5);
+                        box-shadow: 0 1px 5px 0 rgba(0,0,0,.5);    
+                        img {
+                            width: auto;
+                            height: auto;
+                            max-width: 50px;
+                            max-height: 50px;
+                            display: none;
+                        }
+                    }
+                    figcaption {
+                        display: block;
+                        @include clearfixed;
+                        @include flexbox;
+                        @include flex-dir( column );
+                        min-height: 40px;
+                        h3 {
+                            @include flex( 1 );
+                            @include adjust-font-size-to(12px);
+                            color: #666;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          }
+                        .timestamp {
+                            @include flex( 1 );
+                            @include adjust-font-size-to(10px);
+                            color: #ccc;
+                            height: 10px;
+                            line-height: 10px;
+                            margin: 5px 0 0 0;
+                        }
+                    }
                 }
-                > * {
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-            }
-        }
-
-        .preview {
-            background-color: #000;
-            width: 50px;
-            height: 50px;
-            img {
-                max-width: 50px;
-                max-height: 50px;
             }
         }
     }
 }
 
-#map {
+#display {
+    position: relative;
     background-color: #008E9A;
 }
 
+.map-mode {
+    #pictureViewer {
+        display: none;
+    }
+}
+.picture-mode {
+    #map {
+        display: none;
+    }
+}
+
+#map, #pictureViewer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

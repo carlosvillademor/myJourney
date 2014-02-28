@@ -440,7 +440,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     max-height: 100%;
   }
   /* line 10, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -473,7 +473,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: row;
   }
   /* line 26, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -507,7 +507,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     max-height: 100%;
   }
   /* line 42, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
     -moz-box-flex: 1;
@@ -544,7 +544,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: row;
   }
   /* line 56, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -576,7 +576,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: column;
   }
   /* line 71, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -606,7 +606,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: row;
   }
   /* line 83, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -639,7 +639,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     flex-direction: column;
   }
   /* line 98, ../../src/scss/_map.scss */
-  .map-page #map {
+  .map-page #display {
     -webkit-box-flex: 3;
     -webkit-flex: 3;
     -moz-box-flex: 3;
@@ -666,15 +666,21 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   position: relative;
   z-index: 2;
 }
-/* line 112, ../../src/scss/_map.scss */
+/* line 113, ../../src/scss/_map.scss */
+.map-page .history-content a {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 10px 10px 0px;
+}
+/* line 118, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 0;
 }
-/* line 115, ../../src/scss/_map.scss */
+/* line 121, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   display: block;
-  padding: 10px 20px;
+  padding: 5px 20px;
   list-style: none;
   text-align: left;
   cursor: pointer;
@@ -685,33 +691,147 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 122, ../../src/scss/_map.scss */
+/* line 128, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 125, ../../src/scss/_map.scss */
-.map-page .history-content ul li span {
-  padding: 0 10px;
-  font-weight: bold;
+/* line 131, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure {
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  min-height: 40px;
+  margin: 0;
 }
-/* line 129, ../../src/scss/_map.scss */
-.map-page .history-content ul li > * {
-  display: inline-block;
-  vertical-align: middle;
+/* line 10, ../../src/scss/_mixins.scss */
+.map-page .history-content ul li figure:after {
+  content: ' ';
+  display: block;
+  height: 0;
+  clear: both;
 }
-/* line 136, ../../src/scss/_map.scss */
-.map-page .history-content .preview {
-  background-color: #000;
-  width: 50px;
-  height: 50px;
+/* line 138, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure .preview {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 0 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 140, ../../src/scss/_map.scss */
-.map-page .history-content .preview img {
+/* line 151, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure .preview img {
+  width: auto;
+  height: auto;
   max-width: 50px;
   max-height: 50px;
+  display: none;
+}
+/* line 159, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure figcaption {
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 40px;
+}
+/* line 10, ../../src/scss/_mixins.scss */
+.map-page .history-content ul li figure figcaption:after {
+  content: ' ';
+  display: block;
+  height: 0;
+  clear: both;
+}
+/* line 165, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure figcaption h3 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 0.85714em;
+  line-height: 2em;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 173, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure figcaption .timestamp {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 0.71429em;
+  line-height: 2.4em;
+  color: #ccc;
+  height: 10px;
+  line-height: 10px;
+  margin: 5px 0 0 0;
 }
 
-/* line 148, ../../src/scss/_map.scss */
-#map {
+/* line 188, ../../src/scss/_map.scss */
+#display {
+  position: relative;
   background-color: #008E9A;
+}
+
+/* line 194, ../../src/scss/_map.scss */
+.map-mode #pictureViewer {
+  display: none;
+}
+
+/* line 199, ../../src/scss/_map.scss */
+.picture-mode #map {
+  display: none;
+}
+
+/* line 204, ../../src/scss/_map.scss */
+#map, #pictureViewer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

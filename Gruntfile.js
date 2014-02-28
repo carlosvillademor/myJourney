@@ -10,7 +10,8 @@ module.exports = function(grunt) {
       dev: {
         options: {
           script: 'js/server.js',
-          port: config.port
+          port: config.port,
+          delay: 5000
         }
       }
     },
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
         tasks: ['jade:dev']
       },
       express: {
-        files:  [ 'js/*.js' ],
+        files:  [ 'js/*.js', 'routes/*.js' ],
         tasks:  [ 'express:dev' ],
         options: {
           nospawn: true
