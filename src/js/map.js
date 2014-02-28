@@ -4,7 +4,22 @@
     var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
-    
+
+    var MAP_MODE = 'map-mode';
+    var PICTURE_MODE = 'picture-mode';
+
+    var mode = MAP_MODE;
+
+    $('body').addClass(mode);
+
+
+    function switchMode(newMode) {
+        if (newMode != mode) {
+            $('body').removeClass(mode);
+            newMode = mode;
+            $('body').addClass(newMode);    
+        }    
+    }
 
     function createMap() {
         var items = [];
@@ -14,7 +29,7 @@
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
-            item.properties.title = item.properties.title || "***";
+            item.properties.title = item.properties.title || '***';
             items.push(itemMap({
                 index: index,
                 title: item.properties.title,
@@ -59,6 +74,13 @@
                 markers[i].openPopup();
             });
 
+            $('.showpictures').on('click', function () {
+                switchMode(PICTURE_MODE);
+            });
+
+            $('.showmap').on('click', function () {
+                switchMode(MAP_MODE);
+            });
         }
 
         return map;

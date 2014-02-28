@@ -242,7 +242,21 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 
     var itemMap = require('../templates/itemMap.jade');
 
-    var mode = 'map';
+    var MAP_MODE = 'map-mode';
+    var PICTURE_MODE = 'picture-mode';
+
+    var mode = MAP_MODE;
+
+    $('body').addClass(mode);
+
+
+    function switchMode(newMode) {
+        if (newMode != mode) {
+            $('body').removeClass(mode);
+            newMode = mode;
+            $('body').addClass(newMode);    
+        }    
+    }
 
     function createMap() {
         var items = [];
@@ -298,11 +312,12 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             });
 
             $('.showpictures').on('click', function () {
-
+                switchMode(PICTURE_MODE);
             });
 
-
-
+            $('.showmap').on('click', function () {
+                switchMode(MAP_MODE);
+            });
         }
 
         return map;
