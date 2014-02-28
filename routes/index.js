@@ -115,11 +115,19 @@ function extractResources(resources) {
 
     return _.filter(_.map(resources, function (resource) {
         if (resource.place && resource.place.location && resource.place.location.longitude) {
+
+            var firstImage = _.first(resource.images);
+
+            // Only include the first image if it actually has the required values
+            if(firstImage && (!firstImage.width || firstImage.height || firstImage.source)) {
+                firstImage = null;
+            }
+
             return  {
                 type: "Feature",
                 properties: {
                     title: resource.message || resource.story || resource.name,
-                    image: _.first(resource.images),
+                    image: firstImage,
                     created_time: resource.created_time
                 },
 
