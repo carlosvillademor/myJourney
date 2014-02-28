@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Simonetta:900|Varela+Round);
-/* line 17, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,56 +21,64 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
+@font-face {
+  font-family: 'icons';
+  src: url("../fonts/icomoon.eot?rlwhic");
+  src: url("../fonts/icomoon.eot?#iefixrlwhic") format("embedded-opentype"), url("../fonts/icomoon.woff?rlwhic") format("woff"), url("../fonts/icomoon.ttf?rlwhic") format("truetype"), url("../fonts/icomoon.svg?rlwhic#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Typo settings */
-/* line 61, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 87.5%;
 }
 
-/* line 64, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 14px;
   line-height: 1.71429em;
@@ -665,19 +673,93 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   color: #333333;
   position: relative;
   z-index: 2;
+  padding-top: 0;
 }
 /* line 113, ../../src/scss/_map.scss */
-.map-page .history-content a {
-  display: inline-block;
-  cursor: pointer;
-  padding: 10px 10px 10px 0px;
+.map-page .history-content > header {
+  z-index: 100;
+  background: #fff;
+  width: 100%;
+  margin: 0 -20px;
+  position: fixed;
+  height: 72px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-bottom: 1px solid #f0f0f0;
 }
-/* line 118, ../../src/scss/_map.scss */
+/* line 123, ../../src/scss/_map.scss */
+.map-page .history-content > header h2 {
+  width: 300px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 5px 20px;
+  font-size: 1em;
+  line-height: 1.71429em;
+  line-height: 24px;
+  height: 24px;
+}
+/* line 132, ../../src/scss/_map.scss */
+.map-page .history-content > header #switchView {
+  width: 300px;
+  position: relative;
+  line-height: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+/* line 139, ../../src/scss/_map.scss */
+.map-page .history-content > header #switchView a {
+  font-size: 0.71429em;
+  line-height: 2.4em;
+  line-height: 48px;
+  height: 48px;
+  width: 49.5%;
+  display: inline-block;
+  padding: 5px 20px;
+  text-decoration: none;
+  vertical-align: middle;
+}
+/* line 149, ../../src/scss/_map.scss */
+.map-page .history-content > header #switchView a.showpictures:before {
+  content: "\e601";
+  display: inline-block;
+  color: #ccc;
+  font-family: "icons";
+  font-size: 1.71429em;
+  line-height: 2em;
+  line-height: 24px;
+  height: 24px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+/* line 162, ../../src/scss/_map.scss */
+.map-page .history-content > header #switchView a.showmap:before {
+  content: "\e603";
+  display: inline-block;
+  color: #ccc;
+  font-family: "icons";
+  font-size: 1.71429em;
+  line-height: 2em;
+  line-height: 24px;
+  height: 24px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+/* line 177, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
-  padding: 0;
+  padding: 96px 0 0 0;
 }
-/* line 121, ../../src/scss/_map.scss */
+/* line 180, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   display: block;
   padding: 5px 20px;
@@ -691,11 +773,11 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 128, ../../src/scss/_map.scss */
+/* line 187, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 131, ../../src/scss/_map.scss */
+/* line 190, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure {
   display: block;
   display: -webkit-box;
@@ -719,7 +801,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 138, ../../src/scss/_map.scss */
+/* line 197, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview {
   width: 40px;
   height: 40px;
@@ -749,7 +831,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 151, ../../src/scss/_map.scss */
+/* line 210, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview img {
   width: auto;
   height: auto;
@@ -757,7 +839,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   max-height: 50px;
   display: none;
 }
-/* line 159, ../../src/scss/_map.scss */
+/* line 218, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption {
   display: block;
   display: -webkit-box;
@@ -780,7 +862,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 165, ../../src/scss/_map.scss */
+/* line 224, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption h3 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -795,7 +877,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 173, ../../src/scss/_map.scss */
+/* line 232, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption .timestamp {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -811,23 +893,41 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin: 5px 0 0 0;
 }
 
-/* line 188, ../../src/scss/_map.scss */
+/* line 247, ../../src/scss/_map.scss */
 #display {
   position: relative;
   background-color: #008E9A;
 }
 
-/* line 194, ../../src/scss/_map.scss */
+/* line 255, ../../src/scss/_map.scss */
+body.map-mode #switchView a.showpictures {
+  display: block;
+}
+/* line 258, ../../src/scss/_map.scss */
+body.map-mode #switchView a.showmap {
+  display: none;
+}
+
+/* line 267, ../../src/scss/_map.scss */
+body.picture-mode #switchView a.showpictures {
+  display: none;
+}
+/* line 270, ../../src/scss/_map.scss */
+body.picture-mode #switchView a.showmap {
+  display: block;
+}
+
+/* line 277, ../../src/scss/_map.scss */
 .map-mode #pictureViewer {
   display: none;
 }
 
-/* line 199, ../../src/scss/_map.scss */
+/* line 282, ../../src/scss/_map.scss */
 .picture-mode #map {
   display: none;
 }
 
-/* line 204, ../../src/scss/_map.scss */
+/* line 287, ../../src/scss/_map.scss */
 #map, #pictureViewer {
   position: absolute;
   top: 0;
