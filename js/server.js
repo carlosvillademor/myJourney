@@ -6,7 +6,6 @@ var express = require('express'),
     path = require('path'),
     MongoClient = require('mongodb').MongoClient,
     format = util.format,
-    _ = require('lodash'),
     conf = require('./config');
 
 var config = conf.load(app.settings.env || 'development');

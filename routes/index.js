@@ -1,3 +1,5 @@
+var _ = require('lodash')
+
 var FB,
     mongoDBClient,
     routes = {};
@@ -58,7 +60,7 @@ routes.storeAccessToken = function (req, res) {
     }
 };
 
-function fetchUserPhotos(uid, res, fromTimestamp, toTimestamp) {
+function fetchUserPhotos(uid, res) {
 
     //until(' + toTimestamp + ').since(' + fromTimestamp + ')
     FB.api(uid + '', { fields: ['id', 'name', 'photos.limit(1000)']}, function (fbRes) {
@@ -127,7 +129,7 @@ routes.images = function (req, res) {
         }
 
         console.log(JSON.stringify(fbRes.data[0].uid));
-        fetchUserPhotos(fbRes.data[0].uid, res, fromTimestamp, toTimestamp);
+        fetchUserPhotos(fbRes.data[0].uid, res);
 
     });
 };
