@@ -36,7 +36,7 @@ routes.storeAccessToken = function (req, res) {
         FB.api('oauth/access_token', {
             client_id: '648327631897525',
             client_secret: '72736a58eb7bdb18d44f6cd325f651d3',
-            redirect_uri: 'http://localhost:5000/storeAccessToken/',
+            redirect_uri: 'http://' + req.headers.host + '/storeAccessToken/',
             code: code
         }, function (fbRes) {
             if (!fbRes || fbRes.error) {
