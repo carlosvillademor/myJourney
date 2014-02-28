@@ -22,8 +22,8 @@
         if (newMode != mode) {
             $body.removeClass(mode);
             mode = newMode;
-            $body.addClass(newMode);    
-        }    
+            $body.addClass(newMode);
+        }
     }
 
     function createMap() {

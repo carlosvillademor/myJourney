@@ -259,8 +259,8 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         if (newMode != mode) {
             $body.removeClass(mode);
             mode = newMode;
-            $body.addClass(newMode);    
-        }    
+            $body.addClass(newMode);
+        }
     }
 
     function createMap() {

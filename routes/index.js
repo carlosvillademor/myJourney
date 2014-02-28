@@ -11,7 +11,7 @@ routes.home = function (req, res) {
         {
             title: 'myJourney',
             pageId: 'Home',
-            facebookUrl: 'https://www.facebook.com/dialog/oauth?scope=user_photos,user_status&client_id=648327631897525&redirect_uri=http://' + req.headers.host + '/storeAccessToken/'
+            facebookUrl: 'https://www.facebook.com/dialog/oauth?scope=user_photos,read_stream&client_id=648327631897525&redirect_uri=http://' + req.headers.host + '/storeAccessToken/'
         }
     );
 };
@@ -68,7 +68,8 @@ routes.storeAccessToken = function (req, res) {
 function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
     //until(' + toTimestamp + ').since(' + fromTimestamp + ')
-    FB.api(uid + '', { fields: ['id', 'name', 'photos.since(' + startTime + ').until(' + endTime + ').limit(1000)', 'statuses.since(' + startTime + ').until(' + endTime + ').limit(1000)']}, function (fbRes) {
+
+    FB.api(uid + '', { fields: ['id', 'name', 'photos.since(' + startTime + ').until(' + endTime + ').limit(1000)', 'posts.since(' + startTime + ').until(' + endTime + ').limit(1000)']}, function (fbRes) {
         if (!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
             return res.send(500, "Failed to request photos");
@@ -82,33 +83,14 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
 
         if (fbRes.photos) {
-            mapData.features = _.filter(_.map(fbRes.photos.data, function (photo) {
 
-                if (photo.place && photo.place.location && photo.place.location.longitude) {
-                    return  {
-                        type: "Feature",
-                        properties: {
-                            title: photo.name || photo.message,
-                            image: _.first(photo.images),
-                            created_time: photo.created_time || photo.updated_time
-                        },
-
-                        geometry: {
-                            type: "Point",
-                            coordinates: [
-                                photo.place.location.longitude,
-                                photo.place.location.latitude
-                            ]
-                        }
-                    };
-                }
-            }));
-
+            mapData.features = extractResources(fbRes.photos.data);
 
             mapData.features = _.sortBy(mapData.features, function(data) {
                 return data.properties.created_time;
             });
         }
+
 
         storeMapData(mapData, function() {
             // TODO Remove this is just during migration from api/images -> api/createJourney once migrated we only require the redirect route
@@ -123,6 +105,32 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
         });
     });
+}
+
+function extractResources(resources) {
+
+    console.log(JSON.stringify(resources));
+    return _.filter(_.map(resources, function (resource) {
+        if (resource.place && resource.place.location && resource.place.location.longitude) {
+            return  {
+                type: "Feature",
+                properties: {
+                    title: resource.name,
+                    image: _.first(resource.images),
+                    created_time: resource.created_time
+                },
+
+                geometry: {
+                    type: "Point",
+                    coordinates: [
+                        resource.place.location.longitude,
+                        resource.place.location.latitude
+                    ]
+                }
+            };
+        }
+    }));
+
 }
 
 
@@ -198,9 +206,9 @@ routes.journey = function (req, res) {
         var journeys = db.collection('journeys');
         var journeyId = req.params.id;
         journeys.find({'_id': new ObjectID(journeyId)}).toArray(function (err, results) {
-            if (err) res.send(404, err);
+            if (err || results.length !== 1) res.send(404, 'Error while getting journey with id ' + journeyId + ' results size is ' + results.length +  (err || ''));
             db.close();
-            res.send(results);
+            res.send(results[0]);
         });
     });
 };
