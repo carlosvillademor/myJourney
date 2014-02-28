@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     express: {
       dev: {
         options: {
-          script: 'js/server.js',
+          script: 'js/cluster.js',
           port: config.port,
           delay: 5000
         }

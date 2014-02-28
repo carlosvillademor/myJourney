@@ -25,10 +25,10 @@
     "uglifyify": "~1.2.3",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-express-server": "~0.4.13",
-    "jadeify": "~2.1.1"
+    "jadeify": "~2.1.1",
+    "recluster": "^0.3.6"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "license": "MIT",
   "engines": {
     "node": "0.10.26"
