@@ -1,8 +1,9 @@
-var _ = require('lodash')
-
-var FB,
-    mongoDBClient,
-    routes = {};
+var _ = require('lodash'),
+    FB = require('fb'),
+    MongoClient = require('mongodb').MongoClient,
+    routes = {},
+    config,
+    mongoDBUrl;
 
 routes.home = function (req, res) {
     res.render('home',
@@ -134,6 +135,25 @@ routes.images = function (req, res) {
     });
 };
 
+function connectToMongo () {
+    MongoClient.connect(mongoDBUrl, function (err, db) {
+        if (err) throw err;
+
+        var collection = db.collection('test_insert');
+//    collection.insert({a: 2}, function (err, docs) {
+
+        collection.count(function (err, count) {
+            console.log(format('count = %s', count));
+        });
+
+        collection.find().toArray(function (err, results) {
+            console.dir(results);
+            db.close();
+        });
+//    });
+    });
+}
+
 (function () {
     function getJourney(id) {
     }
@@ -142,8 +162,7 @@ routes.images = function (req, res) {
     };
 })();
 
-exports.create = function (fbClient, mongo) {
-    FB = fbClient;
-    mongoDBClient = mongo;
+exports.createRoutes = function (configuration) {
+    mongoDBUrl = configuration.mongoDBUrl;
     return routes;
 };
