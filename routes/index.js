@@ -191,7 +191,7 @@ routes.journey = function (req, res) {
     MongoClient.connect(config.mongoDBUrl, function (err, db) {
         if (err) return res.send(500, err.toString());
         var journeys = db.collection('journeys');
-        var journeyId = req.query.id || "53106083c448590000e32cf3";
+        var journeyId = req.params.id;
         journeys.find({'_id': new ObjectID(journeyId)}).toArray(function (err, results) {
             if (err) res.send(404, err);
             db.close();
