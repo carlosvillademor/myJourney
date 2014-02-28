@@ -22,8 +22,8 @@
         if (newMode != mode) {
             $body.removeClass(mode);
             mode = newMode;
-            $body.addClass(newMode);    
-        }    
+            $body.addClass(newMode);
+        }
     }
 
     function createMap() {
@@ -61,7 +61,7 @@
         });
 
         map.fitBounds(featureLayer.getBounds());
-        
+
         $('.history-content h2').html(data.tripname);
         $('.history-content ul').html(items.join(''));
         $('#pictureViewer ul').html(images.join(''));
@@ -72,7 +72,7 @@
         if ($('#map').length > 0) {
 
             $.get( '/journey/' + id, function(json) {
-                data = json[0];
+                data = json;
                 createMap();
             });
 
