@@ -119,7 +119,7 @@ function extractResources(resources) {
             var firstImage = _.first(resource.images);
 
             // Only include the first image if it actually has the required values
-            if(firstImage && (!firstImage.width || firstImage.height || firstImage.source)) {
+            if(firstImage && (!firstImage.width || !firstImage.height ||!firstImage.source)) {
                 firstImage = null;
             }
 
