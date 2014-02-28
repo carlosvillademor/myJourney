@@ -1,7 +1,9 @@
-li(data-index='#{index}')
-    span
-        | #{index}
-    span.preview
-        image(src="#{image}")
-    span
-        | #{title}
+li(data-index='#{index}',title='#{index}')
+	figure
+		.preview(style="background-image: url(#{image})")
+			image(src="#{image}")
+		figcaption
+			h3.description
+				| #{title}
+			p.timestamp
+				| #{timestamp}

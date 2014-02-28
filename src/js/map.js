@@ -14,10 +14,12 @@
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
+            item.properties.title = item.properties.title || "***";
             items.push(itemMap({
                 index: index,
                 title: item.properties.title,
-                image: item.properties.image.source
+                image: item.properties.image.source,
+                timestamp: item.properties.created_time
             }));
         });
 

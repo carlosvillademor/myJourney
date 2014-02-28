@@ -251,10 +251,12 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
+            item.properties.title = item.properties.title || "***";
             items.push(itemMap({
                 index: index,
                 title: item.properties.title,
-                image: item.properties.image.source
+                image: item.properties.image.source,
+                timestamp: item.properties.created_time
             }));
         });
 
@@ -307,7 +309,7 @@ module.exports = function template(locals) {
 var buf = [];
 var jade_mixins = {};
 var jade_interp;
-var locals_ = (locals || {}),index = locals_.index,image = locals_.image,title = locals_.title;
-buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + "><span>" + (jade.escape((jade_interp = index) == null ? '' : jade_interp)) + "</span><span class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></span><span>" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</span></li>");;return buf.join("");
+var locals_ = (locals || {}),index = locals_.index,image = locals_.image,title = locals_.title,timestamp = locals_.timestamp;
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + "><figure><div" + (jade.attr("style", "background-image: url(" + (image) + ")", true, false)) + " class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></div><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
 };
 },{"jade/runtime":2}]},{},[3,4,5])
