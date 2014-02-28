@@ -1,4 +1,5 @@
 var express = require('express'),
+    routes = require('routes'),
     app = express(),
     util = require('util'),
     path = require('path'),
@@ -10,12 +11,22 @@ var express = require('express'),
 
 var config = conf.load(app.settings.env || 'development');
 
+
 app.configure(function () {
+    app.set('views', __dirname + '/../src/jade');
+    app.set('view engine', 'jade');
+
+    app.get('/', routes.home);
+    app.get('/create', routes.create);
+    app.get('/map/:id', routes.map);
+    app.get('/map', routes.map);
+
     app.use(express.static(path.resolve(config.staticPath)));
     app.use(express.logger());
 });
 
 app.use(express.cookieParser());
+app.use(express.bodyParser());
 app.use(express.cookieSession({
     secret : 'i6JUAPaLsmFWCxjGgsQEDoAmHAPoVX'
 }));
