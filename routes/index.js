@@ -29,7 +29,7 @@ routes.map = function (req, res) {
             title: 'myJourney',
             pageId: 'Map'
         }
-    )
+    );
 };
 
 

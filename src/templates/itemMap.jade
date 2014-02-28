@@ -1,4 +1,7 @@
 li(data-index='#{index}')
     span
         | #{index}
-    | #{title}
+    span.preview
+        image(src="#{image}")
+    span
+        | #{title}

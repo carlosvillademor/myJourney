@@ -14,7 +14,11 @@
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
-            items.push(itemMap({index: index, title: item.properties.title}));
+            items.push(itemMap({
+                index: index,
+                title: item.properties.title,
+                image: item.properties.image.source
+            }));
         });
 
         featureLayer = L.mapbox.featureLayer()
