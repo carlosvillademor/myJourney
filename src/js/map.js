@@ -3,7 +3,7 @@
 
     var id = window.location.pathname.split( '/' )[2];
 
-    var map, featureLayer, data, coords, markers;
+    var map, miniMap, featureLayer, featureLayerMini, data, coords, markers, markersMini;
 
     var itemMap = require('../templates/itemMap.jade');
     var itemPost = require('../templates/itemPost.jade');
@@ -31,12 +31,14 @@
         var items = [];
         var images = [];
         markers = [];
+        markersMini = [];
 
         map = L.mapbox.map('map', 'fetz.hcpe8ip9')
                 .setView([38, -102.0], 9);
+        miniMap = L.mapbox.map('smallMap', 'fetz.hcpe8ip9')
+                .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
-            console.log(item);
             item.properties.title = item.properties.title || '***';
             if (item.properties.image) {
                 items.push(itemMap({
@@ -59,6 +61,11 @@
             $('.showpictures').hide();
         }
 
+        featureLayerMini = L.mapbox.featureLayer()
+            .addTo(miniMap)
+            .setGeoJSON(data);
+
+
         featureLayer = L.mapbox.featureLayer()
             .addTo(map)
             .setGeoJSON(data);
@@ -68,6 +75,10 @@
         featureLayer.eachLayer(function(marker) {
             markers.push(marker);
             polyline.addLatLng(marker.getLatLng());
+        });
+
+        featureLayerMini.eachLayer(function(marker) {
+            markersMini.push(marker);
         });
 
         featureLayer.on('click', function(e) {
@@ -94,6 +105,7 @@
                 $(this).siblings().removeClass('selected');
                 var i = Number($(this).data('index'));
                 map.panTo(markers[i].getLatLng());
+                miniMap.setView(markersMini[i].getLatLng(), 16);
                 markers[i].openPopup();
                 $('#pictureViewer ul').animate({top: -100 * i + '%'});
                 $(this).addClass('selected');

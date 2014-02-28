@@ -365,8 +365,19 @@ body.picture-mode {
     }
 }
 
-#map, 
-#pictureViewer {
+#smallMap {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 129px;
+    height: 129px;
+    z-index: 1;
+    .leaflet-control-container {
+        display: none;
+    }
+}
+
+#map, #pictureViewer {
     position: absolute;
     top: 0;
     left: 0;
