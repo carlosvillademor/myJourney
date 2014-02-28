@@ -324,6 +324,12 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         });
 
         featureLayer.on('click', function(e) {
+            var i = markers.indexOf(e.layer.dragging._marker);
+            var elem = $('.history-content ul li').removeClass('selected').eq(i);
+            elem.addClass('selected');
+            $('.history-content').animate({
+                scrollTop: $('.history-content').scrollTop() + elem.position().top - 73
+            });
             map.panTo(e.layer.getLatLng());
         });
 

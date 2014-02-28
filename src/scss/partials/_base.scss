@@ -9,5 +9,7 @@ html {
 		background: #fff url(../img/bg.jpg) no-repeat 50% 50%;
 		background-size: cover;
         text-rendering: optimizeLegibility;
+
+        overflow: hidden;
 	}
 }
