@@ -42,7 +42,8 @@
             item.properties.title = item.properties.title || '***';
             if (item.properties.image) {
                 items.push(itemMap({
-                    index: images.length,
+                    index: index,
+                    imageIndex: images.length,
                     title: item.properties.title,
                     image: item.properties.image.source,
                     timestamp: item.properties.created_time.substring(0,10)
@@ -104,11 +105,14 @@
             $('.history-content ul').on('click', 'li', function (e) {
                 $(this).siblings().removeClass('selected');
                 var i = Number($(this).data('index'));
+                var iImg = Number($(this).data('image-index'));
                 map.panTo(markers[i].getLatLng());
                 miniMap.setView(markersMini[i].getLatLng(), 12);
                 markers[i].openPopup();
-                $('#pictureViewer ul').animate({top: -100 * i + '%'});
                 $(this).addClass('selected');
+                if (iImg) {
+                    $('#pictureViewer ul').animate({top: -100 * iImg + '%'});    
+                }
             });
 
             $('.showpictures').on('click', function () {

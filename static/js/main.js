@@ -279,7 +279,8 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             item.properties.title = item.properties.title || '***';
             if (item.properties.image) {
                 items.push(itemMap({
-                    index: images.length,
+                    index: index,
+                    imageIndex: images.length,
                     title: item.properties.title,
                     image: item.properties.image.source,
                     timestamp: item.properties.created_time.substring(0,10)
@@ -341,11 +342,14 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             $('.history-content ul').on('click', 'li', function (e) {
                 $(this).siblings().removeClass('selected');
                 var i = Number($(this).data('index'));
+                var iImg = Number($(this).data('image-index'));
                 map.panTo(markers[i].getLatLng());
                 miniMap.setView(markersMini[i].getLatLng(), 12);
                 markers[i].openPopup();
-                $('#pictureViewer ul').animate({top: -100 * i + '%'});
                 $(this).addClass('selected');
+                if (iImg) {
+                    $('#pictureViewer ul').animate({top: -100 * iImg + '%'});    
+                }
             });
 
             $('.showpictures').on('click', function () {
@@ -378,8 +382,8 @@ module.exports = function template(locals) {
 var buf = [];
 var jade_mixins = {};
 var jade_interp;
-var locals_ = (locals || {}),index = locals_.index,image = locals_.image,title = locals_.title,timestamp = locals_.timestamp;
-buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + " class=\"item-image\"><figure><div" + (jade.attr("style", "background-image: url(" + (image) + ")", true, false)) + " class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></div><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
+var locals_ = (locals || {}),index = locals_.index,imageIndex = locals_.imageIndex,image = locals_.image,title = locals_.title,timestamp = locals_.timestamp;
+buf.push("<li" + (jade.attr("data-index", '' + (index) + '', true, false)) + (jade.attr("data-image-index", '' + (imageIndex) + '', true, false)) + (jade.attr("title", '' + (index) + '', true, false)) + " class=\"item-image\"><figure><div" + (jade.attr("style", "background-image: url(" + (image) + ")", true, false)) + " class=\"preview\"><image" + (jade.attr("src", "" + (image) + "", true, false)) + "></image></div><figcaption><h3 class=\"description\">" + (jade.escape((jade_interp = title) == null ? '' : jade_interp)) + "</h3><p class=\"timestamp\">" + (jade.escape((jade_interp = timestamp) == null ? '' : jade_interp)) + "</p></figcaption></figure></li>");;return buf.join("");
 };
 },{"jade/runtime":2}],8:[function(require,module,exports){
 var jade = require("jade/runtime");
