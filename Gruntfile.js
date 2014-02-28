@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         tasks: ['jade:dev']
       },
       express: {
-        files:  [ 'js/*.js' ],
+        files:  [ 'js/*.js', 'routes/*.js' ],
         tasks:  [ 'express:dev' ],
         options: {
           nospawn: true
