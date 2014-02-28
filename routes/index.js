@@ -59,7 +59,7 @@ routes.storeAccessToken = function (req, res) {
 
             //var expires = fbRes.expires ? fbRes.expires : 0;
             console.log("Got access token");
-            res.redirect("/create.html");
+            res.redirect("/create");
         });
 
     }
