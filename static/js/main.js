@@ -298,7 +298,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         });
 
         map.fitBounds(featureLayer.getBounds());
-        
+        window.document.title += (' : ' + data.tripname );
         $('.history-content h2').html(data.tripname);
         $('.history-content ul').html(items.join(''));
         $('#pictureViewer ul').html(images.join(''));
