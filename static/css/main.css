@@ -603,14 +603,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
     overflow: scroll;
   }
 }
-<<<<<<< HEAD
-=======
-/* line 105, ../../src/scss/_map.scss */
-.map-page #map {
-  background-color: #008E9A;
-}
->>>>>>> Luis: add lines, add numbers
-/* line 108, ../../src/scss/_map.scss */
+/* line 106, ../../src/scss/_map.scss */
 .map-page .history-content {
   padding: 0px 20px;
   background-color: #fff;
@@ -618,12 +611,12 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   position: relative;
   z-index: 2;
 }
-/* line 114, ../../src/scss/_map.scss */
+/* line 112, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 0;
 }
-/* line 117, ../../src/scss/_map.scss */
+/* line 115, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   padding: 0 20px;
   list-style: none;
@@ -636,14 +629,19 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 123, ../../src/scss/_map.scss */
+/* line 121, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 126, ../../src/scss/_map.scss */
+/* line 124, ../../src/scss/_map.scss */
 .map-page .history-content ul li span {
   display: inline-block;
   padding: 0 10px;
   font-weight: bold;
   width: 70px;
+}
+
+/* line 135, ../../src/scss/_map.scss */
+#map {
+  background-color: #008E9A;
 }
