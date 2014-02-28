@@ -78,6 +78,7 @@
                 var i = Number($(this).data('index'));
                 map.panTo(markers[i].getLatLng());
                 markers[i].openPopup();
+                $('#pictureViewer ul').animate({top: -100 * i + '%'});
             });
 
             $('.showpictures').on('click', function () {
