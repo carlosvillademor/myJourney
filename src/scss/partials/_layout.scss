@@ -4,8 +4,8 @@ body {
 	#Header {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
-		height: $slot-height;
-		padding: $gutter-v $gutter-h;
+		height: 2 * $slot-height;
+		padding: 5px $gutter-h;
 		background: $Color-Orange none;
 		@include clearfixed;
 		&.Home,
@@ -15,7 +15,7 @@ body {
 		h1 {
 			display: inline-block;
 			width: 210px;
-			height: $slot-height;
+			height: 2 * $slot-height - 10px;
 			background: transparent url(../img/logo.png) no-repeat 0 0;
 			background-size: contain;
 			span {

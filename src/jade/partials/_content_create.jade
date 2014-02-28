@@ -8,6 +8,8 @@
 	.Content
 		form#PickDates(action="/map", method="GET")
 			div
+				input(type="text", name="tripname", placeholder="Name your trip")#tripname.tripname
+			div
 				input(type="time", name="starttime", placeholder="start date")#starttime.starttime
 			div
 				input(type="time", name="endtime", placeholder="end date")#endtime.endtime
