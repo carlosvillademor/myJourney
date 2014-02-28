@@ -125,8 +125,8 @@
                 miniMap.setView(markersMini[i].getLatLng(), 12);
                 markers[i].openPopup();
                 $(this).addClass('selected');
-                if (iImg) {
-                    $('#pictureViewer ul').animate({top: -100 * iImg + '%'});    
+                if (iImg || iImg === 0) {
+                    $('#pictureViewer ul').animate({top: -100 * iImg + '%'});
                 }
             });
 
