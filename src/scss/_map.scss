@@ -109,6 +109,47 @@
         color: $Color-BodyText;
         position: relative;
         z-index: 2;
+        padding-top: h(3);
+        > header {
+            top: 0;
+            background: #fff;
+            width: 100%;
+            margin: 0 ( -1 * $gutter-h );
+            position: fixed;
+            height: h(3);
+            @include flexbox;
+            @include flex-dir( column );
+            h2 {
+                height: h(2);
+                @include flex( 1 );
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                padding: 5px $gutter-h;
+                @include adjust-font-size-to(14px);
+            }
+            #switchView {
+                height: h(1);
+                @include flex( 1 );
+                border-top: 1px solid #ccc;
+                @include flexbox;
+                @include flex-dir( row );
+                a {
+                    @include adjust-font-size-to(14px);
+                    line-height: h(1);
+                    height: h(1);
+                    &.showpictures {
+                        height: h(1);
+                        @include flex( 1 );
+
+                    }
+                    &.showmap {
+                        height: h(1);
+                        @include flex( 1 );
+                        
+                    }
+                }
+            }
+        }
         ul {
             margin: 0 ( -1 * $gutter-h );
             padding: 0;
@@ -184,3 +225,25 @@
     background-color: #008E9A;
 }
 
+body.map-mode {
+    #switchView {
+        a {
+            &.showpictures {
+
+            }
+            &.showmap {
+            }
+        }
+    }
+}
+body.picture-mode {
+    #switchView {
+        a {
+            &.showpictures {
+
+            }
+            &.showmap {
+            }
+        }
+    }
+}

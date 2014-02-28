@@ -27,7 +27,8 @@ routes.create = function (req, res) {
 routes.map = function (req, res) {
     res.render('map',
         {
-            title: 'myJourney',
+            journeyTitle: req.query.tripname,
+            title: 'myJourney : ' + req.query.tripname,
             pageId: 'Map'
         }
     );
