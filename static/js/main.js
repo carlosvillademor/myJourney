@@ -240,7 +240,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 
     var id = window.location.pathname.split( '/' )[2];
 
-    var map, featureLayer, data, coords, markers;
+    var map, miniMap, featureLayer, featureLayerMini, data, coords, markers, markersMini;
 
     var itemMap = require('../templates/itemMap.jade');
     var itemPost = require('../templates/itemPost.jade');
@@ -268,12 +268,14 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         var items = [];
         var images = [];
         markers = [];
+        markersMini = [];
 
         map = L.mapbox.map('map', 'fetz.hcpe8ip9')
                 .setView([38, -102.0], 9);
+        miniMap = L.mapbox.map('smallMap', 'fetz.hcpe8ip9')
+                .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
-            console.log(item);
             item.properties.title = item.properties.title || '***';
             if (item.properties.image) {
                 items.push(itemMap({
@@ -296,6 +298,11 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             $('.showpictures').hide();
         }
 
+        featureLayerMini = L.mapbox.featureLayer()
+            .addTo(miniMap)
+            .setGeoJSON(data);
+
+
         featureLayer = L.mapbox.featureLayer()
             .addTo(map)
             .setGeoJSON(data);
@@ -305,6 +312,10 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
         featureLayer.eachLayer(function(marker) {
             markers.push(marker);
             polyline.addLatLng(marker.getLatLng());
+        });
+
+        featureLayerMini.eachLayer(function(marker) {
+            markersMini.push(marker);
         });
 
         featureLayer.on('click', function(e) {
@@ -330,6 +341,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
             $('.history-content ul').on('click', 'li', function (e) {
                 var i = Number($(this).data('index'));
                 map.panTo(markers[i].getLatLng());
+                miniMap.setView(markersMini[i].getLatLng(), 16);
                 markers[i].openPopup();
                 $('#pictureViewer ul').animate({top: -100 * i + '%'});
             });
