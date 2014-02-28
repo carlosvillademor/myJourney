@@ -28,12 +28,12 @@
         <h2><span>...</span></h2>
       </header>
       <div class="Content">
-        <form id="PickDates" action="/map.html">
+        <form id="PickDates" action="/map" method="GET">
           <div>
-            <input type="time" placeholder="start date" id="starttime" class="starttime">
+            <input type="time" name="starttime" placeholder="start date" id="starttime" class="starttime">
           </div>
           <div>
-            <input type="time" placeholder="end date" id="endtime" class="endtime">
+            <input type="time" name="endtime" placeholder="end date" id="endtime" class="endtime">
           </div>
           <div>
             <button type="submit" value="create">Go!</button>

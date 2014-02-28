@@ -6,11 +6,11 @@
 		h2
 			span ...
 	.Content
-		form#PickDates(action="/map.html")
+		form#PickDates(action="/map", method="GET")
 			div
-				input(type="time", placeholder="start date")#starttime.starttime
+				input(type="time", name="starttime", placeholder="start date")#starttime.starttime
 			div
-				input(type="time", placeholder="end date")#endtime.endtime
+				input(type="time", name="endtime", placeholder="end date")#endtime.endtime
 			div
 				button(type="submit", value="create") 
 					| Go!

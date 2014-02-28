@@ -1,7 +1,6 @@
 body {
 	@include flexbox;
 	@include flex-dir( column );
-	height: 100vh;
 	#Header {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -99,6 +98,47 @@ body {
 				color: #fff;
 				margin: 10px auto;
 				padding: 10px $gutter-h;
+			}
+		}
+	}
+}
+html {
+	body {
+	}
+	&#Home,
+	&#Create {
+		body {
+		    @media screen 
+		    and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
+		    and (orientation:portrait) {
+				min-height: 100vh;
+			}
+		    @media screen 
+		    and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
+		    and (orientation:landscape) {
+				min-height: 100vw;
+			}
+		    @media screen 
+		    and (min-device-width: $break-tablet-landscape + 4 * $side-padding ) {
+				min-height: 100vh;
+			}
+		}
+	}
+	&#Map {
+		body {
+		    @media screen 
+		    and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
+		    and (orientation:portrait) {
+				height: 100vh;
+			}
+		    @media screen 
+		    and (max-device-width: $break-tablet-landscape - 1 + 4 * $side-padding ) 
+		    and (orientation:landscape) {
+				height: 100vw;
+			}
+		    @media screen 
+		    and (min-device-width: $break-tablet-landscape + 4 * $side-padding ) {
+				height: 100vh;
 			}
 		}
 	}
