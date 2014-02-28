@@ -1,9 +1,9 @@
 var express = require('express'),
-    routes = require('./../routes'),
+    FB = require('fb'),
+    routes = require('./../routes').create(FB, MongoClient),
     app = express(),
     util = require('util'),
     path = require('path'),
-    FB = require('fb'),
     MongoClient = require('mongodb').MongoClient,
     format = util.format,
     _ = require('lodash'),
@@ -14,7 +14,7 @@ var config = conf.load(app.settings.env || 'development');
 
 app.configure(function () {
     app.set('views', __dirname + '/../src/jade');
-    app.set('view engine', 'jade');    
+    app.set('view engine', 'jade');
 
     app.use(express.static(path.resolve(config.staticPath)));
     app.use(express.logger());
