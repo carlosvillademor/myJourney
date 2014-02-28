@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Simonetta:900|Varela+Round);
-/* line 17, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,45 +21,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -73,12 +73,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* Typo settings */
-/* line 61, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 61, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 * html {
   font-size: 87.5%;
 }
 
-/* line 64, ../../../../../.rvm/gems/ruby-2.0.0-p353/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 64, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
   font-size: 14px;
   line-height: 1.71429em;
@@ -678,7 +678,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
 /* line 113, ../../src/scss/_map.scss */
 .map-page .history-content > header {
   z-index: 100;
-  background: #fff;
+  background: #f03880;
   width: 100%;
   margin: 0 -20px;
   position: fixed;
@@ -699,16 +699,21 @@ body #Footer.Home .Content, body #Footer.Create .Content {
 /* line 123, ../../src/scss/_map.scss */
 .map-page .history-content > header h2 {
   width: 300px;
+  color: #fff;
   font-weight: bold;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   padding: 5px 20px;
-  font-size: 1em;
-  line-height: 1.71429em;
+  font-size: 1.28571em;
+  line-height: 1.33333em;
+  font-weight: bold;
   line-height: 24px;
   height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-/* line 134, ../../src/scss/_map.scss */
+/* line 138, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView {
   width: 300px;
   position: relative;
@@ -717,11 +722,11 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-/* line 141, ../../src/scss/_map.scss */
+/* line 145, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView a {
-  font-size: 1em;
-  line-height: 1.71429em;
-  color: #f03880;
+  font-size: 0.85714em;
+  line-height: 2em;
+  color: #000;
   line-height: 48px;
   height: 48px;
   width: 49.5%;
@@ -730,38 +735,38 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   text-decoration: none;
   vertical-align: middle;
 }
-/* line 152, ../../src/scss/_map.scss */
+/* line 156, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView a.showpictures:before {
+  color: #000;
   content: "\e601";
   display: inline-block;
-  color: #f03880;
   font-family: "icons";
-  font-size: 1.71429em;
-  line-height: 2em;
+  font-size: 1.42857em;
+  line-height: 1.2em;
   line-height: 24px;
   height: 24px;
   margin-right: 5px;
   vertical-align: middle;
 }
-/* line 165, ../../src/scss/_map.scss */
+/* line 169, ../../src/scss/_map.scss */
 .map-page .history-content > header #switchView a.showmap:before {
+  color: #000;
   content: "\e603";
   display: inline-block;
-  color: #f03880;
   font-family: "icons";
-  font-size: 1.71429em;
-  line-height: 2em;
+  font-size: 1.42857em;
+  line-height: 1.2em;
   line-height: 24px;
   height: 24px;
   margin-right: 5px;
   vertical-align: middle;
 }
-/* line 180, ../../src/scss/_map.scss */
+/* line 184, ../../src/scss/_map.scss */
 .map-page .history-content ul {
   margin: 0 -20px;
   padding: 96px 0 0 0;
 }
-/* line 183, ../../src/scss/_map.scss */
+/* line 187, ../../src/scss/_map.scss */
 .map-page .history-content ul li {
   display: block;
   padding: 5px 20px;
@@ -775,11 +780,11 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 190, ../../src/scss/_map.scss */
+/* line 194, ../../src/scss/_map.scss */
 .map-page .history-content ul li:hover {
   background-color: #f2edd0;
 }
-/* line 193, ../../src/scss/_map.scss */
+/* line 197, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure {
   display: block;
   display: -webkit-box;
@@ -803,9 +808,10 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 200, ../../src/scss/_map.scss */
+/* line 204, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview {
   width: 40px;
+  min-width: 40px;
   height: 40px;
   margin: 0 10px 0 0;
   display: -webkit-box;
@@ -833,7 +839,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 213, ../../src/scss/_map.scss */
+/* line 218, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure .preview img {
   width: auto;
   height: auto;
@@ -841,7 +847,48 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   max-height: 50px;
   display: none;
 }
-/* line 221, ../../src/scss/_map.scss */
+/* line 226, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure .postPreview {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  margin: 0 10px 0 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+/* line 236, ../../src/scss/_map.scss */
+.map-page .history-content ul li figure .postPreview:before {
+  text-align: center;
+  color: #f03880;
+  content: "\e603";
+  display: inline-block;
+  font-family: "icons";
+  font-size: 2.14286em;
+  line-height: 1.6em;
+  line-height: 40px;
+  height: 40px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+/* line 249, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption {
   display: block;
   display: -webkit-box;
@@ -864,7 +911,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   height: 0;
   clear: both;
 }
-/* line 227, ../../src/scss/_map.scss */
+/* line 255, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption h3 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -879,7 +926,7 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 235, ../../src/scss/_map.scss */
+/* line 263, ../../src/scss/_map.scss */
 .map-page .history-content ul li figure figcaption .timestamp {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -895,55 +942,75 @@ body #Footer.Home .Content, body #Footer.Create .Content {
   margin: 5px 0 0 0;
 }
 
-/* line 250, ../../src/scss/_map.scss */
+/* line 278, ../../src/scss/_map.scss */
 #display {
   position: relative;
   background-color: #008E9A;
 }
 
-/* line 258, ../../src/scss/_map.scss */
+/* line 283, ../../src/scss/_map.scss */
+.map-page .history-content ul .item-post {
+  overflow: hidden;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+
+/* line 295, ../../src/scss/_map.scss */
 body.map-mode #switchView a.showpictures {
   display: block;
 }
-/* line 261, ../../src/scss/_map.scss */
+/* line 298, ../../src/scss/_map.scss */
 body.map-mode #switchView a.showmap {
   display: none;
 }
+/* line 303, ../../src/scss/_map.scss */
+body.map-mode .map-page .history-content ul .item-post {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  height: 40px;
+}
 
-/* line 270, ../../src/scss/_map.scss */
+/* line 311, ../../src/scss/_map.scss */
 body.picture-mode #switchView a.showpictures {
   display: none;
 }
-/* line 273, ../../src/scss/_map.scss */
+/* line 314, ../../src/scss/_map.scss */
 body.picture-mode #switchView a.showmap {
   display: block;
 }
-/* line 278, ../../src/scss/_map.scss */
+/* line 319, ../../src/scss/_map.scss */
 body.picture-mode .map-page .history-content ul .item-post {
-  display: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  height: 0;
 }
 
-/* line 283, ../../src/scss/_map.scss */
+/* line 325, ../../src/scss/_map.scss */
 .map-mode #pictureViewer {
-  display: none;
+  top: 0;
+  left: 100%;
 }
 
-/* line 288, ../../src/scss/_map.scss */
+/* line 331, ../../src/scss/_map.scss */
 .picture-mode #map {
-  display: none;
+  top: 0;
+  left: -100%;
 }
 
-/* line 293, ../../src/scss/_map.scss */
+/* line 337, ../../src/scss/_map.scss */
 #pictureViewer {
   overflow: hidden;
 }
-/* line 295, ../../src/scss/_map.scss */
+/* line 339, ../../src/scss/_map.scss */
 #pictureViewer ul {
   position: relative;
   width: 100%;
   height: 100%;
 }
-/* line 299, ../../src/scss/_map.scss */
+/* line 343, ../../src/scss/_map.scss */
 #pictureViewer ul li {
   width: 100%;
   height: 100%;
@@ -951,18 +1018,24 @@ body.picture-mode .map-page .history-content ul .item-post {
   background-repeat: no-repeat;
   background-size: cover;
 }
-/* line 305, ../../src/scss/_map.scss */
+/* line 349, ../../src/scss/_map.scss */
 #pictureViewer ul li img {
   display: none;
   width: 100%;
   height: 100%;
 }
 
-/* line 314, ../../src/scss/_map.scss */
-#map, #pictureViewer {
+/* line 359, ../../src/scss/_map.scss */
+#map,
+#pictureViewer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }

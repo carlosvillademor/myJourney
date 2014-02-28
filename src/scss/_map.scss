@@ -112,7 +112,7 @@
         padding-top: 0;
         > header {
             z-index: 100;
-            background: #fff;
+            background: $Color-Pink;
             width: 100%;
             margin: 0 ( -1 * $gutter-h );
             position: fixed;
@@ -122,15 +122,19 @@
             border-bottom: 1px solid #f0f0f0;
             h2 {
                 width: w(4);
+                color: #fff;
                 font-weight: bold;
                 box-sizing: border-box;
                 -moz-box-sizing: border-box;
                 padding: 5px $gutter-h;
-                @include adjust-font-size-to(14px);
+                @include adjust-font-size-to(18px);
+                font-weight: bold;
                 line-height: h(1);
                 height: h(1);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
-
             #switchView {
                 width: w(4);
                 position: relative;
@@ -139,8 +143,8 @@
                 box-sizing: border-box;
                 -moz-box-sizing: border-box;
                 a {
-                    @include adjust-font-size-to(14px);
-                    color: $Color-Pink;
+                    @include adjust-font-size-to(12px);
+                    color: #000;
                     line-height: h(2);
                     height: h(2);
                     width: 49.5%;
@@ -150,11 +154,11 @@
                     vertical-align: middle;
                     &.showpictures {
                         &:before {
+                            color: #000;
                             content: "\e601";
                             display: inline-block;                            
-                            color: $Color-Pink;
                             font-family: $font-icons;
-                            @include adjust-font-size-to(24px);
+                            @include adjust-font-size-to(20px);
                             line-height: h(1);
                             height: h(1);
                             margin-right: 5px;
@@ -163,11 +167,11 @@
                     }
                     &.showmap {
                         &:before {
+                            color: #000;
                             content: "\e603";
                             display: inline-block;                            
-                            color: $Color-Pink;
                             font-family: $font-icons;
-                            @include adjust-font-size-to(24px);
+                            @include adjust-font-size-to(20px);
                             line-height: h(1);
                             height: h(1);
                             margin-right: 5px;
@@ -199,6 +203,7 @@
                     margin: 0;
                     .preview {
                         width: 40px;
+                        min-width: 40px;
                         height: 40px;
                         margin: 0 10px 0 0;
                         @include flexbox;
@@ -216,6 +221,29 @@
                             max-width: 50px;
                             max-height: 50px;
                             display: none;
+                        }
+                    }
+                    .postPreview {
+                        width: 40px;
+                        min-width: 40px;
+                        height: 40px;
+                        margin: 0 10px 0 0;
+                        @include flexbox;
+                        @include align-content( center );
+                        @include justify-content( center );
+                        @include border-radius( 10px );
+                        background: #fff;
+                        &:before {
+                            text-align: center;
+                            color: $Color-Pink;
+                            content: "\e603";
+                            display: inline-block;                            
+                            font-family: $font-icons;
+                            @include adjust-font-size-to(30px);
+                            line-height: 40px;
+                            height: 40px;
+                            margin-right: 5px;
+                            vertical-align: middle;
                         }
                     }
                     figcaption {
@@ -252,6 +280,15 @@
     background-color: #008E9A;
 }
 
+.map-page .history-content ul .item-post {
+    overflow: hidden;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+    -ms-transition: all 500ms ease-in-out;
+    -o-transition: all 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
+}
+
 body.map-mode {
     #switchView {
         a {
@@ -262,6 +299,10 @@ body.map-mode {
                 display: none;
             }
         }
+    }
+    .map-page .history-content ul .item-post {
+        @include opacity( 1 );
+        height: 40px;        
     }
 }
 body.picture-mode {
@@ -276,17 +317,20 @@ body.picture-mode {
         }
     }
     .map-page .history-content ul .item-post {
-        display: none;
+        @include opacity( 0 );
+        height: 0;        
     }
 }
 .map-mode {
     #pictureViewer {
-        display: none;
+        top: 0; 
+        left: 100%;
     }
 }
 .picture-mode {
     #map {
-        display: none;
+        top: 0; 
+        left: -100%;
     }
 }
 
@@ -311,10 +355,16 @@ body.picture-mode {
     }
 }
 
-#map, #pictureViewer {
+#map, 
+#pictureViewer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
