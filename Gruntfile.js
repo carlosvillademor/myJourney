@@ -10,7 +10,8 @@ module.exports = function(grunt) {
       dev: {
         options: {
           script: 'js/server.js',
-          port: config.port
+          port: config.port,
+          delay: 5000
         }
       }
     },

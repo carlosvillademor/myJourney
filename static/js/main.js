@@ -241,7 +241,8 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
     var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
-    
+
+    var mode = 'map';
 
     function createMap() {
         var items = [];
@@ -251,7 +252,7 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                 .setView([38, -102.0], 9);
 
         $.each(data.features, function (index, item) {
-            item.properties.title = item.properties.title || "***";
+            item.properties.title = item.properties.title || '***';
             items.push(itemMap({
                 index: index,
                 title: item.properties.title,
@@ -295,6 +296,12 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
                 map.panTo(markers[i].getLatLng());
                 markers[i].openPopup();
             });
+
+            $('.showpictures').on('click', function () {
+
+            });
+
+
 
         }
 
