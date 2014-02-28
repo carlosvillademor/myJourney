@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+    var id = window.location.pathname.split( '/' )[2];
+
     var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
@@ -60,6 +62,7 @@
 
         map.fitBounds(featureLayer.getBounds());
         
+        $('.history-content h2').html(data.tripname);
         $('.history-content ul').html(items.join(''));
         $('#pictureViewer ul').html(images.join(''));
     }
@@ -67,10 +70,9 @@
     module.exports = function () {
 
         if ($('#map').length > 0) {
-            
 
-            $.get( 'api/images', function(json) {
-                data = json;
+            $.get( '/journey/' + id, function(json) {
+                data = json[0];
                 createMap();
             });
 

@@ -27,8 +27,8 @@ routes.create = function (req, res) {
 routes.map = function (req, res) {
     res.render('map',
         {
-            journeyTitle: req.query.tripname,
-            title: 'myJourney : ' + req.query.tripname,
+            journeyTitle: '',
+            title: 'myJourney : ',
             pageId: 'Map'
         }
     );
@@ -112,7 +112,7 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
             // TODO Remove this is just during migration from api/images -> api/createJourney once migrated we only require the redirect route
             if(startTime) {
 
-                res.redirect("map?id=" + mapData._id);
+                res.redirect("map/" + mapData._id);
             }
             else {
                 res.send(mapData);
