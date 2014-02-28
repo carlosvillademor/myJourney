@@ -72,7 +72,7 @@
         if ($('#map').length > 0) {
 
             $.get( '/journey/' + id, function(json) {
-                data = json[0];
+                data = json;
                 createMap();
             });
 
