@@ -1,9 +1,9 @@
 var _ = require('lodash'),
     FB = require('fb'),
     MongoClient = require('mongodb').MongoClient,
+    ObjectID = require('mongodb').ObjectID,
     routes = {},
-    config,
-    mongoDBUrl;
+    config;
 
 routes.home = function (req, res) {
     res.render('home',
@@ -27,8 +27,8 @@ routes.create = function (req, res) {
 routes.map = function (req, res) {
     res.render('map',
         {
-            journeyTitle: req.query.tripname,
-            title: 'myJourney : ' + req.query.tripname,
+            journeyTitle: '',
+            title: 'myJourney : ',
             pageId: 'Map'
         }
     );
@@ -67,7 +67,6 @@ routes.storeAccessToken = function (req, res) {
 function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
 
     //until(' + toTimestamp + ').since(' + fromTimestamp + ')
-    console.log('photos.since(' + startTime + ').until(' + endTime + ').limit(1000)');
     FB.api(uid + '', { fields: ['id', 'name', 'photos.since(' + startTime + ').until(' + endTime + ').limit(1000)']}, function (fbRes) {
         if (!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : fbRes.error);
@@ -102,10 +101,24 @@ function fetchUserPhotos(uid, res, startTime, endTime, tripname) {
                     };
                 }
             }));
+
+
+            mapData.features = _.sortBy(mapData.features, function(data) {
+                return data.properties.created_time;
+            });
         }
 
         storeMapData(mapData, function() {
-            res.send(mapData);
+            // TODO Remove this is just during migration from api/images -> api/createJourney once migrated we only require the redirect route
+            if(startTime) {
+
+                res.redirect("map/" + mapData._id);
+            }
+            else {
+                res.send(mapData);
+            }
+
+
         });
     });
 }
@@ -127,7 +140,7 @@ function storeMapData(mapData, callback) {
     });
 }
 
-routes.images = function (req, res) {
+routes.createJourney = function (req, res) {
     var accessToken = req.session.fbAccessToken;
 
     var startTimeStr = req.query.starttime;
@@ -164,7 +177,6 @@ routes.images = function (req, res) {
     //FB.setAccessToken('CAACEdEose0cBAA2g1RwGq004OFraoxZCXwy7XEskZAgKkQZBVmFkJml7R6hnZB0rKcutW6vplDfPbdRzM3fS8PZC4oEdujc8V6io6xYOECCZC1yLYWcdQd2OBXtgZBVVbJxkaZAhKZCGwD2GR5uPwxvZAlC7CnUmBctZAZBS46KSq6ewNKFpD6hj6fjmj07EkLjGAaL9uC7aQYPFdAZDZD');
     FB.setAccessToken(accessToken);
 
-
     FB.api('fql', { q: 'select uid from user where uid = me()' }, function (fbRes) {
         if (!fbRes || fbRes.error) {
             console.log(!fbRes ? 'error occurred' : res.error);
@@ -177,34 +189,21 @@ routes.images = function (req, res) {
     });
 };
 
-function connectToMongo () {
-    MongoClient.connect(mongoDBUrl, function (err, db) {
-        if (err) throw err;
-
-        var collection = db.collection('test_insert');
-//    collection.insert({a: 2}, function (err, docs) {
-
-        collection.count(function (err, count) {
-            console.log(format('count = %s', count));
-        });
-
-        collection.find().toArray(function (err, results) {
-            console.dir(results);
+routes.journey = function (req, res) {
+    res.set("Content-Type", "application/json");
+    MongoClient.connect(config.mongoDBUrl, function (err, db) {
+        if (err) return res.send(500, err.toString());
+        var journeys = db.collection('journeys');
+        var journeyId = req.params.id;
+        journeys.find({'_id': new ObjectID(journeyId)}).toArray(function (err, results) {
+            if (err) res.send(404, err);
             db.close();
+            res.send(results);
         });
-//    });
     });
-}
-
-(function () {
-    function getJourney(id) {
-    }
-
-    routes.journey = function (req, res) {
-    };
-})();
+};
 
 exports.createRoutes = function (configuration) {
     config = configuration;
-   return routes;
+    return routes;
 };

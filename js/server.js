@@ -24,8 +24,9 @@ app.get('/', routes.home);
 app.get('/create', routes.create);
 app.get('/map/:id', routes.map);
 app.get('/map', routes.map);
-app.get('/api/images', routes.images);
+app.get('/api/images', routes.createJourney); // This should be the db lookup
+app.get('/api/createJourney', routes.createJourney);
 app.get('/storeAccessToken', routes.storeAccessToken);
-app.get('journey', routes.journey);
+app.get('/journey/:id', routes.journey);
 
 app.listen(config.port);

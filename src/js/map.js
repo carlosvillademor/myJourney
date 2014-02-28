@@ -1,28 +1,34 @@
 (function () {
     'use strict';
 
+    var id = window.location.pathname.split( '/' )[2];
+
     var map, featureLayer, data, coords, markers;
 
     var itemMap = require('../templates/itemMap.jade');
+    var itemImage = require('../templates/itemImage.jade');
 
     var MAP_MODE = 'map-mode';
     var PICTURE_MODE = 'picture-mode';
 
     var mode = MAP_MODE;
 
-    $('body').addClass(mode);
+    var $body = $('body');
+
+    $body.addClass(mode);
 
 
     function switchMode(newMode) {
         if (newMode != mode) {
-            $('body').removeClass(mode);
+            $body.removeClass(mode);
             mode = newMode;
-            $('body').addClass(newMode);    
+            $body.addClass(newMode);    
         }    
     }
 
     function createMap() {
         var items = [];
+        var images = [];
         markers = [];
 
         map = L.mapbox.map('map', 'fetz.hcpe8ip9')
@@ -36,6 +42,7 @@
                 image: item.properties.image.source,
                 timestamp: item.properties.created_time
             }));
+            images.push(itemImage({image: item.properties.image.source}));
         });
 
         featureLayer = L.mapbox.featureLayer()
@@ -55,16 +62,17 @@
 
         map.fitBounds(featureLayer.getBounds());
         
+        $('.history-content h2').html(data.tripname);
         $('.history-content ul').html(items.join(''));
+        $('#pictureViewer ul').html(images.join(''));
     }
 
     module.exports = function () {
 
         if ($('#map').length > 0) {
-            
 
-            $.get( 'api/images', function(json) {
-                data = json;
+            $.get( '/journey/' + id, function(json) {
+                data = json[0];
                 createMap();
             });
 
@@ -72,6 +80,7 @@
                 var i = Number($(this).data('index'));
                 map.panTo(markers[i].getLatLng());
                 markers[i].openPopup();
+                $('#pictureViewer ul').animate({top: -100 * i + '%'});
             });
 
             $('.showpictures').on('click', function () {

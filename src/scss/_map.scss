@@ -284,6 +284,17 @@ body.picture-mode {
     }
 }
 
+#pictureViewer {
+    overflow: hidden;
+    ul, li, img {
+        width: 100%;
+        height: 100%;
+    }
+    ul {
+        position: relative;
+    }
+}
+
 #map, #pictureViewer {
     position: absolute;
     top: 0;
