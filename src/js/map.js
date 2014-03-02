@@ -86,12 +86,12 @@
             var i = markers.indexOf(e.layer.dragging._marker);
             var elem = $('.history-content ul li').removeClass('selected').eq(i);
             elem.addClass('selected');
-            
+
             $('.history-content').animate({
                 scrollTop: $('.history-content').scrollTop() + elem.position().top - 73,
                 queue: false
             }, 400);
-            
+
             map.panTo(e.layer.getLatLng());
         });
 
@@ -106,7 +106,7 @@
 
         if ($('#map').length > 0) {
 
-            $.get( '/journey/' + id, function(json) {
+            $.get( '/api/journey/' + id, function(json) {
                 data = json;
                 createMap();
             });
@@ -135,7 +135,7 @@
                         next.trigger( 'click' );
                     }
                 }
-                
+
             });
 
             $('.history-content ul').on('click', 'li', function (e) {

@@ -3,7 +3,9 @@ var Environments = {
     app: {
         port: process.env.PORT || 5000,
         appVersion: '0.1.0',
-        staticPath: __dirname + '/../static'
+        staticPath: __dirname + '/../static',
+        appFacebookId: 648327631897525,
+        facebookScope: ['user_photos', 'read_stream']
     }
 };
 
